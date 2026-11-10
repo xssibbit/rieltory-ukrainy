@@ -3278,7 +3278,7 @@ body{background:var(--st20-paper)}
 <section class="st20-chapter" id="ukraine-transition" aria-label="Кінематографічний перехід до розділу про фонд">
   <div class="st20-pin">
     <div class="st20-backdrop" aria-hidden="true"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8442_1400x1600.jpeg" alt=""></div>
-    <div class="st20-toprow"><span data-ua="БО «БФ «РІЄЛТОРИ УКРАЇНИ»" data-en="REALTORS OF UKRAINE CHARITABLE FOUNDATION">БО «БФ «РІЄЛТОРИ УКРАЇНИ»</span><span>UKRAINE / 2022—2026</span></div>
+    <div class="st20-toprow"><span data-ua="БО «БФ «РІЄЛТОРИ УКРАЇНИ»" data-en="REALTORS OF UKRAINE CHARITABLE FOUNDATION">БО «БФ «РІЄЛТОРИ УКРАЇНИ»</span><span>UKRAINE</span></div>
     <div class="st20-stage" aria-hidden="true">
       <svg class="st20-map" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet">
         <defs>
@@ -3989,14 +3989,14 @@ body{background:var(--st20-paper)}
  const r=(v,a,b)=>clamp((v-a)/(b-a));
  function paint(){queued=false;if(reduced.matches)return;const bounds=section.getBoundingClientRect();if(bounds.top>innerHeight||bounds.bottom<0)return;
    const travel=Math.max(1,bounds.height-innerHeight),p=clamp(-bounds.top/travel);
-   const zoom=ease(r(p,.08,.78)), reveal=ease(r(p,.60,.87));
+   const zoom=ease(r(p,.08,.72)), reveal=ease(r(p,.72,.89));
    stage.style.transform=`translate3d(0,${-zoom*31}px,0) rotateX(${(1-zoom)*6}deg) scale(${1+zoom*4.5})`;
-   stage.style.opacity=String(1-ease(r(p,.78,.91)));
+   stage.style.opacity=String(1-ease(r(p,.58,.78)));
    message.style.opacity=String(1-ease(r(p,.18,.43)));
    message.style.transform=`translate3d(0,${-p*34}px,0)`;
    bg.style.transform=`scale(${1.08+p*.06}) translateY(${-p*12}px)`;   photo.style.opacity=String(reveal);
-   copy.style.opacity=String(ease(r(p,.78,.96)));
-   copy.style.transform=`translateY(calc(-50% + ${(1-ease(r(p,.76,.96)))*35}px))`;
+   copy.style.opacity=String(ease(r(p,.82,.98)));
+   copy.style.transform=`translateY(calc(-50% + ${(1-ease(r(p,.82,.98)))*35}px))`;
    bar.style.transform=`scaleX(${p})`;
  }
  function schedule(){if(!queued){queued=true;requestAnimationFrame(paint)}}
