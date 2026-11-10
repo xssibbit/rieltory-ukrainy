@@ -19,10 +19,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Download original foundation media
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          from urllib.parse import urlparse
+          import re
+          html_file = Path("index.html")
+          html = html_file.read_text(encoding="utf-8")
+          urls = sorted(set(re.findall(r'https://bf-asnu\\.org\\.ua/(?:assets/cache_image/files/images|files/img)/[^"\\s<>]+', html)))
+          for url in urls:
+              filename = urlparse(url).path.rsplit("/", 1)[-1]
+              destination = Path("assets") / filename
+              destination.parent.mkdir(parents=True, exist_ok=True)
+              req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+              with urlopen(req, timeout=45) as response:
+                  destination.write_bytes(response.read())
+              html = html.replace(url, "assets/" + filename)
+              print("Saved:", filename, destination.stat().st_size, "bytes")
+          html_file.write_text(html, encoding="utf-8")
+          print("Downloaded", len(urls), "original media assets")
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
