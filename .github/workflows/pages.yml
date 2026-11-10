@@ -28,7 +28,7 @@ jobs:
           import re
           html_file = Path("index.html")
           html = html_file.read_text(encoding="utf-8")
-          urls = sorted(set(re.findall(r'https://bf-asnu\\.org\\.ua/(?:assets/cache_image/files/images|files/img)/[^"\\s<>]+', html)))
+          urls = sorted(set(re.findall(r'https://bf-asnu\.org\.ua/(?:assets/cache_image/files/images|files/img)/[^"\s<>]+', html)))
           for url in urls:
               filename = urlparse(url).path.rsplit("/", 1)[-1]
               destination = Path("assets") / filename
