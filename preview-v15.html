@@ -1,0 +1,3804 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title data-en="Realtors of Ukraine — Charitable Foundation">Благодійний фонд «Рієлтори України» — Допомога рієлторам і їхнім родинам</title>
+<meta content="Благодійний фонд «Рієлтори України»: допомога рієлторам України та їхнім родинам, які постраждали від війни." name="description"/>
+<meta content="#ffffff" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="uk_UA" property="og:locale"/>
+<meta content="Благодійний фонд «Рієлтори України»" property="og:title"/>
+<meta content="https://bf-asnu.org.ua/files/img/about_us.jpg" property="og:image"/>
+<link href="https://bf-asnu.org.ua/files/img/logo.svg" rel="icon"/>
+<style>
+    :root {
+        --paper: #ffffff;
+        --ink: #101317;
+        --blue: #244ccb;
+        --yellow: #f0c640;
+        --line: rgba(16, 19, 23, .25);
+        --muted: #686a70;
+        --max: 1660px;
+        --header: 70px
+    }
+
+    * {
+        box-sizing:border-box
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top:var(--header)
+    }
+
+    body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        -webkit-font-smoothing:antialiased
+    }
+
+    body.no-scroll {
+        overflow:hidden
+    }
+
+    a {
+        color: inherit;
+        text-decoration:none
+    }
+
+    button {
+        font: inherit;
+        cursor:pointer
+    }
+
+    button:focus-visible, a:focus-visible {
+        outline: 3px solid var(--yellow);
+        outline-offset:3px
+    }
+
+    img {
+        max-width: 100%;
+        display:block
+    }
+
+    h1, h2, h3, p {
+        margin:0
+    }
+
+    section {
+        scroll-margin-top:var(--header)
+    }
+
+    .shell {
+        width: 100%;
+        max-width: var(--max);
+        margin:auto
+    }
+
+    .label {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing:.11em
+    }
+
+    .eyebrow {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing:.14em
+    }
+
+    .linehead {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid currentColor;
+        padding: 15px 0 10px;
+        gap:20px
+    }
+
+    .linehead .section-no {
+        font-size: 11px;
+        letter-spacing: .1em;
+        font-weight:700
+    }
+
+    .section-title {
+        font-size: clamp(44px, 7.7vw, 124px);
+        letter-spacing: -.09em;
+        line-height: .93;
+        font-weight: 900;
+        text-transform: uppercase;
+        max-width:1200px
+    }
+
+    .section-pad {
+        padding:90px clamp(20px, 4.1vw, 74px) 110px
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:opacity .65s ease, transform .65s ease
+    }
+
+    .reveal.on {
+        opacity: 1;
+        transform: none
+    }/* Header + transparent overlay navigation */
+
+    .site-header {
+        height: var(--header);
+        position: sticky;
+        top: 0;
+        z-index: 90;
+        background: var(--paper);
+        border-bottom: 2px solid var(--ink);
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding:0 clamp(16px, 3.1vw, 56px)
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width:0
+    }
+
+    .brand-mark {
+        width: 26px;
+        height: 26px;
+        border: 6px solid var(--blue);
+        border-top-color: transparent;
+        border-right-color: var(--yellow);
+        transform: rotate(-40deg);
+        border-radius: 50%;
+        flex-shrink:0
+    }
+
+    .brand-text {
+        font-size: 12px;
+        line-height: 1.1;
+        letter-spacing: -.035em;
+        font-weight: 900;
+        text-transform:uppercase
+    }
+
+    .menu-trigger {
+        border: 0;
+        background: transparent;
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+        display: flex;
+        gap: 14px;
+        align-items:center
+    }
+
+    .menu-trigger .burger {
+        display: flex;
+        flex-direction: column;
+        gap:4px
+    }
+
+    .menu-trigger i {
+        width: 23px;
+        height: 2px;
+        display: block;
+        background:currentColor
+    }
+
+    .header-donate {
+        justify-self: end;
+        display: inline-flex;
+        align-items: center;
+        gap: 32px;
+        padding: 17px 20px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: .05em;
+        font-size: 11px;
+        text-transform:uppercase
+    }
+
+    .header-donate:hover {
+        background:var(--blue)
+    }
+
+    .menu-overlay {
+        position: fixed;
+        top: var(--header);
+        inset-inline: 0;
+        bottom: 0;
+        z-index: 80;
+        background: var(--blue);
+        color: white;
+        transform: translateY(-110%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform .5s cubic-bezier(.2, .65, .1, 1), opacity .35s, visibility .35s;
+        overflow:auto
+    }
+
+    .menu-overlay.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility:visible
+    }
+
+    .menu-overlay-inner {
+        max-width: var(--max);
+        margin: auto;
+        padding:45px clamp(20px, 5vw, 75px) 70px
+    }
+
+    .menu-overlay a.menu-link {
+        font-size: clamp(48px, 8.8vw, 148px);
+        font-weight: 900;
+        letter-spacing: -.075em;
+        text-transform: uppercase;
+        line-height: 1.1;
+        display: flex;
+        justify-content: space-between;
+        border-bottom:1px solid rgba(255, 255, 255, .35)
+    }
+
+    .menu-overlay a.menu-link:hover {
+        color:var(--yellow)
+    }
+
+    .menu-foot {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 35px;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size:12px
+    }
+
+    .menu-overlay a.menu-link span:last-child {
+        font-size: 14px;
+        letter-spacing: 0;
+        align-self: center
+    }/* Hero */
+
+    .hero {
+        overflow:hidden
+    }
+
+    .hero-top {
+        padding:27px clamp(20px, 4vw, 70px) 22px
+    }
+
+    .hero-topmeta {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom:10px
+    }
+
+    .hero-name {
+        font-size: clamp(62px, 13.2vw, 225px);
+        font-weight: 900;
+        letter-spacing: -.105em;
+        line-height: .77;
+        white-space: nowrap;
+        text-transform:uppercase
+    }
+
+    .hero-name span {
+        display:block
+    }
+
+    .hero-name span:nth-child(2) {
+        margin-left: 11.5%;
+        position:relative
+    }
+
+    .hero-name span:nth-child(2)::before {
+        content: "";
+        position: absolute;
+        top: .46em;
+        left: -13%;
+        width: 11%;
+        height: .095em;
+        background:var(--blue)
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(360px, .9fr);
+        border-top: 2px solid var(--ink);
+        min-height:635px
+    }
+
+    .hero-photo {
+        position: relative;
+        min-height: 600px;
+        background: #7b8192;
+        overflow:hidden
+    }
+
+    .hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 42%;
+        position: absolute;
+        inset: 0;
+        filter: none;
+        transition:none
+    }
+
+    .hero-photo:hover img {
+        transform:none
+    }
+
+    .hero-photo:after {
+        content:none
+    }
+
+    .hero-image-tag {
+        position: absolute;
+        z-index: 1;
+        bottom: 18px;
+        left: clamp(14px, 2vw, 30px);
+        right: clamp(14px, 2vw, 30px);
+        padding: 12px 16px;
+        background: rgba(255, 255, 255, .96);
+        color: var(--ink);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        display: flex;
+        justify-content: space-between;
+        gap:10px
+    }
+
+    .hero-text {
+        border-left: 2px solid var(--ink);
+        display: flex;
+        flex-direction: column;
+        min-width:0
+    }
+
+    .hero-text-top {
+        padding: clamp(24px, 3vw, 53px);
+        display: flex;
+        justify-content:space-between
+    }
+
+    .hero-counter {
+        font-size:11px
+    }
+
+    .hero-statement {
+        padding: clamp(18px, 3vw, 53px);
+        margin-top:auto
+    }
+
+    .hero-statement h1 {
+        font-size: clamp(38px, 4.3vw, 76px);
+        line-height: .98;
+        letter-spacing: -.075em;
+        text-transform: uppercase;
+        font-weight: 900;
+        max-width:840px
+    }
+
+    .hero-statement p {
+        font-size: clamp(16px, 1.25vw, 19px);
+        line-height: 1.48;
+        margin-top: 20px;
+        max-width:550px
+    }
+
+    .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top:2px solid var(--ink)
+    }
+
+    .hero-actions a {
+        padding: 29px 22px;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 900;
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items:center
+    }
+
+    .hero-actions a + a {
+        border-left:2px solid var(--ink)
+    }
+
+    .hero-actions a:first-child {
+        background: var(--blue);
+        color:white
+    }
+
+    .hero-actions a:hover {
+        background: var(--yellow);
+        color: var(--ink)
+    }
+
+    .ticker {
+        border-top: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 13px clamp(20px, 4vw, 70px);
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: .1em;
+        font-weight:800
+    }
+
+    .ticker span:nth-child(2) {
+        color: var(--blue)
+    }/* Manifesto, impact */
+
+    .mission {
+        display: grid;
+        grid-template-columns: .4fr .6fr;
+        gap: 40px;
+        padding-bottom:115px
+    }
+
+    .mission .mission-text {
+        font-weight: 800;
+        font-size: clamp(24px, 3.2vw, 52px);
+        letter-spacing: -.045em;
+        line-height: 1.12;
+        margin-top:100px
+    }
+
+    .mission-side {
+        font-size: 15px;
+        line-height: 1.6;
+        max-width: 480px;
+        margin-top: 22px;
+        font-weight: 400;
+        letter-spacing:0
+    }
+
+    .impact {
+        background: var(--blue);
+        color:white
+    }
+
+    .impact-title {
+        max-width:1000px
+    }
+
+    .impact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 65px;
+        border-top:1px solid rgba(255, 255, 255, .5)
+    }
+
+    .impact-item {
+        padding: 30px 25px 25px 0;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-right:1px solid rgba(255, 255, 255, .4)
+    }
+
+    .impact-item + .impact-item {
+        padding-left:35px
+    }
+
+    .impact-item:last-child {
+        border-right:0
+    }
+
+    .impact-big {
+        font-size: clamp(60px, 8.7vw, 146px);
+        font-weight: 900;
+        letter-spacing: -.09em;
+        line-height:.9
+    }
+
+    .impact-word {
+        font-size: clamp(32px, 4vw, 64px);
+        letter-spacing: -.07em;
+        line-height: 1;
+        text-transform: uppercase;
+        font-weight:900
+    }
+
+    .impact-item p {
+        margin-top: auto;
+        font-size: 13px;
+        line-height: 1.5;
+        max-width:270px
+    }
+
+    .impact-note {
+        margin-top: 22px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, .7)
+    }/* Journal news */
+
+    .editorial-head {
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        align-items: end;
+        gap: 40px;
+        margin-bottom:55px
+    }
+
+    .editorial-head p {
+        font-size: 16px;
+        line-height: 1.5;
+        max-width: 440px;
+        justify-self:end
+    }
+
+    .story-row {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        border-top: 2px solid var(--ink);
+        display: grid;
+        grid-template-columns: 70px minmax(0, 1fr) 130px 40px;
+        align-items: center;
+        text-align: left;
+        gap: 20px;
+        padding: 18px 0;
+        min-height: 145px;
+        color: var(--ink);
+        transition:background .25s, padding .25s
+    }
+
+    .story-row:last-child {
+        border-bottom:2px solid var(--ink)
+    }
+
+    .story-row:hover {
+        background: #f2f5ff;
+        padding-left: 12px;
+        padding-right:12px
+    }
+
+    .story-idx {
+        align-self: start;
+        font-weight: 900;
+        font-size: 13px;
+        padding-top:7px
+    }
+
+    .story-main {
+        display: flex;
+        flex-direction: column;
+        gap:9px
+    }
+
+    .story-date {
+        font-size: 10px;
+        letter-spacing: .11em;
+        font-weight: 900;
+        color:var(--blue)
+    }
+
+    .story-title {
+        font-size: clamp(22px, 3.2vw, 47px);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -.065em;
+        line-height:1.03
+    }
+
+    .story-thumb {
+        height: 111px;
+        width: 130px;
+        object-fit: cover;
+        background: #d4d4cf;
+        filter:none
+    }
+
+    .story-arrow {
+        font-size: 28px;
+        font-weight: 500;
+        align-self: center;
+        text-align:right
+    }
+
+    .archive-note {
+        margin-top: 20px;
+        font-size: 13px;
+        color: var(--muted)
+    }/* Assistance */
+
+    .help {
+        background: var(--ink);
+        color:var(--paper)
+    }
+
+    .help h2 {
+        max-width:1050px
+    }
+
+    .help-grid {
+        display: grid;
+        grid-template-columns: .9fr 1.1fr;
+        gap: 60px;
+        margin-top:64px
+    }
+
+    .help-image {
+        min-height: 530px;
+        position: relative;
+        overflow: hidden;
+        background:#3b414b
+    }
+
+    .help-image img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        object-fit:cover
+    }
+
+    .help-card {
+        border-top: 1px solid rgba(255, 255, 255, .4);
+        padding:28px 0
+    }
+
+    .help-card h3 {
+        font-size: clamp(26px, 3.4vw, 54px);
+        text-transform: uppercase;
+        letter-spacing: -.06em;
+        line-height: 1.05;
+        margin-bottom:18px
+    }
+
+    .help-card p {
+        font-size: 15px;
+        line-height: 1.65;
+        color: #d2d1ca;
+        max-width:520px
+    }
+
+    .help-links {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap:0
+    }
+
+    .help-links a {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 0;
+        border-top: 1px solid rgba(255, 255, 255, .4);
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing:.06em
+    }
+
+    .help-links a:hover {
+        color:var(--yellow)
+    }
+
+    .help-disclaimer {
+        font-size: 12px;
+        color: #bbb9b2;
+        margin-top: 22px;
+        line-height: 1.4
+    }/* People */
+
+    .people-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+        margin-top:53px
+    }
+
+    .person-photo {
+        aspect-ratio: 1/1.13;
+        overflow: hidden;
+        background:#d4d4cf
+    }
+
+    .person img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: none;
+        transition:none
+    }
+
+    .person:hover img {
+        filter: none;
+        transform:none
+    }
+
+    .person-name {
+        font-size: clamp(16px, 1.6vw, 24px);
+        font-weight: 900;
+        letter-spacing: -.055em;
+        margin-top: 12px;
+        line-height:1.1
+    }
+
+    .person-role {
+        font-size: 12px;
+        line-height: 1.4;
+        margin-top: 7px;
+        color: var(--muted)
+    }/* Donation */
+
+    .support {
+        background:var(--yellow)
+    }
+
+    .support-lead {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: end;
+        gap:40px
+    }
+
+    .support-lead p {
+        font-size: 18px;
+        line-height: 1.5;
+        max-width:560px
+    }
+
+    .support-layout {
+        display: grid;
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 35px;
+        margin-top: 60px;
+        border-top:2px solid var(--ink)
+    }
+
+    .bank-tabs {
+        display: flex;
+        flex-direction:column
+    }
+
+    .bank-tabs button {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid var(--ink);
+        font-size: clamp(31px, 4.2vw, 60px);
+        font-weight: 900;
+        letter-spacing: -.07em;
+        text-align: left;
+        padding: 20px 10px;
+        display: flex;
+        justify-content:space-between
+    }
+
+    .bank-tabs button[aria-selected=true] {
+        color:var(--blue)
+    }
+
+    .bank-tabs button[aria-selected=true]:after {
+        content: '↗';
+        font-size: 24px;
+        align-self: center;
+        letter-spacing:0
+    }
+
+    .bank-panel {
+        padding: 28px 0 45px;
+        min-width:0
+    }
+
+    .bank-panel[hidden] {
+        display:none
+    }
+
+    .bank-copy {
+        display: grid;
+        grid-template-columns: 165px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 14px;
+        min-height: 64px;
+        padding: 18px 0;
+        border-bottom:1px solid rgba(16, 19, 23, .3)
+    }
+
+    .bank-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .07em;
+        font-weight:800
+    }
+
+    .bank-copy strong {
+        font-size: clamp(14px, 1.5vw, 23px);
+        font-weight: 900;
+        overflow-wrap: anywhere;
+        letter-spacing:-.03em
+    }
+
+    .bank-copy button {
+        background: var(--ink);
+        color: white;
+        border: 0;
+        padding: 11px 13px;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight:900
+    }
+
+    .bank-copy button:hover {
+        background:var(--blue)
+    }
+
+    .correspondents {
+        padding-top:24px
+    }
+
+    .correspondents p {
+        margin-top: 10px;
+        font-size:13px
+    }
+
+    .support-alert {
+        margin-top: 15px;
+        font-size: 12px;
+        line-height: 1.5;
+        max-width: 920px
+    }/* Footer */
+
+    .footer {
+        background: var(--blue);
+        color:#fff
+    }
+
+    .footer-main {
+        display: grid;
+        grid-template-columns: 1.25fr .75fr;
+        gap:50px
+    }
+
+    .footer-large {
+        font-size: clamp(50px, 8vw, 140px);
+        line-height: .88;
+        letter-spacing: -.085em;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin:22px 0 40px
+    }
+
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        justify-content:center
+    }
+
+    .footer-contact a {
+        font-size: clamp(17px, 2vw, 30px);
+        font-weight: 900;
+        letter-spacing: -.04em;
+        overflow-wrap:anywhere
+    }
+
+    .footer-contact a:hover {
+        color:var(--yellow)
+    }
+
+    .footer-contact p {
+        font-size: 12px;
+        line-height: 1.55;
+        max-width:440px
+    }
+
+    .footer-bottom {
+        margin-top: 80px;
+        padding: 18px 0;
+        border-top: 1px solid rgba(255, 255, 255, .5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        flex-wrap: wrap;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .05em
+    }
+
+    .story-dialog {
+        padding: 0;
+        border: 0;
+        background: var(--paper);
+        color: var(--ink);
+        max-width: min(950px, 94vw);
+        max-height: 90dvh;
+        width: 100%;
+        box-shadow:0 30px 120px rgba(0, 0, 0, .5)
+    }
+
+    .story-dialog::backdrop {
+        background:rgba(9, 12, 18, .83)
+    }
+
+    .dialog-header {
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        background: var(--blue);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 23px;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing:.06em
+    }
+
+    .dialog-header button {
+        background: none;
+        color: inherit;
+        border: 0;
+        font-size:22px
+    }
+
+    .dialog-body {
+        padding:clamp(20px, 4vw, 60px)
+    }
+
+    .dialog-body h2 {
+        font-size: clamp(35px, 5.5vw, 74px);
+        text-transform: uppercase;
+        letter-spacing: -.075em;
+        line-height: 1.02;
+        margin-bottom:28px
+    }
+
+    .dialog-body > img {
+        width: 100%;
+        max-height: 430px;
+        object-fit: cover;
+        background:#dadada
+    }
+
+    .article-body {
+        margin-top: 35px;
+        font-size: 16px;
+        line-height: 1.68;
+        max-width:800px
+    }
+
+    .article-body p {
+        margin-bottom:15px
+    }
+
+    .article-body a {
+        color: var(--blue);
+        text-decoration:underline
+    }
+
+    .text-link {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid;
+        padding: 20px 0;        margin-top: 50px;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 900
+    }
+
+    .toast {
+        position: fixed;
+        z-index: 150;
+        bottom: 25px;
+        right: 25px;
+        background: var(--ink);
+        color: #fff;
+        padding: 15px 19px;
+        font-size: 13px;
+        font-weight: 700;
+        transform: translateY(100px);
+        opacity: 0;
+        transition:.3s
+    }
+
+    .toast.show {
+        transform: none;
+        opacity: 1
+    }
+
+    @media (max-width: 1100px) {
+        .hero-grid {
+            grid-template-columns:1fr 1fr
+        }
+
+        .hero-photo {
+            min-height:535px
+        }
+
+        .people-grid {
+            grid-template-columns:repeat(3, minmax(0, 1fr))
+        }
+
+        .impact-item + .impact-item {
+            padding-left:20px
+        }
+    }
+
+    @media (max-width: 800px) {
+        :root {
+            --header:64px
+        }
+
+        .site-header {
+            padding:0 16px
+        }
+
+        .header-donate {
+            padding: 12px 14px;
+            gap:8px
+        }
+
+        .brand-text {
+            font-size:10px
+        }
+
+        .menu-trigger {
+            font-size:11px
+        }
+
+        .hero-top {
+            padding:25px 19px
+        }
+
+        .hero-name {
+            font-size:clamp(54px, 13vw, 105px)
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction:column
+        }
+
+        .hero-photo {
+            height: 470px;
+            min-height:0
+        }
+
+        .hero-text {
+            border-left:0
+        }
+
+        .hero-text-top {
+            padding:22px
+        }
+
+        .hero-statement {
+            padding:35px 22px 40px
+        }
+
+        .hero-statement h1 {
+            font-size:clamp(38px, 7vw, 60px)
+        }
+
+        .ticker span:last-child {
+            display:none
+        }
+
+        .mission {
+            grid-template-columns: 1fr;
+            gap:0
+        }
+
+        .mission .mission-text {
+            margin-top:25px
+        }
+
+        .impact-grid {
+            grid-template-columns:1fr
+        }
+
+        .impact-item, .impact-item + .impact-item {
+            border-right: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .4);
+            min-height: 190px;
+            padding:25px 0
+        }
+
+        .impact-item:last-child {
+            border:0
+        }
+
+        .editorial-head {
+            grid-template-columns: 1fr;
+            gap:20px
+        }
+
+        .editorial-head p {
+            justify-self:start
+        }
+
+        .help-grid {
+            grid-template-columns: 1fr;
+            gap:25px
+        }
+
+        .help-image {
+            min-height:420px
+        }
+
+        .support-lead {
+            grid-template-columns: 1fr;
+            gap:25px
+        }
+
+        .support-layout {
+            grid-template-columns: 1fr;
+            gap:0
+        }
+
+        .bank-tabs {
+            flex-direction:row
+        }
+
+        .bank-tabs button {
+            flex: 1;
+            font-size: 35px;
+            border-bottom: 1px solid;
+            padding:15px
+        }
+
+        .bank-tabs button[aria-selected=true]:after {
+            font-size:16px
+        }
+
+        .footer-main {
+            grid-template-columns:1fr
+        }
+
+        .footer-contact {
+            align-items:flex-start
+        }
+
+        .section-pad {
+            padding: 65px 22px 80px
+        }
+    }
+
+    @media (max-width: 520px) {
+        .brand-mark {
+            width: 22px;
+            height: 22px;
+            border-width:5px
+        }
+
+        .brand {
+            gap:6px
+        }
+
+        .brand-text {
+            font-size:9px
+        }
+
+        .menu-trigger {
+            gap:7px
+        }
+
+        .menu-trigger .burger i {
+            width:18px
+        }
+
+        .header-donate {
+            font-size: 10px;
+            padding:12px 10px
+        }
+
+        .header-donate .hide-mobile {
+            display:none
+        }
+
+        .hero-name {
+            font-size:clamp(46px, 12.5vw, 68px)
+        }
+
+        .hero-topmeta {
+            font-size: 10px;
+            letter-spacing:0
+        }
+
+        .hero-photo {
+            height:340px
+        }
+
+        .hero-actions {
+            grid-template-columns:1fr 1fr
+        }
+
+        .hero-actions a {
+            font-size: 10px;
+            padding:22px 10px
+        }
+
+        .hero-text-top {
+            padding:13px 20px
+        }
+
+        .hero-statement p {
+            font-size:16px
+        }
+
+        .ticker {
+            font-size: 9px;
+            padding:12px 20px
+        }
+
+        .section-title {
+            font-size:clamp(42px, 10.8vw, 70px)
+        }
+
+        .story-row {
+            grid-template-columns: 25px minmax(0, 1fr) 24px;
+            gap: 9px;
+            min-height:125px
+        }
+
+        .story-thumb {
+            display:none
+        }
+
+        .story-title {
+            font-size:clamp(23px, 6.4vw, 37px)
+        }
+
+        .story-arrow {
+            font-size:20px
+        }
+
+        .people-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap:18px 12px
+        }
+
+        .person-name {
+            font-size:17px
+        }
+
+        .help-image {
+            min-height:340px
+        }
+
+        .help-card h3 {
+            font-size:30px
+        }
+
+        .bank-copy {
+            grid-template-columns: 1fr auto;
+            gap:8px
+        }
+
+        .bank-copy .bank-label {
+            grid-column:1 / -1
+        }
+
+        .bank-copy strong {
+            font-size:14px
+        }
+
+        .bank-copy button {
+            font-size: 10px;
+            padding:9px 8px
+        }
+
+        .support-lead p {
+            font-size:16px
+        }
+
+        .menu-overlay a.menu-link {
+            font-size: clamp(36px, 9.5vw, 56px)
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior:auto
+        }
+
+        .reveal {
+            opacity: 1;
+            transform: none;
+            transition:none
+        }
+
+        *, *:before, *:after {
+            animation-duration: .01ms !important;
+            transition-duration: .01ms !important
+        }
+    }/* The opening panel says what the organization does without requiring scrolling. */
+    .hero-clarity {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 22px;
+        align-items: center;
+        border-top: 1px solid var(--ink);
+        margin-top: 26px;
+        padding: 14px 0 0
+    }
+
+    .hero-clarity p {
+        max-width: 760px;
+        font-size: clamp(14px, 1.65vw, 23px);
+        font-weight: 800;
+        line-height: 1.12;
+        letter-spacing: -.04em;
+        text-transform: uppercase
+    }
+
+    .hero-signal {
+        color: var(--blue);
+        font-size: 10px;
+        letter-spacing: .1em;
+        font-weight: 900;
+        display: block;
+        margin-bottom: 5px
+    }
+
+    .hero-quick {
+        display: flex;
+        gap: 0;
+        flex-wrap: nowrap;
+        justify-content: flex-end
+    }
+
+    .hero-quick a {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        justify-content: space-between;
+        padding: 16px;
+        border: 1px solid var(--ink);
+        font-size: 11px;
+        font-weight: 900;
+        text-transform: uppercase;
+        white-space: nowrap;
+        transition: background .2s, color .2s
+    }
+
+    .hero-quick a + a {
+        border-left:0
+    }
+
+    .hero-quick a:last-child {
+        background: var(--ink);
+        color:white
+    }
+
+    .hero-quick a:hover {
+        background: var(--blue);
+        color: white
+    }
+
+    .hero-photo:before {
+        content: 'РЕАЛЬНІ ІСТОРІЇ / УКРАЇНА';
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-size: clamp(24px, 3.5vw, 60px);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -.07em;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        background: linear-gradient(160deg, #244ccb, #142251)
+    }
+
+    .hero-photo img {
+        z-index:1
+    }
+
+    .hero-photo:after {
+        z-index:2
+    }
+
+    .hero-image-tag {
+        z-index: 3
+    }
+
+    .help-image {
+        background:#303d6b
+    }
+
+    .help-image img.is-missing, .hero-photo img.is-missing, .story-thumb.is-missing, .person-photo img.is-missing, .dialog-body > img.is-missing {
+        opacity: 0
+    }
+
+    .person-photo {
+        background: #f4f6fb
+    }
+
+    @media (max-width: 1050px) {
+        .hero-clarity {
+            grid-template-columns:1fr
+        }
+
+        .hero-quick {
+            justify-content:stretch
+        }
+
+        .hero-quick a {
+            flex: 1
+        }
+    }
+
+    @media (max-width: 800px) {
+        .hero-clarity {
+            margin-top: 15px;
+            padding-top: 12px;
+            gap:12px
+        }
+
+        .hero-clarity p {
+            font-size: 19px;
+            line-height:1.12
+        }
+
+        .hero-quick a {
+            justify-content: space-between
+        }
+    }
+
+    @media (max-width: 520px) {
+        .hero-clarity p {
+            font-size: 16px;
+            letter-spacing:-.02em
+        }
+
+        .hero-quick a {
+            font-size: 10px;
+            padding: 13px 10px;
+            white-space: normal;
+            gap: 7px;
+            line-height:1.2
+        }
+
+        .hero-quick a span {
+            flex-shrink:0
+        }
+
+        .hero-top {
+            padding-bottom: 15px
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior:auto
+        }
+
+        .reveal {
+            opacity: 1;
+            transform: none;
+            transition:none
+        }
+
+        .menu-overlay, .hero-photo img {
+            transition: none
+        }
+    }/* V6: original unaltered photo colors on every breakpoint and pointer state. */
+    .hero-photo img, .help-image img, .story-thumb, .person-photo img, .dialog-body > img {
+        filter: none !important;
+        opacity: 1;
+        transform: none !important;
+        transition: none !important;
+        mix-blend-mode: normal;
+    }
+
+    .hero-photo:after {
+        display: none !important;
+    }
+
+    .hero-photo:hover img, .help-image:hover img, .story-row:hover .story-thumb, .person:hover img {
+        filter: none !important;
+        transform: none !important;
+        opacity: 1;
+    }/* A caption on its own white plate, without darkening the photograph underneath. */
+
+    .hero-image-tag {
+        font-size: 11px;
+        line-height: 1.3;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, .08)
+    }
+
+    @media (max-width: 520px) {
+        .hero-image-tag {
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            padding: 10px;
+            font-size: 9px
+        }
+    }/* V7 — real photographs restored from original WebArchive. */
+    .official-logo {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
+        flex: 0 0 40px
+    }
+
+    .brand {
+        gap:10px
+    }
+
+    .brand-text {
+        font-size: 12px;
+        line-height: 1.17
+    }
+
+    .hero-top {
+        padding-top: 20px
+    }
+
+    .hero-photo {
+        background: #fff;
+        min-height: 500px
+    }
+
+    .hero-photo img {
+        object-fit: cover;
+        object-position: center center
+    }
+
+    .hero-text {
+        background: #fff
+    }
+
+    .hero-statement h1 {
+        font-size: clamp(32px, 4vw, 64px);
+        letter-spacing: -.063em
+    }
+
+    .hero-clarity {
+        margin-top: 32px
+    }
+
+    .hero-clarity p {
+        font-size: clamp(17px, 1.6vw, 24px)
+    }
+
+    .hero-clarity p:empty {
+        display: none
+    }
+
+    .hero-clarity .hero-quick {
+        margin: 0
+    }
+
+    .hero-statement {
+        padding-top: 55px
+    }
+
+    .linehead {
+        min-height: 48px;
+        padding: 18px 0 10px;
+        border-top: 2px solid currentColor
+    }
+
+    .linehead .label {
+        font-size: 15px;
+        letter-spacing: -.02em;
+        text-transform: none;
+        font-weight: 800
+    }
+
+    .story-row {
+        grid-template-columns: minmax(0, 1fr) 152px 40px;
+        gap: 22px
+    }
+
+    .story-thumb {
+        width: 152px;
+        height: 112px;
+        object-fit: cover;
+        background: #fff
+    }
+
+    .story-date {
+        font-size: 13px;
+        letter-spacing: 0;
+        color: #4e5764;
+        font-weight: 600
+    }
+
+    .story-title {
+        font-size: clamp(22px, 2.75vw, 42px);
+        line-height: 1.06
+    }
+
+    .menu-overlay a.menu-link {
+        justify-content: flex-start
+    }
+
+    .menu-overlay .menu-foot {
+        font-size: 13px
+    }
+
+    .photoreport {
+        padding-top: 80px;
+        padding-bottom: 90px
+    }
+
+    .photo-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 28px;
+        border-top: 2px solid #101317;
+        padding-top: 30px;
+        margin-bottom: 36px
+    }
+
+    .photo-head .section-title {
+        font-size: clamp(42px, 6vw, 90px)
+    }
+
+    .photo-head p {
+        max-width: 400px;
+        font-size: 18px;
+        line-height: 1.45
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        grid-template-rows: repeat(2, minmax(230px, 26vw));
+        gap: 14px
+    }
+
+    .gallery-shot {
+        margin: 0;
+        overflow: hidden;
+        background: #f5f5f5
+    }
+
+    .gallery-shot.gallery-featured {
+        grid-row: 1/span 2
+    }
+
+    .gallery-shot img, .gallery-flag img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        filter: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        mix-blend-mode: normal !important;
+        transition: none !important
+    }
+
+    .gallery-shot.gallery-featured img {
+        object-position: 50% 32%
+    }
+
+    .gallery-flag {
+        margin: 14px 0 0;
+        height: 180px;
+        overflow: hidden;
+        background: #fff
+    }
+
+    .gallery-flag img {
+        object-position: center
+    }/* Photo rendering must remain entirely natural, including hovered states. */
+
+    .hero-photo:after, .help-image:after, .person-photo:after, .gallery-shot:after, .gallery-flag:after {
+        content: none !important;
+        background: none !important;
+        display: none !important
+    }
+
+    .hero-photo img, .hero-photo:hover img, .story-thumb, .story-row:hover img, .person img, .person:hover img, .help-image img, .gallery-shot img, .gallery-shot:hover img, .gallery-flag img, .dialog-body img {
+        filter: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        mix-blend-mode: normal !important
+    }
+
+    @media (max-width: 800px) {
+        .official-logo {
+            width: 34px;
+            height: 34px;
+            flex-basis:34px
+        }
+
+        .brand-text {
+            font-size: 10px
+        }
+
+        .photoreport {
+            padding-top: 52px;
+            padding-bottom: 65px
+        }
+
+        .photo-head {
+            display: block;
+            margin-bottom: 22px
+        }
+
+        .photo-head p {
+            margin-top: 16px;
+            font-size: 16px
+        }
+
+        .gallery-grid {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            gap: 9px
+        }
+
+        .gallery-shot {
+            aspect-ratio: 5/4
+        }
+
+        .gallery-shot.gallery-featured {
+            grid-row: auto;
+            grid-column: span 2;
+            aspect-ratio: 1.55
+        }
+
+        .gallery-flag {
+            height: 120px;
+            margin-top: 9px
+        }
+
+        .story-row {
+            grid-template-columns: minmax(0, 1fr) 100px 18px;
+            gap: 12px
+        }
+
+        .story-thumb {
+            width: 100px;
+            height: 88px
+        }
+    }
+
+    @media (max-width: 520px) {
+        .brand-text {
+            font-size: 9px
+        }
+
+        .hero-photo {
+            min-height: 300px
+        }
+
+        .gallery-grid {
+            gap:7px
+        }
+
+        .gallery-flag {
+            margin-top: 7px
+        }
+
+        .story-row {
+            grid-template-columns: minmax(0, 1fr) 84px;
+            gap: 10px;
+            padding: 16px 0
+        }
+
+        .story-thumb {
+            width: 84px;
+            height: 88px
+        }
+
+        .story-arrow {
+            display: none
+        }
+
+        .story-title {
+            font-size: clamp(18px, 5vw, 28px)
+        }
+
+        .story-date {
+            font-size: 12px
+        }
+
+        .linehead .label {
+            font-size: 14px
+        }
+
+        .hero-statement {
+            padding-top: 20px
+        }
+    }
+    
+/* V13 — clearer homepage, liquid glass UI, better photo hierarchy */
+.site-header{
+  position:sticky;
+  top:10px;
+  width:min(calc(100% - 18px), calc(var(--max) + 36px));
+  margin:10px auto 0;
+  padding:0 clamp(14px,2.6vw,34px);
+  border:1px solid rgba(20,28,38,.1)!important;
+  border-radius:22px;
+  background:rgba(255,255,255,.68)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(165%);
+  backdrop-filter:blur(18px) saturate(165%);
+  box-shadow:0 14px 40px rgba(13,20,31,.08);
+  transition:transform .38s cubic-bezier(.22,1,.36,1), box-shadow .25s ease, background .25s ease;
+}
+.site-header.header-hidden{transform:translateY(calc(-100% - 18px));}
+.site-header .brand-text{font-size:11px;line-height:1.06}
+.menu-trigger{font-size:11px;letter-spacing:.02em}
+.menu-trigger,.header-donate,.language-switch,.hero-about-link,.hero-v12-actions a{
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  backdrop-filter:blur(16px) saturate(160%);
+}
+.header-donate{
+  gap:16px;
+  padding:12px 16px;
+  background:rgba(22,31,44,.84)!important;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  box-shadow:0 10px 24px rgba(12,20,34,.18);
+}
+.header-donate:hover{background:rgba(35,77,200,.9)!important;transform:translateY(-1px)}
+.language-switch{
+  border:1px solid rgba(20,28,38,.08)!important;
+  border-radius:999px;
+  background:rgba(255,255,255,.55)!important;
+  padding:4px;
+}
+.language-switch button{font-size:10px;padding:8px 9px;border-radius:999px}
+.language-switch button[aria-pressed="true"]{background:rgba(22,31,44,.9)!important;color:#fff}
+.menu-overlay{
+  top:20px;
+  bottom:20px;
+  inset-inline:12px;
+  border-radius:24px;
+  background:rgba(14,25,43,.83)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%);
+  backdrop-filter:blur(24px) saturate(150%);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 60px rgba(7,12,24,.3);
+}
+.menu-overlay a.menu-link{font-size:clamp(24px,4.9vw,62px)!important;letter-spacing:-.055em}
+.hero-v12{padding-top:16px}
+.hero-v12-intro{padding:clamp(24px,3.2vw,56px) clamp(20px,4vw,72px) clamp(26px,4.2vw,62px)}
+.hero-v12-topline{font-size:clamp(11px,.92vw,14px);opacity:.82}
+.hero-about-link{
+  gap:16px;
+  padding:11px 15px;
+  border:1px solid rgba(20,28,38,.1);
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 8px 24px rgba(15,23,40,.06);
+}
+.hero-v12-title{
+  font-size:clamp(48px,9vw,132px)!important;
+  letter-spacing:-.082em!important;
+  line-height:.9!important;
+  max-width:9.8ch;
+}
+.hero-v12-bottomline{grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr)!important;gap:clamp(22px,4vw,74px)!important}
+.hero-v12-bottomline p{font-size:clamp(17px,1.45vw,23px)!important;max-width:780px}
+.hero-v12-actions{gap:14px;border:0!important}
+.hero-v12-actions a{
+  border:1px solid rgba(20,28,38,.11);
+  border-radius:999px;
+  padding:18px 16px!important;
+  background:rgba(255,255,255,.58);
+  box-shadow:0 10px 28px rgba(15,23,40,.06);
+}
+.hero-v12-actions a:first-child{border-right:1px solid rgba(20,28,38,.11)!important}
+.hero-v12-actions a:hover{background:rgba(35,77,200,.88)!important;color:#fff;transform:translateY(-2px)}
+.hero-v12-visual{height:clamp(430px,58vw,760px)!important;border-radius:28px;overflow:hidden;box-shadow:0 28px 70px rgba(18,26,38,.12)}
+.hero-v12-visual:after{content:"";position:absolute;inset:auto 0 0 0;height:28%;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(11,18,29,.16));pointer-events:none}
+.hero-v12-visual-bottom{left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,255,255,.58)!important;border:1px solid rgba(255,255,255,.26);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);box-shadow:0 18px 42px rgba(8,12,22,.18)}
+.photoreport{padding-top:clamp(42px,6vw,88px)}
+.gallery-grid-v13{grid-template-columns:1.15fr .85fr!important;grid-template-rows:repeat(2,minmax(250px,24vw))!important;gap:14px!important}
+.gallery-grid-v13 .gallery-shot{border-radius:24px;overflow:hidden;box-shadow:0 18px 40px rgba(18,26,38,.08)}
+.gallery-grid-v13 .gallery-shot.gallery-featured{grid-row:1 / span 2}
+.gallery-grid-v13 .gallery-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.gallery-grid-v13 .gallery-shot:nth-child(2) img{object-position:center 45%}
+.gallery-grid-v13 .gallery-shot:nth-child(3) img{object-position:center 24%}
+.help-grid{gap:42px!important;align-items:stretch}
+.help-image{min-height:560px;border-radius:28px;box-shadow:0 22px 48px rgba(0,0,0,.18)}
+.help-image img{object-position:center 52%}
+.help-card{
+  border-top:1px solid rgba(255,255,255,.18)!important;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:26px;
+  padding:26px 24px!important;
+  background:rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(16px) saturate(125%);
+  backdrop-filter:blur(16px) saturate(125%);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.help-card + .help-card{margin-top:14px}
+.help-links a{border-top-color:rgba(255,255,255,.18)!important}
+.bank-tabs button,.bank-copy button{transition:transform .2s ease, opacity .2s ease}
+.bank-tabs button:hover,.bank-copy button:hover{transform:translateY(-1px)}
+.photo-motion.motion-in,.text-motion.motion-in{animation-duration:.95s}
+@keyframes glassFloatIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero-v12-actions a,.header-donate,.language-switch,.hero-about-link,.help-card{animation:glassFloatIn .7s both}
+@media(max-width:980px){
+  .hero-v12-bottomline{grid-template-columns:1fr!important;gap:22px!important}
+  .hero-v12-title{max-width:11ch}
+  .gallery-grid-v13{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{grid-column:span 2;grid-row:auto;aspect-ratio:1.35}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:4/5}
+}
+@media(max-width:800px){
+  .site-header{width:calc(100% - 12px);top:6px;margin-top:6px;border-radius:18px}
+  .hero-v12-title{font-size:clamp(42px,10.5vw,72px)!important;max-width:12ch}
+  .hero-v12-actions{grid-template-columns:1fr!important}
+  .hero-v12-visual{height:clamp(360px,68vw,520px)!important;border-radius:22px}
+  .menu-overlay{top:12px;bottom:12px;inset-inline:8px;border-radius:20px}
+  .help-grid{grid-template-columns:1fr!important}
+  .help-image{min-height:360px}
+}
+@media(max-width:520px){
+  .hero-v12-intro{padding:14px 14px 24px}
+  .hero-v12-topline{gap:10px;align-items:flex-start;flex-direction:column}
+  .hero-about-link{padding:10px 13px}
+  .hero-v12-title{font-size:clamp(38px,10.8vw,58px)!important;line-height:.93!important;margin:32px 0 24px!important}
+  .hero-v12-bottomline p{font-size:16px!important}
+  .gallery-grid-v13{gap:10px!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{aspect-ratio:1.18}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:.88}
+}
+
+</style>
+<style>/* Editorial V8: legibility, structure, documentary photography */
+:root{--ink:#111827;--blue:#234dc8;--yellow:#f1c74b;--max:1640px}
+body{font-family:'Manrope',Arial,sans-serif;overflow-x:hidden}
+.section-title,.hero-super,.hero-statement h1,.impact-big,.impact-word,.story-title,.footer-large{font-family:'Unbounded','Manrope',sans-serif;font-weight:700;letter-spacing:-.055em}
+.section-title{font-size:clamp(38px,5.4vw,82px);line-height:1.07;max-width:1100px;overflow-wrap:break-word}
+.hero{overflow:visible}.hero-intro{padding:clamp(24px,4vw,62px) clamp(20px,4.1vw,74px) clamp(35px,5vw,75px)}
+.hero-kicker{display:flex;align-items:center;gap:11px;font-size:11px;font-weight:800;letter-spacing:.08em;margin-bottom:clamp(27px,5vw,75px)}
+.hero-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px #234dc817}
+.hero-intro-grid{display:grid;grid-template-columns:1.55fr .65fr;gap:clamp(24px,5vw,80px);align-items:end}
+.hero-super{font-size:clamp(40px,7.35vw,132px);line-height:1.07;white-space:nowrap;letter-spacing:-.075em}
+.hero-super em{font-weight:400;font-style:normal;color:var(--blue)}
+.hero-explain{max-width:425px;justify-self:end;font-size:clamp(17px,1.5vw,24px);font-weight:600;line-height:1.35}
+.hero-intro-links{display:flex;flex-direction:column;margin-top:29px;border-top:1px solid var(--ink)}
+.hero-intro-links a{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px 1px;border-bottom:1px solid #bec2ca;font-size:13px;font-weight:800;transition:padding .25s,color .25s}
+.hero-intro-links a:hover{padding-left:10px;color:var(--blue)}
+.hero-grid{grid-template-columns:minmax(0,1.23fr) minmax(330px,.77fr);min-height:510px;border-top:1px solid var(--ink)}
+.hero-photo{min-height:510px;background:#eee}.hero-photo img{object-position:center 38%;filter:none!important;transform:none!important;transition:none!important}
+.hero-photo:before{content:none!important}.image-corner{position:absolute;left:24px;bottom:24px;z-index:4;background:white;padding:13px 17px;font-size:11px;font-weight:800;letter-spacing:.04em}
+.hero-text{border-left:1px solid var(--ink);justify-content:center}.hero-statement{padding:clamp(25px,4vw,70px)}
+.hero-statement h1{font-size:clamp(30px,3.2vw,52px);line-height:1.15}.hero-statement p{font-size:clamp(16px,1.2vw,19px);line-height:1.7;color:#3d4652}
+.section-pad{padding-top:clamp(70px,8vw,145px);padding-bottom:clamp(70px,8vw,145px)}
+.mission{grid-template-columns:.46fr .54fr;gap:clamp(35px,5vw,80px)}.mission .mission-text{margin-top:55px}.mission .mission-text:not(:first-child){font-size:clamp(23px,2.65vw,39px);line-height:1.3;font-weight:600}
+.mission-side{color:#525965}.photoreport{padding-top:30px;padding-bottom:90px}.photo-head{align-items:end}
+.gallery-grid{grid-template-columns:1.12fr .88fr;grid-template-rows:repeat(2,minmax(270px,28vw));gap:16px}
+.gallery-shot.gallery-featured{grid-row:1 / span 2}.gallery-shot:not(.gallery-featured){aspect-ratio:auto}
+.gallery-shot img,.gallery-flag img{filter:none!important;transform:none!important;opacity:1!important;object-fit:cover}
+.gallery-shot:nth-child(2) img{object-position:center 50%}.gallery-shot:nth-child(3) img{object-position:center 34%}
+.gallery-flag{margin-top:16px;height:clamp(140px,18vw,260px)}.impact{background:#2048b5}.impact-grid{margin-top:55px}.impact-big{font-size:clamp(68px,8vw,118px)}.impact-word{font-size:clamp(25px,2.8vw,43px);line-height:1.2}
+.impact-item{min-height:245px}.story-row{transition:background .3s,padding .3s}.story-row:hover{background:#f5f7fb}
+.help{background:#131a28}.help-grid{align-items:start}.help-image{height:clamp(430px,48vw,680px);min-height:0;position:sticky;top:calc(var(--header) + 20px)}
+.help-image img{object-fit:cover;object-position:center 35%}.help-card{transition:padding-left .3s}.help-card:hover{padding-left:12px}
+.people-grid{gap:18px}.person-photo{aspect-ratio:4/5}.person img{object-fit:cover;object-position:center top}
+.official-logo{object-fit:contain}.site-header{border-bottom:1px solid var(--ink)}.brand-text{font-family:'Manrope',sans-serif}.menu-overlay a.menu-link{font-family:'Unbounded',sans-serif;font-size:clamp(30px,5.8vw,83px)}
+.footer-large{font-size:clamp(43px,6.5vw,100px);line-height:1.05}.story-title{font-size:clamp(18px,2.2vw,32px);line-height:1.3}
+/* Respect motion preferences; only container visuals move, never recolor photos */
+@media(prefers-reduced-motion:no-preference){.reveal{transform:translateY(35px);transition:opacity .85s ease,transform .85s cubic-bezier(.21,.7,.22,1)}.gallery-shot,.hero-photo{clip-path:inset(0 0 0 0)}.gallery-shot{animation:photo-enter both;animation-timeline:view();animation-range:entry 0% entry 40%}@keyframes photo-enter{from{clip-path:inset(10% 0 0 0);opacity:.6}to{clip-path:inset(0);opacity:1}}.hero-dot{animation:dotpulse 3s infinite}@keyframes dotpulse{50%{box-shadow:0 0 0 10px #234dc80a}}}
+@media(max-width:1100px){.hero-intro-grid{grid-template-columns:1fr}.hero-explain{justify-self:start;max-width:700px}.hero-intro-links{max-width:600px}.hero-super{font-size:clamp(43px,8vw,95px)}}
+@media(max-width:800px){.hero-intro{padding:30px 21px 45px}.hero-kicker{margin-bottom:30px}.hero-grid{display:flex;flex-direction:column}.hero-photo{height:clamp(320px,60vw,500px);min-height:0}.hero-text{border-left:0}.hero-statement{padding:38px 22px 45px}.mission{grid-template-columns:1fr}.mission .mission-text{margin-top:23px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:10px}.gallery-shot.gallery-featured{grid-column:span 2;grid-row:auto;aspect-ratio:1.35}.gallery-shot:not(.gallery-featured){aspect-ratio:4/5}.gallery-flag{height:120px}.help-image{position:relative;top:auto;height:400px}.story-title{font-size:clamp(18px,4.3vw,28px)}.section-title{font-size:clamp(36px,8vw,65px)}}
+@media(max-width:520px){.hero-super{font-size:clamp(34px,8.1vw,50px);line-height:1.13;letter-spacing:-.075em}.hero-explain{font-size:17px}.hero-photo{height:320px;min-height:0}.image-corner{font-size:9px;left:10px;bottom:10px;padding:9px 11px}.hero-statement h1{font-size:32px}.hero-intro-links a{font-size:12px}.photoreport{padding-bottom:60px}.gallery-shot.gallery-featured{aspect-ratio:1.1}.gallery-shot:not(.gallery-featured){aspect-ratio:4/5}.story-thumb{display:block}.person-name{font-size:16px}.hero-kicker{font-size:10px}}
+
+/* V13 — clearer homepage, liquid glass UI, better photo hierarchy */
+.site-header{
+  position:sticky;
+  top:10px;
+  width:min(calc(100% - 18px), calc(var(--max) + 36px));
+  margin:10px auto 0;
+  padding:0 clamp(14px,2.6vw,34px);
+  border:1px solid rgba(20,28,38,.1)!important;
+  border-radius:22px;
+  background:rgba(255,255,255,.68)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(165%);
+  backdrop-filter:blur(18px) saturate(165%);
+  box-shadow:0 14px 40px rgba(13,20,31,.08);
+  transition:transform .38s cubic-bezier(.22,1,.36,1), box-shadow .25s ease, background .25s ease;
+}
+.site-header.header-hidden{transform:translateY(calc(-100% - 18px));}
+.site-header .brand-text{font-size:11px;line-height:1.06}
+.menu-trigger{font-size:11px;letter-spacing:.02em}
+.menu-trigger,.header-donate,.language-switch,.hero-about-link,.hero-v12-actions a{
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  backdrop-filter:blur(16px) saturate(160%);
+}
+.header-donate{
+  gap:16px;
+  padding:12px 16px;
+  background:rgba(22,31,44,.84)!important;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  box-shadow:0 10px 24px rgba(12,20,34,.18);
+}
+.header-donate:hover{background:rgba(35,77,200,.9)!important;transform:translateY(-1px)}
+.language-switch{
+  border:1px solid rgba(20,28,38,.08)!important;
+  border-radius:999px;
+  background:rgba(255,255,255,.55)!important;
+  padding:4px;
+}
+.language-switch button{font-size:10px;padding:8px 9px;border-radius:999px}
+.language-switch button[aria-pressed="true"]{background:rgba(22,31,44,.9)!important;color:#fff}
+.menu-overlay{
+  top:20px;
+  bottom:20px;
+  inset-inline:12px;
+  border-radius:24px;
+  background:rgba(14,25,43,.83)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%);
+  backdrop-filter:blur(24px) saturate(150%);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 60px rgba(7,12,24,.3);
+}
+.menu-overlay a.menu-link{font-size:clamp(24px,4.9vw,62px)!important;letter-spacing:-.055em}
+.hero-v12{padding-top:16px}
+.hero-v12-intro{padding:clamp(24px,3.2vw,56px) clamp(20px,4vw,72px) clamp(26px,4.2vw,62px)}
+.hero-v12-topline{font-size:clamp(11px,.92vw,14px);opacity:.82}
+.hero-about-link{
+  gap:16px;
+  padding:11px 15px;
+  border:1px solid rgba(20,28,38,.1);
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 8px 24px rgba(15,23,40,.06);
+}
+.hero-v12-title{
+  font-size:clamp(48px,9vw,132px)!important;
+  letter-spacing:-.082em!important;
+  line-height:.9!important;
+  max-width:9.8ch;
+}
+.hero-v12-bottomline{grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr)!important;gap:clamp(22px,4vw,74px)!important}
+.hero-v12-bottomline p{font-size:clamp(17px,1.45vw,23px)!important;max-width:780px}
+.hero-v12-actions{gap:14px;border:0!important}
+.hero-v12-actions a{
+  border:1px solid rgba(20,28,38,.11);
+  border-radius:999px;
+  padding:18px 16px!important;
+  background:rgba(255,255,255,.58);
+  box-shadow:0 10px 28px rgba(15,23,40,.06);
+}
+.hero-v12-actions a:first-child{border-right:1px solid rgba(20,28,38,.11)!important}
+.hero-v12-actions a:hover{background:rgba(35,77,200,.88)!important;color:#fff;transform:translateY(-2px)}
+.hero-v12-visual{height:clamp(430px,58vw,760px)!important;border-radius:28px;overflow:hidden;box-shadow:0 28px 70px rgba(18,26,38,.12)}
+.hero-v12-visual:after{content:"";position:absolute;inset:auto 0 0 0;height:28%;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(11,18,29,.16));pointer-events:none}
+.hero-v12-visual-bottom{left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,255,255,.58)!important;border:1px solid rgba(255,255,255,.26);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);box-shadow:0 18px 42px rgba(8,12,22,.18)}
+.photoreport{padding-top:clamp(42px,6vw,88px)}
+.gallery-grid-v13{grid-template-columns:1.15fr .85fr!important;grid-template-rows:repeat(2,minmax(250px,24vw))!important;gap:14px!important}
+.gallery-grid-v13 .gallery-shot{border-radius:24px;overflow:hidden;box-shadow:0 18px 40px rgba(18,26,38,.08)}
+.gallery-grid-v13 .gallery-shot.gallery-featured{grid-row:1 / span 2}
+.gallery-grid-v13 .gallery-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.gallery-grid-v13 .gallery-shot:nth-child(2) img{object-position:center 45%}
+.gallery-grid-v13 .gallery-shot:nth-child(3) img{object-position:center 24%}
+.help-grid{gap:42px!important;align-items:stretch}
+.help-image{min-height:560px;border-radius:28px;box-shadow:0 22px 48px rgba(0,0,0,.18)}
+.help-image img{object-position:center 52%}
+.help-card{
+  border-top:1px solid rgba(255,255,255,.18)!important;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:26px;
+  padding:26px 24px!important;
+  background:rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(16px) saturate(125%);
+  backdrop-filter:blur(16px) saturate(125%);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.help-card + .help-card{margin-top:14px}
+.help-links a{border-top-color:rgba(255,255,255,.18)!important}
+.bank-tabs button,.bank-copy button{transition:transform .2s ease, opacity .2s ease}
+.bank-tabs button:hover,.bank-copy button:hover{transform:translateY(-1px)}
+.photo-motion.motion-in,.text-motion.motion-in{animation-duration:.95s}
+@keyframes glassFloatIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero-v12-actions a,.header-donate,.language-switch,.hero-about-link,.help-card{animation:glassFloatIn .7s both}
+@media(max-width:980px){
+  .hero-v12-bottomline{grid-template-columns:1fr!important;gap:22px!important}
+  .hero-v12-title{max-width:11ch}
+  .gallery-grid-v13{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{grid-column:span 2;grid-row:auto;aspect-ratio:1.35}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:4/5}
+}
+@media(max-width:800px){
+  .site-header{width:calc(100% - 12px);top:6px;margin-top:6px;border-radius:18px}
+  .hero-v12-title{font-size:clamp(42px,10.5vw,72px)!important;max-width:12ch}
+  .hero-v12-actions{grid-template-columns:1fr!important}
+  .hero-v12-visual{height:clamp(360px,68vw,520px)!important;border-radius:22px}
+  .menu-overlay{top:12px;bottom:12px;inset-inline:8px;border-radius:20px}
+  .help-grid{grid-template-columns:1fr!important}
+  .help-image{min-height:360px}
+}
+@media(max-width:520px){
+  .hero-v12-intro{padding:14px 14px 24px}
+  .hero-v12-topline{gap:10px;align-items:flex-start;flex-direction:column}
+  .hero-about-link{padding:10px 13px}
+  .hero-v12-title{font-size:clamp(38px,10.8vw,58px)!important;line-height:.93!important;margin:32px 0 24px!important}
+  .hero-v12-bottomline p{font-size:16px!important}
+  .gallery-grid-v13{gap:10px!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{aspect-ratio:1.18}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:.88}
+}
+
+</style><style>
+/* V9: editorial typography, balanced two-column About layout, original-site media */
+:root{--ink:#151a22;--blue:#2549b8;--yellow:#f2d35a;--max:1540px}
+body{font-family:'Onest',Arial,sans-serif;color:var(--ink)}
+.section-title,.hero-super,.hero-statement h1,.impact-big,.impact-word,.story-title,.footer-large,.menu-overlay a.menu-link{font-family:'Onest',Arial,sans-serif;letter-spacing:-.065em;font-weight:750}
+.hero-super{font-size:clamp(45px,7.7vw,125px);max-width:100%;white-space:normal;overflow-wrap:normal;line-height:.95}
+.hero-intro-grid{grid-template-columns:minmax(0,1.3fr) minmax(320px,.7fr);align-items:end}
+.hero-explain{font-size:clamp(17px,1.4vw,21px);line-height:1.55;font-weight:450;max-width:510px}
+.hero-statement h1{font-size:clamp(32px,3.2vw,55px);line-height:1.08}
+.hero-statement p{line-height:1.6}
+/* Important: header spans the whole grid; two content columns have room to breathe */
+.mission{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px clamp(32px,5vw,92px);padding-bottom:100px}
+.mission>.linehead{grid-column:1/-1;min-width:0}
+.mission>.mission-text{grid-column:auto;min-width:0;margin-top:0!important}
+.mission .section-title{font-size:clamp(48px,6vw,91px);line-height:1.03;margin-bottom:28px;overflow-wrap:normal}
+.mission>.mission-text p{font-family:'Onest',Arial,sans-serif;font-size:clamp(17px,1.48vw,22px);font-weight:450;letter-spacing:-.015em;line-height:1.65;max-width:670px;overflow-wrap:normal;word-break:normal;hyphens:none}
+.mission>.mission-text p+p{margin-top:27px}
+.mission .mission-text:not(:first-child){font-size:inherit;line-height:inherit;font-weight:inherit}
+.section-title{font-size:clamp(45px,6.5vw,100px);line-height:1.05}
+.gallery-grid{grid-template-columns:1.15fr .85fr;grid-template-rows:repeat(2,minmax(260px,25vw))}
+.gallery-shot img{object-position:center 44%}
+.gallery-flag{height:180px}
+.hero-photo{background:#edf0f5}
+.hero-photo img{object-position:center center}
+.menu-overlay a.menu-link{font-size:clamp(38px,7vw,110px);line-height:1.07}
+.story-title{line-height:1.18;overflow-wrap:anywhere}
+.impact-title,.help h2{max-width:100%}
+@media(max-width:1000px){.hero-intro-grid{grid-template-columns:1fr}.hero-explain{justify-self:start;max-width:720px}}
+@media(max-width:800px){.mission{grid-template-columns:minmax(0,1fr);gap:22px}.mission>.linehead{grid-column:1}.mission>.mission-text{grid-column:1}.mission .section-title{margin-bottom:8px;font-size:clamp(43px,9vw,70px)}.mission>.mission-text p{font-size:17px;line-height:1.65}.hero-super{font-size:clamp(42px,9.1vw,78px)}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gallery-shot.gallery-featured{grid-column:span 2;aspect-ratio:1.4}.gallery-shot:not(.gallery-featured){aspect-ratio:4/5}.section-title{font-size:clamp(42px,8vw,68px)}}
+@media(max-width:520px){.hero-super{font-size:clamp(37px,9vw,52px);letter-spacing:-.07em}.hero-intro{padding-left:19px;padding-right:19px}.mission .section-title{font-size:48px}.story-title{font-size:clamp(19px,5vw,27px)}.hero-statement h1{font-size:clamp(29px,7vw,42px)}.photoreport{padding-top:20px}}
+
+/* V13 — clearer homepage, liquid glass UI, better photo hierarchy */
+.site-header{
+  position:sticky;
+  top:10px;
+  width:min(calc(100% - 18px), calc(var(--max) + 36px));
+  margin:10px auto 0;
+  padding:0 clamp(14px,2.6vw,34px);
+  border:1px solid rgba(20,28,38,.1)!important;
+  border-radius:22px;
+  background:rgba(255,255,255,.68)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(165%);
+  backdrop-filter:blur(18px) saturate(165%);
+  box-shadow:0 14px 40px rgba(13,20,31,.08);
+  transition:transform .38s cubic-bezier(.22,1,.36,1), box-shadow .25s ease, background .25s ease;
+}
+.site-header.header-hidden{transform:translateY(calc(-100% - 18px));}
+.site-header .brand-text{font-size:11px;line-height:1.06}
+.menu-trigger{font-size:11px;letter-spacing:.02em}
+.menu-trigger,.header-donate,.language-switch,.hero-about-link,.hero-v12-actions a{
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  backdrop-filter:blur(16px) saturate(160%);
+}
+.header-donate{
+  gap:16px;
+  padding:12px 16px;
+  background:rgba(22,31,44,.84)!important;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  box-shadow:0 10px 24px rgba(12,20,34,.18);
+}
+.header-donate:hover{background:rgba(35,77,200,.9)!important;transform:translateY(-1px)}
+.language-switch{
+  border:1px solid rgba(20,28,38,.08)!important;
+  border-radius:999px;
+  background:rgba(255,255,255,.55)!important;
+  padding:4px;
+}
+.language-switch button{font-size:10px;padding:8px 9px;border-radius:999px}
+.language-switch button[aria-pressed="true"]{background:rgba(22,31,44,.9)!important;color:#fff}
+.menu-overlay{
+  top:20px;
+  bottom:20px;
+  inset-inline:12px;
+  border-radius:24px;
+  background:rgba(14,25,43,.83)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%);
+  backdrop-filter:blur(24px) saturate(150%);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 60px rgba(7,12,24,.3);
+}
+.menu-overlay a.menu-link{font-size:clamp(24px,4.9vw,62px)!important;letter-spacing:-.055em}
+.hero-v12{padding-top:16px}
+.hero-v12-intro{padding:clamp(24px,3.2vw,56px) clamp(20px,4vw,72px) clamp(26px,4.2vw,62px)}
+.hero-v12-topline{font-size:clamp(11px,.92vw,14px);opacity:.82}
+.hero-about-link{
+  gap:16px;
+  padding:11px 15px;
+  border:1px solid rgba(20,28,38,.1);
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 8px 24px rgba(15,23,40,.06);
+}
+.hero-v12-title{
+  font-size:clamp(48px,9vw,132px)!important;
+  letter-spacing:-.082em!important;
+  line-height:.9!important;
+  max-width:9.8ch;
+}
+.hero-v12-bottomline{grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr)!important;gap:clamp(22px,4vw,74px)!important}
+.hero-v12-bottomline p{font-size:clamp(17px,1.45vw,23px)!important;max-width:780px}
+.hero-v12-actions{gap:14px;border:0!important}
+.hero-v12-actions a{
+  border:1px solid rgba(20,28,38,.11);
+  border-radius:999px;
+  padding:18px 16px!important;
+  background:rgba(255,255,255,.58);
+  box-shadow:0 10px 28px rgba(15,23,40,.06);
+}
+.hero-v12-actions a:first-child{border-right:1px solid rgba(20,28,38,.11)!important}
+.hero-v12-actions a:hover{background:rgba(35,77,200,.88)!important;color:#fff;transform:translateY(-2px)}
+.hero-v12-visual{height:clamp(430px,58vw,760px)!important;border-radius:28px;overflow:hidden;box-shadow:0 28px 70px rgba(18,26,38,.12)}
+.hero-v12-visual:after{content:"";position:absolute;inset:auto 0 0 0;height:28%;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(11,18,29,.16));pointer-events:none}
+.hero-v12-visual-bottom{left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,255,255,.58)!important;border:1px solid rgba(255,255,255,.26);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);box-shadow:0 18px 42px rgba(8,12,22,.18)}
+.photoreport{padding-top:clamp(42px,6vw,88px)}
+.gallery-grid-v13{grid-template-columns:1.15fr .85fr!important;grid-template-rows:repeat(2,minmax(250px,24vw))!important;gap:14px!important}
+.gallery-grid-v13 .gallery-shot{border-radius:24px;overflow:hidden;box-shadow:0 18px 40px rgba(18,26,38,.08)}
+.gallery-grid-v13 .gallery-shot.gallery-featured{grid-row:1 / span 2}
+.gallery-grid-v13 .gallery-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.gallery-grid-v13 .gallery-shot:nth-child(2) img{object-position:center 45%}
+.gallery-grid-v13 .gallery-shot:nth-child(3) img{object-position:center 24%}
+.help-grid{gap:42px!important;align-items:stretch}
+.help-image{min-height:560px;border-radius:28px;box-shadow:0 22px 48px rgba(0,0,0,.18)}
+.help-image img{object-position:center 52%}
+.help-card{
+  border-top:1px solid rgba(255,255,255,.18)!important;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:26px;
+  padding:26px 24px!important;
+  background:rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(16px) saturate(125%);
+  backdrop-filter:blur(16px) saturate(125%);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.help-card + .help-card{margin-top:14px}
+.help-links a{border-top-color:rgba(255,255,255,.18)!important}
+.bank-tabs button,.bank-copy button{transition:transform .2s ease, opacity .2s ease}
+.bank-tabs button:hover,.bank-copy button:hover{transform:translateY(-1px)}
+.photo-motion.motion-in,.text-motion.motion-in{animation-duration:.95s}
+@keyframes glassFloatIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero-v12-actions a,.header-donate,.language-switch,.hero-about-link,.help-card{animation:glassFloatIn .7s both}
+@media(max-width:980px){
+  .hero-v12-bottomline{grid-template-columns:1fr!important;gap:22px!important}
+  .hero-v12-title{max-width:11ch}
+  .gallery-grid-v13{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{grid-column:span 2;grid-row:auto;aspect-ratio:1.35}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:4/5}
+}
+@media(max-width:800px){
+  .site-header{width:calc(100% - 12px);top:6px;margin-top:6px;border-radius:18px}
+  .hero-v12-title{font-size:clamp(42px,10.5vw,72px)!important;max-width:12ch}
+  .hero-v12-actions{grid-template-columns:1fr!important}
+  .hero-v12-visual{height:clamp(360px,68vw,520px)!important;border-radius:22px}
+  .menu-overlay{top:12px;bottom:12px;inset-inline:8px;border-radius:20px}
+  .help-grid{grid-template-columns:1fr!important}
+  .help-image{min-height:360px}
+}
+@media(max-width:520px){
+  .hero-v12-intro{padding:14px 14px 24px}
+  .hero-v12-topline{gap:10px;align-items:flex-start;flex-direction:column}
+  .hero-about-link{padding:10px 13px}
+  .hero-v12-title{font-size:clamp(38px,10.8vw,58px)!important;line-height:.93!important;margin:32px 0 24px!important}
+  .hero-v12-bottomline p{font-size:16px!important}
+  .gallery-grid-v13{gap:10px!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{aspect-ratio:1.18}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:.88}
+}
+
+</style><style>
+/* V10: offline-safe type and photo layout */
+:root{--ink:#101820;--blue:#244ccb;--yellow:#f0c640}
+html{overflow-x:clip}
+body,button,input,textarea{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+.section-title,.hero-super,.hero-statement h1,.impact-big,.impact-word,.story-title,.footer-large,.menu-overlay a.menu-link{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;font-weight:800!important;letter-spacing:-.055em!important}
+.hero-super{font-size:clamp(44px,7.4vw,124px);line-height:1.01;letter-spacing:-.07em!important;overflow-wrap:anywhere}
+.hero-explain{font-size:clamp(17px,1.46vw,22px);line-height:1.5}
+.hero-photo{min-height:565px}
+.hero-photo img{object-fit:cover!important;object-position:50% 37%!important;width:100%;height:100%}
+.gallery-shot.gallery-featured img{object-position:50% 35%}
+.gallery-shot:nth-child(2) img{object-position:50% 48%}
+.gallery-shot:nth-child(3) img{object-position:50% 30%}
+.gallery-flag img{object-position:center 39%}
+.gallery-grid{grid-template-columns:1.1fr .9fr;grid-template-rows:repeat(2,minmax(265px,25vw));gap:14px}
+.gallery-shot.gallery-featured{grid-row:span 2}
+.gallery-flag{height:240px;margin-top:14px}
+.section-title{font-size:clamp(45px,6.9vw,104px)!important;line-height:1.04}
+.mission{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:28px clamp(34px,5vw,90px)!important}
+.mission>.linehead{grid-column:1/-1!important}
+.mission>.mission-text{grid-column:auto!important;min-width:0!important;max-width:100%}
+.mission>.mission-text p{font-size:clamp(17px,1.45vw,21px)!important;line-height:1.65;overflow-wrap:break-word}
+.mission .section-title{font-size:clamp(42px,6vw,88px)!important}
+.reveal:not(.on){opacity:1!important;transform:none!important}
+@media(max-width:800px){.hero-photo{min-height:0;height:clamp(310px,66vw,550px)}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:10px}.gallery-shot.gallery-featured{grid-column:span 2;grid-row:auto;aspect-ratio:1.5}.gallery-shot:not(.gallery-featured){aspect-ratio:4/5}.gallery-flag{height:155px}.mission{grid-template-columns:minmax(0,1fr)!important}.mission>.linehead,.mission>.mission-text{grid-column:1!important}.section-title{font-size:clamp(39px,8vw,68px)!important}}
+@media(max-width:520px){.hero-super{font-size:clamp(38px,9vw,57px)}.hero-photo{height:345px}.mission .section-title{font-size:48px!important}.gallery-grid{gap:8px}.gallery-flag{height:125px}}
+
+/* V13 — clearer homepage, liquid glass UI, better photo hierarchy */
+.site-header{
+  position:sticky;
+  top:10px;
+  width:min(calc(100% - 18px), calc(var(--max) + 36px));
+  margin:10px auto 0;
+  padding:0 clamp(14px,2.6vw,34px);
+  border:1px solid rgba(20,28,38,.1)!important;
+  border-radius:22px;
+  background:rgba(255,255,255,.68)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(165%);
+  backdrop-filter:blur(18px) saturate(165%);
+  box-shadow:0 14px 40px rgba(13,20,31,.08);
+  transition:transform .38s cubic-bezier(.22,1,.36,1), box-shadow .25s ease, background .25s ease;
+}
+.site-header.header-hidden{transform:translateY(calc(-100% - 18px));}
+.site-header .brand-text{font-size:11px;line-height:1.06}
+.menu-trigger{font-size:11px;letter-spacing:.02em}
+.menu-trigger,.header-donate,.language-switch,.hero-about-link,.hero-v12-actions a{
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  backdrop-filter:blur(16px) saturate(160%);
+}
+.header-donate{
+  gap:16px;
+  padding:12px 16px;
+  background:rgba(22,31,44,.84)!important;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  box-shadow:0 10px 24px rgba(12,20,34,.18);
+}
+.header-donate:hover{background:rgba(35,77,200,.9)!important;transform:translateY(-1px)}
+.language-switch{
+  border:1px solid rgba(20,28,38,.08)!important;
+  border-radius:999px;
+  background:rgba(255,255,255,.55)!important;
+  padding:4px;
+}
+.language-switch button{font-size:10px;padding:8px 9px;border-radius:999px}
+.language-switch button[aria-pressed="true"]{background:rgba(22,31,44,.9)!important;color:#fff}
+.menu-overlay{
+  top:20px;
+  bottom:20px;
+  inset-inline:12px;
+  border-radius:24px;
+  background:rgba(14,25,43,.83)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%);
+  backdrop-filter:blur(24px) saturate(150%);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 60px rgba(7,12,24,.3);
+}
+.menu-overlay a.menu-link{font-size:clamp(24px,4.9vw,62px)!important;letter-spacing:-.055em}
+.hero-v12{padding-top:16px}
+.hero-v12-intro{padding:clamp(24px,3.2vw,56px) clamp(20px,4vw,72px) clamp(26px,4.2vw,62px)}
+.hero-v12-topline{font-size:clamp(11px,.92vw,14px);opacity:.82}
+.hero-about-link{
+  gap:16px;
+  padding:11px 15px;
+  border:1px solid rgba(20,28,38,.1);
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 8px 24px rgba(15,23,40,.06);
+}
+.hero-v12-title{
+  font-size:clamp(48px,9vw,132px)!important;
+  letter-spacing:-.082em!important;
+  line-height:.9!important;
+  max-width:9.8ch;
+}
+.hero-v12-bottomline{grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr)!important;gap:clamp(22px,4vw,74px)!important}
+.hero-v12-bottomline p{font-size:clamp(17px,1.45vw,23px)!important;max-width:780px}
+.hero-v12-actions{gap:14px;border:0!important}
+.hero-v12-actions a{
+  border:1px solid rgba(20,28,38,.11);
+  border-radius:999px;
+  padding:18px 16px!important;
+  background:rgba(255,255,255,.58);
+  box-shadow:0 10px 28px rgba(15,23,40,.06);
+}
+.hero-v12-actions a:first-child{border-right:1px solid rgba(20,28,38,.11)!important}
+.hero-v12-actions a:hover{background:rgba(35,77,200,.88)!important;color:#fff;transform:translateY(-2px)}
+.hero-v12-visual{height:clamp(430px,58vw,760px)!important;border-radius:28px;overflow:hidden;box-shadow:0 28px 70px rgba(18,26,38,.12)}
+.hero-v12-visual:after{content:"";position:absolute;inset:auto 0 0 0;height:28%;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(11,18,29,.16));pointer-events:none}
+.hero-v12-visual-bottom{left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,255,255,.58)!important;border:1px solid rgba(255,255,255,.26);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);box-shadow:0 18px 42px rgba(8,12,22,.18)}
+.photoreport{padding-top:clamp(42px,6vw,88px)}
+.gallery-grid-v13{grid-template-columns:1.15fr .85fr!important;grid-template-rows:repeat(2,minmax(250px,24vw))!important;gap:14px!important}
+.gallery-grid-v13 .gallery-shot{border-radius:24px;overflow:hidden;box-shadow:0 18px 40px rgba(18,26,38,.08)}
+.gallery-grid-v13 .gallery-shot.gallery-featured{grid-row:1 / span 2}
+.gallery-grid-v13 .gallery-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.gallery-grid-v13 .gallery-shot:nth-child(2) img{object-position:center 45%}
+.gallery-grid-v13 .gallery-shot:nth-child(3) img{object-position:center 24%}
+.help-grid{gap:42px!important;align-items:stretch}
+.help-image{min-height:560px;border-radius:28px;box-shadow:0 22px 48px rgba(0,0,0,.18)}
+.help-image img{object-position:center 52%}
+.help-card{
+  border-top:1px solid rgba(255,255,255,.18)!important;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:26px;
+  padding:26px 24px!important;
+  background:rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(16px) saturate(125%);
+  backdrop-filter:blur(16px) saturate(125%);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.help-card + .help-card{margin-top:14px}
+.help-links a{border-top-color:rgba(255,255,255,.18)!important}
+.bank-tabs button,.bank-copy button{transition:transform .2s ease, opacity .2s ease}
+.bank-tabs button:hover,.bank-copy button:hover{transform:translateY(-1px)}
+.photo-motion.motion-in,.text-motion.motion-in{animation-duration:.95s}
+@keyframes glassFloatIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero-v12-actions a,.header-donate,.language-switch,.hero-about-link,.help-card{animation:glassFloatIn .7s both}
+@media(max-width:980px){
+  .hero-v12-bottomline{grid-template-columns:1fr!important;gap:22px!important}
+  .hero-v12-title{max-width:11ch}
+  .gallery-grid-v13{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{grid-column:span 2;grid-row:auto;aspect-ratio:1.35}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:4/5}
+}
+@media(max-width:800px){
+  .site-header{width:calc(100% - 12px);top:6px;margin-top:6px;border-radius:18px}
+  .hero-v12-title{font-size:clamp(42px,10.5vw,72px)!important;max-width:12ch}
+  .hero-v12-actions{grid-template-columns:1fr!important}
+  .hero-v12-visual{height:clamp(360px,68vw,520px)!important;border-radius:22px}
+  .menu-overlay{top:12px;bottom:12px;inset-inline:8px;border-radius:20px}
+  .help-grid{grid-template-columns:1fr!important}
+  .help-image{min-height:360px}
+}
+@media(max-width:520px){
+  .hero-v12-intro{padding:14px 14px 24px}
+  .hero-v12-topline{gap:10px;align-items:flex-start;flex-direction:column}
+  .hero-about-link{padding:10px 13px}
+  .hero-v12-title{font-size:clamp(38px,10.8vw,58px)!important;line-height:.93!important;margin:32px 0 24px!important}
+  .hero-v12-bottomline p{font-size:16px!important}
+  .gallery-grid-v13{gap:10px!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{aspect-ratio:1.18}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:.88}
+}
+
+</style><style>
+/* V11 — bilingual, restrained editorial layout and scroll-friendly motion */
+html{scroll-behavior:smooth}
+body{overflow-x:clip}
+.site-header{grid-template-columns:minmax(0,1fr) auto auto auto;column-gap:clamp(10px,2vw,28px)}
+.language-switch{display:flex;gap:2px;padding:3px;border:1px solid var(--ink);justify-self:end;align-items:center;background:#fff}
+.language-switch button{font:700 11px/1.1 system-ui,sans-serif;letter-spacing:.03em;border:0;background:transparent;color:var(--ink);padding:9px 10px;cursor:pointer}
+.language-switch button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.menu-overlay a.menu-link{font-size:clamp(30px,5.35vw,82px)!important;line-height:1.13!important;letter-spacing:-.045em!important;padding:9px 0}
+.menu-overlay .menu-overlay-inner{padding-top:28px}
+.hero-topmeta,.hero-image-tag,.hero-counter,.ticker,.section-no,.story-idx{display:none!important}
+.hero-clarity:before,.hero-clarity:after,.hero-name span:before,.hero-name span:after{display:none!important}
+.hero-quick a{transition:background .25s ease,color .25s ease,translate .25s ease}
+.hero-quick a:hover{translate:0 -2px}
+.hero-photo,.gallery-shot,.gallery-flag,.person-photo,.help-image{overflow:hidden}
+.hero-photo img,.gallery-shot img,.gallery-flag img,.person-photo img,.help-image img{transform:none!important;filter:none!important;opacity:1!important;transition:none!important}
+/* Reveal the photo container via clipping: image colors remain untouched */
+@media (prefers-reduced-motion:no-preference){
+ body.motion-ready .photo-motion:not(.motion-in){clip-path:inset(0 0 14% 0 round 0);opacity:.55;transform:translateY(30px)}
+ body.motion-ready .photo-motion{transition:clip-path 1.0s cubic-bezier(.2,.7,.2,1),opacity .85s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+ body.motion-ready .photo-motion.motion-in{clip-path:inset(0 0 0 0);opacity:1;transform:translateY(0)}
+ body.motion-ready .text-motion:not(.motion-in){opacity:0;transform:translateY(24px)}
+ body.motion-ready .text-motion{transition:opacity .8s ease,transform .8s cubic-bezier(.18,.7,.2,1)}
+ body.motion-ready .text-motion.motion-in{opacity:1;transform:translateY(0)}
+ .story-row{transition:padding .25s ease,background .25s ease}
+ .menu-overlay a.menu-link{transition:padding-left .25s ease,color .25s ease}
+ .menu-overlay a.menu-link:hover{padding-left:12px}
+}
+@media(max-width:800px){.site-header{grid-template-columns:minmax(0,1fr) auto auto;gap:8px}.site-header .menu-trigger{order:3}.site-header .language-switch{order:2}.site-header .header-donate{display:none}.language-switch button{font-size:10px;padding:8px 6px}.menu-overlay a.menu-link{font-size:clamp(27px,7vw,52px)!important}.hero-name{white-space:normal!important}.hero-name span{margin-left:0!important}}
+@media(max-width:520px){.site-header{padding:0 10px;gap:6px}.brand-text{font-size:8px!important}.brand{gap:5px}.official-logo{width:28px;height:28px;flex-basis:28px}.menu-trigger{gap:6px;font-size:10px}.language-switch button{padding:7px 5px;font-size:9px}.menu-overlay a.menu-link{font-size:clamp(26px,7vw,36px)!important}}
+@media(prefers-reduced-motion:reduce){.photo-motion,.text-motion{clip-path:none!important;transform:none!important;opacity:1!important;transition:none!important}}
+
+/* V13 — clearer homepage, liquid glass UI, better photo hierarchy */
+.site-header{
+  position:sticky;
+  top:10px;
+  width:min(calc(100% - 18px), calc(var(--max) + 36px));
+  margin:10px auto 0;
+  padding:0 clamp(14px,2.6vw,34px);
+  border:1px solid rgba(20,28,38,.1)!important;
+  border-radius:22px;
+  background:rgba(255,255,255,.68)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(165%);
+  backdrop-filter:blur(18px) saturate(165%);
+  box-shadow:0 14px 40px rgba(13,20,31,.08);
+  transition:transform .38s cubic-bezier(.22,1,.36,1), box-shadow .25s ease, background .25s ease;
+}
+.site-header.header-hidden{transform:translateY(calc(-100% - 18px));}
+.site-header .brand-text{font-size:11px;line-height:1.06}
+.menu-trigger{font-size:11px;letter-spacing:.02em}
+.menu-trigger,.header-donate,.language-switch,.hero-about-link,.hero-v12-actions a{
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  backdrop-filter:blur(16px) saturate(160%);
+}
+.header-donate{
+  gap:16px;
+  padding:12px 16px;
+  background:rgba(22,31,44,.84)!important;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  box-shadow:0 10px 24px rgba(12,20,34,.18);
+}
+.header-donate:hover{background:rgba(35,77,200,.9)!important;transform:translateY(-1px)}
+.language-switch{
+  border:1px solid rgba(20,28,38,.08)!important;
+  border-radius:999px;
+  background:rgba(255,255,255,.55)!important;
+  padding:4px;
+}
+.language-switch button{font-size:10px;padding:8px 9px;border-radius:999px}
+.language-switch button[aria-pressed="true"]{background:rgba(22,31,44,.9)!important;color:#fff}
+.menu-overlay{
+  top:20px;
+  bottom:20px;
+  inset-inline:12px;
+  border-radius:24px;
+  background:rgba(14,25,43,.83)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%);
+  backdrop-filter:blur(24px) saturate(150%);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 60px rgba(7,12,24,.3);
+}
+.menu-overlay a.menu-link{font-size:clamp(24px,4.9vw,62px)!important;letter-spacing:-.055em}
+.hero-v12{padding-top:16px}
+.hero-v12-intro{padding:clamp(24px,3.2vw,56px) clamp(20px,4vw,72px) clamp(26px,4.2vw,62px)}
+.hero-v12-topline{font-size:clamp(11px,.92vw,14px);opacity:.82}
+.hero-about-link{
+  gap:16px;
+  padding:11px 15px;
+  border:1px solid rgba(20,28,38,.1);
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 8px 24px rgba(15,23,40,.06);
+}
+.hero-v12-title{
+  font-size:clamp(48px,9vw,132px)!important;
+  letter-spacing:-.082em!important;
+  line-height:.9!important;
+  max-width:9.8ch;
+}
+.hero-v12-bottomline{grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr)!important;gap:clamp(22px,4vw,74px)!important}
+.hero-v12-bottomline p{font-size:clamp(17px,1.45vw,23px)!important;max-width:780px}
+.hero-v12-actions{gap:14px;border:0!important}
+.hero-v12-actions a{
+  border:1px solid rgba(20,28,38,.11);
+  border-radius:999px;
+  padding:18px 16px!important;
+  background:rgba(255,255,255,.58);
+  box-shadow:0 10px 28px rgba(15,23,40,.06);
+}
+.hero-v12-actions a:first-child{border-right:1px solid rgba(20,28,38,.11)!important}
+.hero-v12-actions a:hover{background:rgba(35,77,200,.88)!important;color:#fff;transform:translateY(-2px)}
+.hero-v12-visual{height:clamp(430px,58vw,760px)!important;border-radius:28px;overflow:hidden;box-shadow:0 28px 70px rgba(18,26,38,.12)}
+.hero-v12-visual:after{content:"";position:absolute;inset:auto 0 0 0;height:28%;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(11,18,29,.16));pointer-events:none}
+.hero-v12-visual-bottom{left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,255,255,.58)!important;border:1px solid rgba(255,255,255,.26);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);box-shadow:0 18px 42px rgba(8,12,22,.18)}
+.photoreport{padding-top:clamp(42px,6vw,88px)}
+.gallery-grid-v13{grid-template-columns:1.15fr .85fr!important;grid-template-rows:repeat(2,minmax(250px,24vw))!important;gap:14px!important}
+.gallery-grid-v13 .gallery-shot{border-radius:24px;overflow:hidden;box-shadow:0 18px 40px rgba(18,26,38,.08)}
+.gallery-grid-v13 .gallery-shot.gallery-featured{grid-row:1 / span 2}
+.gallery-grid-v13 .gallery-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.gallery-grid-v13 .gallery-shot:nth-child(2) img{object-position:center 45%}
+.gallery-grid-v13 .gallery-shot:nth-child(3) img{object-position:center 24%}
+.help-grid{gap:42px!important;align-items:stretch}
+.help-image{min-height:560px;border-radius:28px;box-shadow:0 22px 48px rgba(0,0,0,.18)}
+.help-image img{object-position:center 52%}
+.help-card{
+  border-top:1px solid rgba(255,255,255,.18)!important;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:26px;
+  padding:26px 24px!important;
+  background:rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(16px) saturate(125%);
+  backdrop-filter:blur(16px) saturate(125%);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.help-card + .help-card{margin-top:14px}
+.help-links a{border-top-color:rgba(255,255,255,.18)!important}
+.bank-tabs button,.bank-copy button{transition:transform .2s ease, opacity .2s ease}
+.bank-tabs button:hover,.bank-copy button:hover{transform:translateY(-1px)}
+.photo-motion.motion-in,.text-motion.motion-in{animation-duration:.95s}
+@keyframes glassFloatIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero-v12-actions a,.header-donate,.language-switch,.hero-about-link,.help-card{animation:glassFloatIn .7s both}
+@media(max-width:980px){
+  .hero-v12-bottomline{grid-template-columns:1fr!important;gap:22px!important}
+  .hero-v12-title{max-width:11ch}
+  .gallery-grid-v13{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{grid-column:span 2;grid-row:auto;aspect-ratio:1.35}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:4/5}
+}
+@media(max-width:800px){
+  .site-header{width:calc(100% - 12px);top:6px;margin-top:6px;border-radius:18px}
+  .hero-v12-title{font-size:clamp(42px,10.5vw,72px)!important;max-width:12ch}
+  .hero-v12-actions{grid-template-columns:1fr!important}
+  .hero-v12-visual{height:clamp(360px,68vw,520px)!important;border-radius:22px}
+  .menu-overlay{top:12px;bottom:12px;inset-inline:8px;border-radius:20px}
+  .help-grid{grid-template-columns:1fr!important}
+  .help-image{min-height:360px}
+}
+@media(max-width:520px){
+  .hero-v12-intro{padding:14px 14px 24px}
+  .hero-v12-topline{gap:10px;align-items:flex-start;flex-direction:column}
+  .hero-about-link{padding:10px 13px}
+  .hero-v12-title{font-size:clamp(38px,10.8vw,58px)!important;line-height:.93!important;margin:32px 0 24px!important}
+  .hero-v12-bottomline p{font-size:16px!important}
+  .gallery-grid-v13{gap:10px!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{aspect-ratio:1.18}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:.88}
+}
+
+</style><style>
+/* V12 — image-led editorial homepage. Inspired by generous editorial rhythm, not a replica. */
+:root{--ink:#111820;--blue:#244ccb;--paper:#fff}
+body{background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.hero-v12{padding-bottom:0;overflow:visible}
+.hero-v12-intro{padding:clamp(24px,3.6vw,64px) clamp(20px,4vw,72px) clamp(34px,5vw,78px)}
+.hero-v12-topline{display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid #20242b;padding-top:13px;font-size:clamp(12px,1vw,16px);font-weight:600;letter-spacing:-.015em}
+.hero-about-link{display:inline-flex;align-items:center;gap:35px;white-space:nowrap;border-bottom:1px solid currentColor;padding-bottom:5px}
+.hero-v12-title{font-family:Arial,Helvetica,sans-serif;font-size:clamp(58px,11.3vw,185px);font-weight:800;letter-spacing:-.092em;line-height:.88;white-space:pre-line;margin:clamp(28px,5vw,82px) 0 clamp(34px,5vw,78px);max-width:100%;overflow-wrap:normal;text-transform:uppercase}
+.hero-v12-bottomline{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(290px,.85fr);align-items:end;gap:clamp(28px,6vw,110px)}
+.hero-v12-bottomline p{font-size:clamp(17px,1.65vw,26px);max-width:850px;line-height:1.42;letter-spacing:-.027em;font-weight:500}
+.hero-v12-actions{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.hero-v12-actions a{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:21px 13px;font-size:clamp(11px,1vw,14px);font-weight:700;transition:background .22s,color .22s}
+.hero-v12-actions a:first-child{border-right:1px solid var(--ink)}
+.hero-v12-actions a:hover{background:var(--blue);color:#fff}
+.hero-v12-visual{height:clamp(480px,65vw,900px);position:relative;overflow:hidden;background:#e9e9e6}
+.hero-v12-visual img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:none!important;opacity:1!important;transform:none!important;transition:none!important}
+.hero-v12-visual-bottom{position:absolute;left:0;right:0;bottom:0;padding:19px clamp(20px,4vw,72px);display:flex;align-items:center;justify-content:space-between;background:#fff;color:var(--ink);font-size:clamp(12px,1vw,16px);font-weight:600}
+.site-header .brand-mark,.hero-dot,.hero-name span:before,.hero-name span:after{display:none!important}
+.menu-overlay a.menu-link{font-size:clamp(37px,5.8vw,82px)!important;line-height:1.25!important;letter-spacing:-.055em!important;font-weight:750!important}
+.menu-overlay-inner{padding-top:18px!important}
+.menu-overlay a.menu-link:hover{padding-left:12px;transition:padding .25s,color .25s}
+/* motion that never locks or alters native scrolling */
+@media(prefers-reduced-motion:no-preference){
+ .hero-v12-title{animation:hero-in .85s cubic-bezier(.22,1,.36,1) both}
+ .hero-v12-bottomline{animation:hero-in .9s .1s cubic-bezier(.22,1,.36,1) both}
+ .hero-v12-visual{animation:hero-image-in 1.2s .08s cubic-bezier(.22,1,.36,1) both}
+ .hero-v12-visual img{animation:hero-photo-settle 1.45s cubic-bezier(.22,1,.36,1) both}
+ .gallery-shot,.person-photo,.help-image{transition:clip-path .9s cubic-bezier(.22,1,.36,1),opacity .9s!important}
+ .gallery-shot:not(.v12-visible),.person-photo:not(.v12-visible),.help-image:not(.v12-visible){clip-path:inset(10% 0 0 0);opacity:.75}
+ .gallery-shot.v12-visible,.person-photo.v12-visible,.help-image.v12-visible{clip-path:inset(0);opacity:1}
+ @keyframes hero-in{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:translateY(0)}}
+ @keyframes hero-image-in{from{opacity:.3;clip-path:inset(12% 0 0)}to{opacity:1;clip-path:inset(0)}}
+ @keyframes hero-photo-settle{from{scale:1.045}to{scale:1}}
+}
+@media(max-width:850px){
+ .hero-v12-bottomline{grid-template-columns:1fr;gap:27px}
+ .hero-v12-title{font-size:clamp(50px,11vw,100px);letter-spacing:-.079em}
+ .hero-v12-actions{max-width:640px;width:100%}
+ .hero-v12-visual{height:clamp(410px,74vw,680px)}
+}
+@media(max-width:520px){
+ .hero-v12-intro{padding:20px 18px 32px}
+ .hero-v12-topline{font-size:11px}
+ .hero-about-link{gap:12px}
+ .hero-v12-title{font-size:clamp(45px,11.1vw,66px);letter-spacing:-.076em;margin:48px 0 34px}
+ .hero-v12-bottomline p{font-size:17px;line-height:1.44}
+ .hero-v12-actions a{padding:18px 10px;font-size:11px}
+ .hero-v12-visual{height:440px}
+ .hero-v12-visual-bottom{padding:15px 18px;font-size:11px}
+ .menu-overlay a.menu-link{font-size:clamp(28px,8vw,42px)!important}
+}
+@media(prefers-reduced-motion:reduce){.hero-v12-title,.hero-v12-bottomline,.hero-v12-visual,.hero-v12-visual img{animation:none!important}}
+
+/* V13 — clearer homepage, liquid glass UI, better photo hierarchy */
+.site-header{
+  position:sticky;
+  top:10px;
+  width:min(calc(100% - 18px), calc(var(--max) + 36px));
+  margin:10px auto 0;
+  padding:0 clamp(14px,2.6vw,34px);
+  border:1px solid rgba(20,28,38,.1)!important;
+  border-radius:22px;
+  background:rgba(255,255,255,.68)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(165%);
+  backdrop-filter:blur(18px) saturate(165%);
+  box-shadow:0 14px 40px rgba(13,20,31,.08);
+  transition:transform .38s cubic-bezier(.22,1,.36,1), box-shadow .25s ease, background .25s ease;
+}
+.site-header.header-hidden{transform:translateY(calc(-100% - 18px));}
+.site-header .brand-text{font-size:11px;line-height:1.06}
+.menu-trigger{font-size:11px;letter-spacing:.02em}
+.menu-trigger,.header-donate,.language-switch,.hero-about-link,.hero-v12-actions a{
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  backdrop-filter:blur(16px) saturate(160%);
+}
+.header-donate{
+  gap:16px;
+  padding:12px 16px;
+  background:rgba(22,31,44,.84)!important;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  box-shadow:0 10px 24px rgba(12,20,34,.18);
+}
+.header-donate:hover{background:rgba(35,77,200,.9)!important;transform:translateY(-1px)}
+.language-switch{
+  border:1px solid rgba(20,28,38,.08)!important;
+  border-radius:999px;
+  background:rgba(255,255,255,.55)!important;
+  padding:4px;
+}
+.language-switch button{font-size:10px;padding:8px 9px;border-radius:999px}
+.language-switch button[aria-pressed="true"]{background:rgba(22,31,44,.9)!important;color:#fff}
+.menu-overlay{
+  top:20px;
+  bottom:20px;
+  inset-inline:12px;
+  border-radius:24px;
+  background:rgba(14,25,43,.83)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%);
+  backdrop-filter:blur(24px) saturate(150%);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 60px rgba(7,12,24,.3);
+}
+.menu-overlay a.menu-link{font-size:clamp(24px,4.9vw,62px)!important;letter-spacing:-.055em}
+.hero-v12{padding-top:16px}
+.hero-v12-intro{padding:clamp(24px,3.2vw,56px) clamp(20px,4vw,72px) clamp(26px,4.2vw,62px)}
+.hero-v12-topline{font-size:clamp(11px,.92vw,14px);opacity:.82}
+.hero-about-link{
+  gap:16px;
+  padding:11px 15px;
+  border:1px solid rgba(20,28,38,.1);
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 8px 24px rgba(15,23,40,.06);
+}
+.hero-v12-title{
+  font-size:clamp(48px,9vw,132px)!important;
+  letter-spacing:-.082em!important;
+  line-height:.9!important;
+  max-width:9.8ch;
+}
+.hero-v12-bottomline{grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr)!important;gap:clamp(22px,4vw,74px)!important}
+.hero-v12-bottomline p{font-size:clamp(17px,1.45vw,23px)!important;max-width:780px}
+.hero-v12-actions{gap:14px;border:0!important}
+.hero-v12-actions a{
+  border:1px solid rgba(20,28,38,.11);
+  border-radius:999px;
+  padding:18px 16px!important;
+  background:rgba(255,255,255,.58);
+  box-shadow:0 10px 28px rgba(15,23,40,.06);
+}
+.hero-v12-actions a:first-child{border-right:1px solid rgba(20,28,38,.11)!important}
+.hero-v12-actions a:hover{background:rgba(35,77,200,.88)!important;color:#fff;transform:translateY(-2px)}
+.hero-v12-visual{height:clamp(430px,58vw,760px)!important;border-radius:28px;overflow:hidden;box-shadow:0 28px 70px rgba(18,26,38,.12)}
+.hero-v12-visual:after{content:"";position:absolute;inset:auto 0 0 0;height:28%;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(11,18,29,.16));pointer-events:none}
+.hero-v12-visual-bottom{left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,255,255,.58)!important;border:1px solid rgba(255,255,255,.26);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);box-shadow:0 18px 42px rgba(8,12,22,.18)}
+.photoreport{padding-top:clamp(42px,6vw,88px)}
+.gallery-grid-v13{grid-template-columns:1.15fr .85fr!important;grid-template-rows:repeat(2,minmax(250px,24vw))!important;gap:14px!important}
+.gallery-grid-v13 .gallery-shot{border-radius:24px;overflow:hidden;box-shadow:0 18px 40px rgba(18,26,38,.08)}
+.gallery-grid-v13 .gallery-shot.gallery-featured{grid-row:1 / span 2}
+.gallery-grid-v13 .gallery-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.gallery-grid-v13 .gallery-shot:nth-child(2) img{object-position:center 45%}
+.gallery-grid-v13 .gallery-shot:nth-child(3) img{object-position:center 24%}
+.help-grid{gap:42px!important;align-items:stretch}
+.help-image{min-height:560px;border-radius:28px;box-shadow:0 22px 48px rgba(0,0,0,.18)}
+.help-image img{object-position:center 52%}
+.help-card{
+  border-top:1px solid rgba(255,255,255,.18)!important;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:26px;
+  padding:26px 24px!important;
+  background:rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(16px) saturate(125%);
+  backdrop-filter:blur(16px) saturate(125%);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.help-card + .help-card{margin-top:14px}
+.help-links a{border-top-color:rgba(255,255,255,.18)!important}
+.bank-tabs button,.bank-copy button{transition:transform .2s ease, opacity .2s ease}
+.bank-tabs button:hover,.bank-copy button:hover{transform:translateY(-1px)}
+.photo-motion.motion-in,.text-motion.motion-in{animation-duration:.95s}
+@keyframes glassFloatIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero-v12-actions a,.header-donate,.language-switch,.hero-about-link,.help-card{animation:glassFloatIn .7s both}
+@media(max-width:980px){
+  .hero-v12-bottomline{grid-template-columns:1fr!important;gap:22px!important}
+  .hero-v12-title{max-width:11ch}
+  .gallery-grid-v13{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{grid-column:span 2;grid-row:auto;aspect-ratio:1.35}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:4/5}
+}
+@media(max-width:800px){
+  .site-header{width:calc(100% - 12px);top:6px;margin-top:6px;border-radius:18px}
+  .hero-v12-title{font-size:clamp(42px,10.5vw,72px)!important;max-width:12ch}
+  .hero-v12-actions{grid-template-columns:1fr!important}
+  .hero-v12-visual{height:clamp(360px,68vw,520px)!important;border-radius:22px}
+  .menu-overlay{top:12px;bottom:12px;inset-inline:8px;border-radius:20px}
+  .help-grid{grid-template-columns:1fr!important}
+  .help-image{min-height:360px}
+}
+@media(max-width:520px){
+  .hero-v12-intro{padding:14px 14px 24px}
+  .hero-v12-topline{gap:10px;align-items:flex-start;flex-direction:column}
+  .hero-about-link{padding:10px 13px}
+  .hero-v12-title{font-size:clamp(38px,10.8vw,58px)!important;line-height:.93!important;margin:32px 0 24px!important}
+  .hero-v12-bottomline p{font-size:16px!important}
+  .gallery-grid-v13{gap:10px!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{aspect-ratio:1.18}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:.88}
+}
+
+</style><style id="ios-v14-style">
+/* V14 — iOS-inspired visual language; glass reserved for controls & navigation */
+:root {--ios-text:#152033;--ios-subtext:#556174;--ios-blue:#2876f8;--ios-soft:#f6f8fc;--ios-hairline:rgba(40,57,82,.11);--ios-shape:28px}
+html{scroll-padding-top:84px}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,"Segoe UI",Arial,sans-serif!important;background:#fbfcff;color:var(--ios-text);}
+:where(.site-header,.menu-overlay,.ios-dock,.menu-close-ios,.language-switch,.hero-v12-actions a,.header-donate,.hero-about-link){-webkit-tap-highlight-color:transparent}
+.site-header{height:68px;top:12px;border-radius:25px!important;padding:0 clamp(14px,2.4vw,32px)!important;background:rgba(247,249,254,.78)!important;border:1px solid rgba(255,255,255,.88)!important;box-shadow:0 16px 55px rgba(37,52,84,.13),inset 0 1px 0 rgba(255,255,255,.9);-webkit-backdrop-filter:blur(28px) saturate(175%);backdrop-filter:blur(28px) saturate(175%);}
+.site-header:before{content:"";position:absolute;left:15%;right:15%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,1),transparent);pointer-events:none}
+.site-header.header-hidden{transform:translateY(calc(-100% - 25px))}
+.official-logo{width:38px;height:38px;flex-basis:38px;object-fit:contain}
+.brand-text{font-size:11px!important;line-height:1.14!important;font-weight:750!important;letter-spacing:-.027em!important}
+.menu-trigger{border:1px solid var(--ios-hairline)!important;border-radius:999px;padding:12px 16px;background:rgba(255,255,255,.52)!important;font-weight:670!important;font-size:12px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.65)}
+.menu-trigger .burger i{height:1.7px;width:18px;border-radius:5px}
+.menu-trigger:hover{background:rgba(255,255,255,.88)!important;transform:translateY(-1px)}
+.header-donate{font-size:12px!important;background:rgba(31,52,92,.91)!important;border:1px solid rgba(255,255,255,.29)!important;box-shadow:0 12px 27px rgba(34,58,111,.15),inset 0 1px 1px rgba(255,255,255,.22);transition:transform .35s cubic-bezier(.18,.8,.2,1),background .2s!important}
+.language-switch{border-color:rgba(255,255,255,.85)!important;background:rgba(230,235,247,.72)!important;box-shadow:inset 0 1px 2px rgba(40,65,90,.08)}
+.language-switch button{min-height:30px;transition:background .22s,transform .22s}
+.language-switch button[aria-pressed=true]{background:white!important;color:var(--ios-text)!important;box-shadow:0 2px 8px rgba(21,38,78,.15)}
+.menu-overlay{position:fixed;z-index:95;top:91px;left:clamp(12px,3vw,40px);right:clamp(12px,3vw,40px);bottom:clamp(12px,3vw,38px);background:rgba(20,37,71,.88)!important;color:white!important;border-radius:32px!important;border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 75px rgba(5,16,40,.32);-webkit-backdrop-filter:blur(35px) saturate(160%);backdrop-filter:blur(35px) saturate(160%);transform:translateY(-28px) scale(.985);opacity:0;visibility:hidden;transition:transform .38s cubic-bezier(.22,1,.36,1),opacity .25s,visibility .25s;overflow:auto;overscroll-behavior:contain}
+.menu-overlay.open{transform:none;opacity:1;visibility:visible}
+.menu-overlay-inner{padding:clamp(18px,3vw,44px) clamp(18px,5vw,70px) 54px!important}
+.menu-overlay-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:20px;color:rgba(255,255,255,.65);font-size:13px;font-weight:650;letter-spacing:.02em}
+.menu-close-ios{appearance:none;border:1px solid rgba(255,255,255,.35);width:44px;height:44px;border-radius:999px;background:rgba(255,255,255,.18);color:white;font-size:28px;line-height:1;display:grid;place-items:center;cursor:pointer}
+.menu-close-ios:hover{background:rgba(255,255,255,.28)}
+.menu-overlay a.menu-link{font-family:inherit!important;font-weight:720!important;font-size:clamp(29px,4.8vw,64px)!important;line-height:1.17!important;letter-spacing:-.058em!important;border-color:rgba(255,255,255,.23)!important;padding:14px 0}
+.menu-overlay a.menu-link:hover{color:#fff!important;opacity:.82;padding-left:8px}
+.hero-v12{position:relative;overflow:visible!important;padding:0 0 44px!important}
+.hero-v12-intro{position:relative;padding:clamp(32px,5vw,78px) clamp(20px,4vw,72px) clamp(25px,3.4vw,54px)!important}
+.hero-v12-topline{border:0!important;padding:0!important;opacity:1!important;color:var(--ios-subtext);font-weight:640!important}
+.hero-about-link{font-size:12px;font-weight:650;border-radius:999px;padding:12px 19px!important;background:rgba(246,248,252,.84)!important;border:1px solid var(--ios-hairline)!important;box-shadow:0 6px 19px rgba(28,43,73,.045)}
+.hero-about-link:hover{transform:translateY(-2px);background:white!important}
+.hero-v12-title{font-family:inherit!important;max-width:none!important;font-weight:810!important;letter-spacing:-.095em!important;font-size:clamp(68px,11.35vw,172px)!important;line-height:.85!important;margin:clamp(34px,5.5vw,85px) 0 clamp(34px,5vw,75px)!important;text-wrap:balance;white-space:pre-line}
+.hero-v12-bottomline{display:grid!important;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)!important;align-items:end;gap:clamp(24px,5.5vw,95px)!important}
+.hero-v12-bottomline p{font-weight:480!important;line-height:1.5!important;font-size:clamp(17px,1.5vw,23px)!important;letter-spacing:-.025em;max-width:860px;color:#344358}
+.hero-v12-actions{grid-template-columns:1fr 1fr!important;gap:12px!important;align-items:stretch}
+.hero-v12-actions a{background:rgba(241,246,255,.84)!important;border:1px solid rgba(149,174,222,.26)!important;border-radius:18px!important;min-height:68px;padding:16px 18px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 12px 26px rgba(24,49,90,.075);font-size:12px!important;line-height:1.25;transition:transform .35s cubic-bezier(.2,1.4,.35,1),background .25s,color .25s,box-shadow .25s!important}
+.hero-v12-actions a:first-child{border-right:1px solid rgba(149,174,222,.26)!important;background:rgba(31,75,172,.93)!important;color:white!important}
+.hero-v12-actions a:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(36,78,146,.15)}
+.hero-v12-actions a:first-child:hover{background:#2059c7!important}
+.hero-v12-actions a:not(:first-child):hover{background:white!important;color:var(--ios-text)!important}
+.hero-v12-actions a span[aria-hidden]{font-size:20px;line-height:1}
+.hero-v12-visual{height:clamp(460px,54vw,730px)!important;border-radius:34px!important;isolation:isolate;background:#e8ecf3}
+.hero-v12-visual img{object-position:center 35%!important}
+.hero-v12-visual-bottom{background:rgba(250,252,255,.76)!important;color:#20304a!important;bottom:22px!important;left:22px!important;right:22px!important;border-radius:22px!important;padding:18px 22px!important;border:1px solid rgba(255,255,255,.8)!important;-webkit-backdrop-filter:blur(26px) saturate(155%);backdrop-filter:blur(26px) saturate(155%);box-shadow:inset 0 1px 1px white,0 15px 35px rgba(18,33,58,.14)}
+.section-pad{padding-top:clamp(75px,8vw,125px);padding-bottom:clamp(75px,8vw,125px)}
+.section-title{font-family:inherit!important;letter-spacing:-.075em!important;font-weight:780!important;line-height:1.02!important}
+.linehead{color:var(--ios-subtext);border-top:1px solid var(--ios-hairline)!important}
+.linehead .label{text-transform:none!important;font-size:13px!important;letter-spacing:0!important;font-weight:680!important}
+.mission>.mission-text p{font-weight:450!important;line-height:1.65!important}
+.photoreport{padding-top:50px!important}
+.gallery-grid-v13{gap:14px!important}
+.gallery-grid-v13 .gallery-shot{border-radius:29px!important;box-shadow:0 20px 56px rgba(26,40,65,.09)}
+.gallery-grid-v13 .gallery-shot img{object-fit:cover;filter:none!important}
+.impact{background:#234eb0!important}
+.impact-grid{gap:16px;border-top:0!important}
+.impact-item,.impact-item+.impact-item{border:1px solid rgba(255,255,255,.19)!important;border-radius:26px;padding:29px!important;background:rgba(255,255,255,.075);min-height:270px;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+.help{background:#14233c!important}
+.help-grid{gap:40px!important}
+.help-image{border-radius:32px!important;box-shadow:0 20px 48px rgba(0,0,0,.19)}
+.help-image img{object-position:center 52%!important}
+.help-card{background:#21314e!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:28px!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.help-card h3{font-family:inherit!important;letter-spacing:-.06em}
+.people-grid{gap:18px}
+.person-photo{border-radius:22px}
+.story-row{border-top-color:var(--ios-hairline)!important}
+.story-row:last-child{border-bottom-color:var(--ios-hairline)!important}
+.story-row:hover{background:#f3f6fe!important;border-radius:14px}
+.story-thumb{border-radius:16px}
+.support{background:#f3f6ff!important;color:var(--ios-text)}
+.bank-tabs button{font-family:inherit!important;font-size:clamp(26px,3vw,45px)!important}
+.bank-copy button{border-radius:999px;background:#243f78!important;padding:12px 17px!important}
+.footer{background:#213f8f!important}
+.toast{border-radius:18px;background:rgba(15,31,56,.9)!important;backdrop-filter:blur(20px)}
+.ios-dock{display:none}
+@media(max-width:1060px){.hero-v12-title{font-size:clamp(61px,11vw,110px)!important}.hero-v12-bottomline{grid-template-columns:1fr!important;gap:28px!important}.hero-v12-actions{max-width:620px}}
+@media(max-width:800px){
+  :root{--header:66px}
+  .site-header{top:8px;margin-top:8px;width:calc(100% - 16px);border-radius:22px!important;padding:0 14px!important;grid-template-columns:minmax(0,1fr) auto auto!important}
+  .site-header .brand-text{font-size:9px!important}
+  .official-logo{width:31px;height:31px;flex-basis:31px}
+  .site-header .menu-trigger{order:3;padding:12px!important;border-radius:50%;width:44px;height:44px;justify-content:center}
+  .site-header .menu-trigger #menu-label{display:none}
+  .site-header .language-switch{order:2}
+  .menu-overlay{top:84px;left:8px;right:8px;bottom:94px;border-radius:27px!important}
+  .menu-overlay a.menu-link{font-size:clamp(26px,6.3vw,45px)!important}
+  .hero-v12{padding-top:20px!important}
+  .hero-v12-intro{padding:24px 20px 30px!important}
+  .hero-v12-title{font-size:clamp(53px,11.2vw,87px)!important;letter-spacing:-.09em!important;line-height:.92!important;margin:36px 0!important}
+  .hero-v12-bottomline p{font-size:17px!important}
+  .hero-v12-actions{max-width:620px}
+  .hero-v12-visual{height:clamp(390px,74vw,600px)!important;border-radius:26px!important}
+  .hero-v12-visual-bottom{left:12px!important;right:12px!important;bottom:12px!important;font-size:11px!important;border-radius:17px!important}
+  .gallery-grid-v13{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{grid-column:span 2;grid-row:auto;aspect-ratio:1.35}
+  .gallery-grid-v13 .gallery-shot:not(.gallery-featured){aspect-ratio:4/5}
+  .impact-grid{grid-template-columns:1fr!important}
+  .impact-item,.impact-item+.impact-item{min-height:160px!important}
+  .help-grid{grid-template-columns:1fr!important}
+  .help-image{height:420px;min-height:0!important}
+  body{padding-bottom:95px}
+  .ios-dock{position:fixed;z-index:89;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(510px,calc(100% - 20px));min-height:65px;padding:7px;border:1px solid rgba(255,255,255,.9);border-radius:26px;background:rgba(246,249,255,.82);-webkit-backdrop-filter:blur(25px) saturate(180%);backdrop-filter:blur(25px) saturate(180%);box-shadow:0 15px 45px rgba(19,38,80,.18),inset 0 1px 0 white}
+  .ios-dock-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:5px 2px;border-radius:19px;color:#66758f;font-size:10px;font-weight:680;letter-spacing:-.02em;transition:color .25s,background .25s,transform .25s}
+  .ios-dock-item svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .ios-dock-item.ios-dock-active{color:#2057c3;background:#e8f0ff}
+  .ios-dock-item:active{transform:scale(.95)}
+}
+@media(max-width:520px){
+  .hero-v12-topline{flex-direction:row!important;align-items:center;gap:8px;font-size:10px!important}
+  .hero-about-link{padding:10px 12px!important;gap:10px;white-space:nowrap}
+  .hero-v12-title{font-size:clamp(43px,11vw,63px)!important;margin:32px 0 25px!important;overflow-wrap:normal}
+  .hero-v12-actions{grid-template-columns:1fr 1fr!important;gap:9px!important}
+  .hero-v12-actions a{min-height:72px;font-size:11px!important;padding:12px 13px!important}
+  .hero-v12-visual{height:400px!important}
+  .hero-v12-visual-bottom{padding:12px!important}
+  .section-pad{padding-left:18px!important;padding-right:18px!important}
+  .gallery-grid-v13{gap:9px!important}
+  .gallery-grid-v13 .gallery-shot{border-radius:19px!important}
+  .gallery-grid-v13 .gallery-shot.gallery-featured{aspect-ratio:1.1}
+  .help-image{height:310px}
+  .menu-overlay a.menu-link{font-size:clamp(25px,6.7vw,36px)!important}
+}
+@media(prefers-reduced-motion:reduce){.site-header,.menu-overlay,.ios-dock-item,.hero-v12-actions a,.header-donate{transition:none!important;animation:none!important}}
+@media(prefers-reduced-transparency:reduce){.site-header,.ios-dock,.menu-overlay,.hero-v12-visual-bottom{background:#f6f8fc!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.menu-overlay{background:#172b52!important}}
+@supports not (backdrop-filter:blur(1px)){.site-header,.ios-dock{background:rgba(250,252,255,.97)!important}.menu-overlay{background:#142845!important}}
+</style>
+<style id="v15-story-style">
+/* Editorial scroll storytelling inspired by the supplied SELENE interaction model. */
+:root{--v15-mist:rgba(234,241,253,.84)}
+html{scroll-behavior:smooth}
+body{overflow-x:clip}
+.v15-hero{position:relative;height:215svh;background:#0a1830;color:#fff;isolation:isolate}
+.v15-pinned{position:sticky;top:0;height:100svh;min-height:560px;overflow:hidden;display:flex;align-items:center;isolation:isolate}
+.v15-image-stage{position:absolute;inset:0;overflow:hidden;z-index:-1;background:#0a1830}
+.v15-layer{position:absolute;inset:0;will-change:transform,opacity;pointer-events:none}
+.v15-layer img{display:block;width:100%;height:100%;object-fit:cover;filter:none!important}
+.v15-layer-back{opacity:.72;transform:scale(1.07)}
+.v15-layer-back img{object-position:50% 32%}
+.v15-layer-middle{width:58%;left:auto;right:0;inset-block:0;clip-path:inset(8% 8% 12% 6% round 24px);opacity:.98}
+.v15-layer-middle img{object-position:50% 30%}
+.v15-layer-foreground{width:22%;height:45%;left:4%;top:auto;bottom:2%;opacity:0;clip-path:inset(0 round 16px)}
+.v15-layer-foreground img{object-position:center}
+.v15-image-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,13,30,.85),rgba(5,13,30,.54) 45%,rgba(5,13,30,.10) 78%),linear-gradient(0deg,rgba(5,13,30,.65),transparent 50%);pointer-events:none}
+.v15-hero-content{position:relative;display:flex;flex-direction:column;justify-content:center;width:100%;padding:125px clamp(22px,5vw,80px) 105px;min-height:100%;gap:clamp(22px,3vh,36px);pointer-events:none}
+.v15-hero-content a{pointer-events:auto}
+.v15-hero-identifier{font-size:clamp(11px,.95vw,15px);font-weight:650;letter-spacing:.03em;opacity:.86;text-transform:uppercase}
+.v15-hero-title{font-size:clamp(58px,10.5vw,170px);font-weight:800;letter-spacing:-.089em;line-height:.88;max-width:11ch;text-transform:uppercase;text-wrap:balance;text-shadow:0 8px 70px rgba(0,0,0,.16)}
+.v15-hero-footer{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(290px,.85fr);align-items:end;gap:clamp(24px,5vw,90px);max-width:1280px}
+.v15-hero-footer p{font-size:clamp(15px,1.35vw,20px);line-height:1.56;max-width:630px;color:rgba(255,255,255,.92);font-weight:430}
+.v15-hero-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.v15-hero-actions a{display:flex;justify-content:space-between;align-items:center;gap:18px;min-height:56px;padding:15px 19px;border-radius:999px;font-size:12px;font-weight:700;flex:1;white-space:nowrap;border:1px solid rgba(255,255,255,.5);background:rgba(245,250,255,.18);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:inset 0 1px rgba(255,255,255,.38),0 14px 32px rgba(0,0,0,.12);transition:transform .25s,background .25s}
+.v15-hero-actions a:first-child{background:rgba(255,255,255,.96);color:#152443}
+.v15-hero-actions a:hover{transform:translateY(-3px);background:rgba(255,255,255,.82);color:#14233b}
+.v15-hero-actions a span[aria-hidden]{font-size:20px}
+.v15-hero-scroll{position:absolute;bottom:24px;right:clamp(24px,4vw,64px);display:flex;align-items:center;gap:13px;font-size:11px;font-weight:750;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.74);pointer-events:none}
+.v15-scroll-line{height:1px;width:55px;background:currentColor}
+.v15-stage-progress{position:absolute;left:0;bottom:0;height:3px;width:100%;background:rgba(255,255,255,.1)}
+.v15-stage-progress span{display:block;width:100%;height:100%;background:#fff;transform:scaleX(0);transform-origin:left}
+.v15-reel-section{height:265svh;background:#fafcff;position:relative;overflow:clip}.v15-reel-sticky{position:sticky;top:0;height:100svh;min-height:570px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:clamp(70px,9vh,115px) 0 30px}
+.v15-reel-head{display:flex;justify-content:space-between;align-items:end;gap:24px;padding:0 clamp(20px,4vw,72px) 22px;width:100%}
+.v15-reel-head .linehead{width:min(230px,45vw);padding:12px 0 6px}
+.v15-reel-head .section-title{font-size:clamp(44px,6vw,100px)!important;margin:6px 0 0}
+.v15-reel-hint{font-size:13px;display:flex;gap:12px;align-items:center;color:#5d6c86;font-weight:630}
+.v15-reel-viewport{overflow:visible;width:100%}
+.v15-reel-track{display:flex;align-items:center;gap:clamp(18px,2.3vw,35px);padding-left:max(20px,calc((100vw - 1500px)/2 + 70px));padding-right:4vw;will-change:transform}
+.v15-reel-card{position:relative;flex:0 0 clamp(280px,34vw,550px);height:min(53vh,500px);min-height:250px;margin:0;overflow:hidden;border-radius:26px;background:#e6ebf4;box-shadow:0 20px 60px rgba(22,37,59,.10);opacity:.68;transform:scale(.95);transition:opacity .2s,box-shadow .2s}
+.v15-reel-card img{width:100%;height:100%;object-fit:cover;filter:none!important;transform:scale(1.05)}
+.v15-reel-card figcaption{position:absolute;left:14px;bottom:14px;max-width:calc(100% - 28px);padding:10px 16px;border-radius:999px;background:rgba(253,254,255,.84);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);color:#17263d;font-size:13px;font-weight:670}
+.v15-reel-progress{display:flex;align-items:center;gap:20px;margin-top:24px;padding:0 clamp(20px,4vw,72px);font-size:12px;color:#53647b}
+.v15-reel-progress-line{width:min(260px,50vw);height:3px;border-radius:100px;overflow:hidden;background:#dce3ee}
+.v15-reel-progress-line span{display:block;height:100%;background:#2876f8;transform-origin:left;transform:scaleX(0)}
+.v15-impact-track{width:100%;height:2px;background:rgba(255,255,255,.19);margin-top:36px;overflow:hidden}
+.v15-impact-track span{display:block;width:100%;height:100%;background:#fff;transform-origin:left;transform:scaleX(0)}
+@media(max-width:900px){
+ .v15-hero-footer{grid-template-columns:1fr;gap:20px}
+ .v15-hero-content{padding:105px 24px 90px}
+ .v15-hero-title{font-size:clamp(58px,11vw,110px)}
+ .v15-layer-middle{width:64%;opacity:.76}
+ .v15-image-veil{background:linear-gradient(90deg,rgba(5,13,30,.85),rgba(5,13,30,.44)),linear-gradient(0deg,rgba(5,13,30,.66),transparent 70%)}
+ .v15-reel-card{flex-basis:clamp(260px,54vw,440px)}
+}
+@media(max-width:620px){
+ .v15-hero{height:175svh}
+ .v15-pinned{min-height:0}
+ .v15-hero-content{padding:104px 18px 124px;justify-content:center;gap:20px}
+ .v15-hero-identifier{font-size:10px}
+ .v15-hero-title{font-size:clamp(48px,12.2vw,74px);line-height:.95;letter-spacing:-.08em}
+ .v15-hero-footer p{font-size:15px;line-height:1.46}
+ .v15-hero-actions{gap:8px}
+ .v15-hero-actions a{padding:12px 13px;font-size:10px;min-height:52px;white-space:normal}
+ .v15-layer-back{opacity:.8}
+ .v15-layer-middle{width:94%;height:60%;top:13%;right:-12%;opacity:.52;clip-path:inset(0 round 14px)}
+ .v15-layer-foreground{width:45%;height:28%;bottom:12%;left:-6%;opacity:0}
+ .v15-hero-scroll{right:18px;bottom:96px}
+ .v15-reel-section{height:230svh}
+ .v15-reel-sticky{padding:88px 0 100px;min-height:0}
+ .v15-reel-head{align-items:start;flex-direction:column;gap:8px}
+ .v15-reel-hint{font-size:11px}
+ .v15-reel-card{flex-basis:77vw;height:min(51vh,470px);border-radius:22px}
+ .v15-reel-track{gap:14px;padding-left:18px}
+ .v15-reel-progress{margin-top:20px}
+}
+@media(prefers-reduced-motion:reduce){
+ .v15-hero{height:100svh}
+ .v15-reel-section{height:auto}
+ .v15-reel-sticky{position:relative;height:auto;padding:90px 0 40px}
+ .v15-reel-viewport{overflow-x:auto;scroll-snap-type:x mandatory}
+ .v15-reel-card{scroll-snap-align:center;opacity:1;transform:none!important}
+ .v15-layer-middle{opacity:.6!important;transform:none!important}
+ .v15-layer-foreground{display:none}
+ .v15-hero-actions a,.v15-reel-card{transition:none!important}
+}
+</style>
+</head>
+<body>
+<a id="top"></a>
+<header class="site-header">
+<a aria-label="Головна — Рієлтори України" class="brand" href="#top">
+<img alt="" class="official-logo" height="42" src="https://bf-asnu.org.ua/files/img/logo.svg" width="42"/>
+<span class="brand-text"><span data-en="CHARITABLE FOUNDATION" data-ua="БЛАГОДІЙНИЙ ФОНД">БЛАГОДІЙНИЙ ФОНД</span><br/><span data-en="REALTORS OF UKRAINE" data-ua="РІЄЛТОРИ УКРАЇНИ">РІЄЛТОРИ УКРАЇНИ</span></span>
+</a>
+<button aria-controls="site-menu" aria-expanded="false" class="menu-trigger" id="menu-trigger" type="button">
+<span aria-hidden="true" class="burger">
+<i></i>
+<i></i>
+</span>
+<span data-en="Menu" data-ua="Меню" id="menu-label">Меню</span>
+</button>
+<a class="header-donate" href="#support"><span data-en="Support" data-ua="Підтримати">Підтримати</span><span class="hide-mobile" data-en="the fund" data-ua="фонд">фонд</span>
+<span aria-hidden="true">↗</span>
+</a><div aria-label="Мова / Language" class="language-switch" role="group"><button aria-pressed="true" data-lang="uk" type="button">УКР</button><button aria-pressed="false" data-lang="en" type="button">ENG</button></div>
+</header>
+<nav aria-label="Головне меню" class="menu-overlay" id="site-menu" inert>
+<div class="menu-overlay-inner">
+<div class="menu-overlay-toolbar"><span data-ua="Навігація" data-en="Navigation">Навігація</span><button type="button" class="menu-close-ios" id="menu-close-ios" aria-label="Закрити меню" data-label-ua="Закрити меню" data-label-en="Close menu"><span aria-hidden="true">×</span></button></div>
+<a class="menu-link" data-en="About the fund" data-ua="Про фонд" href="#about">Про фонд </a>
+<a class="menu-link" data-en="Impact" data-ua="Результати" href="#impact">Результати </a>
+<a class="menu-link" data-en="Get assistance" data-ua="Отримати допомогу" href="#help">Отримати допомогу </a>
+<a class="menu-link" data-en="Stories" data-ua="Історії" href="#stories">Історії </a>
+<a class="menu-link" data-en="Team" data-ua="Команда" href="#team">Команда </a>
+<a class="menu-link" data-en="Support" data-ua="Підтримати" href="#support">Підтримати </a>
+<a class="menu-link" data-en="Contacts" data-ua="Контакти" href="#contacts">Контакти </a>
+<div class="menu-foot">
+<span data-en="CF “REALTORS OF UKRAINE”" data-ua="БО «БФ «РІЄЛТОРИ УКРАЇНИ»">БО «БФ «РІЄЛТОРИ УКРАЇНИ»</span>
+<a href="mailto:bf.asnu@gmail.com">BF.ASNU@GMAIL.COM ↗</a>
+</div>
+</div>
+</nav>
+<main>
+<section aria-labelledby="home-title" class="v15-hero" id="top-stage">
+  <div class="v15-pinned">
+    <div class="v15-image-stage" aria-hidden="true">
+      <div class="v15-layer v15-layer-back"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8461_1400x1600.jpeg" alt="" fetchpriority="high"></div>
+      <div class="v15-layer v15-layer-middle"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-20221108-wa0000_1400x1600.jpg" alt="" fetchpriority="high"></div>
+      <div class="v15-layer v15-layer-foreground"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_850x475.jpeg" alt="" loading="lazy"></div>
+      <div class="v15-image-veil"></div>
+    </div>
+    <div class="v15-hero-content shell">
+      <div class="v15-hero-identifier" data-en="Realtors of Ukraine Charitable Foundation" data-ua="Благодійний фонд «Рієлтори України»">Благодійний фонд «Рієлтори України»</div>
+      <h1 id="home-title" class="v15-hero-title" data-en="REALTORS OF UKRAINE" data-ua="РІЄЛТОРИ УКРАЇНИ">РІЄЛТОРИ УКРАЇНИ</h1>
+      <div class="v15-hero-footer">
+        <p data-en="The purpose of the Realtors of Ukraine Charitable Foundation is to raise and provide charitable assistance to Ukrainian real estate professionals and their families affected by military aggression." data-ua="Ціллю діяльності БО БФ «РІЄЛТОРИ УКРАЇНИ» є залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.">Ціллю діяльності БО БФ «РІЄЛТОРИ УКРАЇНИ» є залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.</p>
+        <div class="v15-hero-actions"><a href="#help"><span data-en="Get assistance" data-ua="Отримати допомогу">Отримати допомогу</span><span aria-hidden="true">↗</span></a><a href="#support"><span data-en="Support the foundation" data-ua="Підтримати фонд">Підтримати фонд</span><span aria-hidden="true">↗</span></a></div>
+      </div>
+    </div>
+    <div class="v15-hero-scroll" aria-hidden="true"><span data-en="Scroll" data-ua="Гортайте">Гортайте</span><span class="v15-scroll-line"></span></div>
+    <div class="v15-stage-progress" aria-hidden="true"><span></span></div>
+  </div>
+</section>
+<section aria-labelledby="about-title" class="mission section-pad shell" id="about">
+<div class="linehead">
+<span class="label" data-en="About us" data-ua="Про нас">Про нас</span>
+</div>
+<div class="mission-text reveal text-motion">
+<h2 class="section-title text-motion" data-en="About us" data-ua="Про нас" id="about-title">Про нас</h2>
+<p class="mission-side" data-en="The Realtors of Ukraine Charitable Foundation was established by the nationwide public organization Association of Real Estate Professionals (Realtors) of Ukraine (AFNU)." data-ua="Благодійна організація «Благодійний фонд «РІЄЛТОРИ УКРАЇНИ» був створений Всеукраїнською громадською організацією «Асоціація фахівців з нерухомості (рієлторів) України» (АФНУ).">Благодійна організація «Благодійний фонд «РІЄЛТОРИ УКРАЇНИ» був створений Всеукраїнською громадською організацією «Асоціація фахівців з нерухомості (рієлторів) України» (АФНУ).</p>
+</div>
+<div class="mission-text reveal text-motion">
+<p data-en="The purpose of the Realtors of Ukraine Charitable Foundation is to raise and provide charitable assistance to Ukrainian real estate professionals and their families affected by military aggression." data-ua="Ціллю діяльності БО БФ «РІЄЛТОРИ УКРАЇНИ» є залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.">Ціллю діяльності БО БФ «РІЄЛТОРИ УКРАЇНИ» є залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.</p>
+<p class="mission-side" data-en="The Realtors of Ukraine Charitable Foundation devotes its efforts and expertise to helping people and creating opportunities to support those affected by the war." data-ua="БО БФ «РІЄЛТОРИ УКРАЇНИ» вкладає свої сили та вміння для допомоги, а також створює можливості підтримки постраждалим від наслідків війни.">БО БФ «РІЄЛТОРИ УКРАЇНИ» вкладає свої сили та вміння для допомоги, а також створює можливості підтримки постраждалим від наслідків війни.</p>
+</div>
+</section><section aria-labelledby="photos-title" class="v15-reel-section" id="photos">
+  <div class="v15-reel-sticky">
+    <div class="v15-reel-head shell">
+      <div><div class="linehead"><span class="label" data-en="Photographs" data-ua="Фотографії">Фотографії</span></div><h2 class="section-title" id="photos-title" data-en="Photographs" data-ua="Фотографії">Фотографії</h2></div>
+      <div class="v15-reel-hint"><span data-en="Scroll to explore" data-ua="Гортайте, щоб переглянути">Гортайте, щоб переглянути</span><span aria-hidden="true">↗</span></div>
+    </div>
+    <div class="v15-reel-viewport">
+      <div class="v15-reel-track">
+        <figure class="v15-reel-card"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-4355-1_1400x1600.png" alt="Представники АФНУ на спільному заході" loading="lazy"><figcaption data-en="Association event" data-ua="Захід АФНУ">Захід АФНУ</figcaption></figure>
+        <figure class="v15-reel-card"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8461_1400x1600.jpeg" alt="Представники АФНУ з прапором" loading="lazy"><figcaption data-en="Representatives of AFNU" data-ua="Представники АФНУ">Представники АФНУ</figcaption></figure>
+        <figure class="v15-reel-card"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_850x475.jpeg" alt="Допомога жителям Херсона" loading="lazy"><figcaption data-en="Aid to Kherson" data-ua="Допомога Херсону">Допомога Херсону</figcaption></figure>
+        <figure class="v15-reel-card"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8442_1400x1600.jpeg" alt="Фотографія з постраждалого міста" loading="lazy"><figcaption data-en="Ukraine" data-ua="Україна">Україна</figcaption></figure>
+      </div>
+    </div>
+    <div class="v15-reel-progress shell"><span class="v15-reel-count">01 / 04</span><div class="v15-reel-progress-line"><span></span></div></div>
+  </div>
+</section>
+<section aria-labelledby="impact-title" class="impact section-pad" id="impact">
+<div class="shell">
+<div class="linehead">
+<span class="label" data-en="Impact" data-ua="Результати">Результати</span>
+</div>
+<h2 class="section-title impact-title reveal text-motion" data-en="Who we have helped" data-ua="Кому ми вже допомогли" id="impact-title">Кому ми вже допомогли</h2>
+<div class="v15-impact-track" aria-hidden="true"><span></span></div>
+<div class="impact-grid">
+<div class="impact-item reveal text-motion">
+<strong class="impact-big">241</strong>
+<p data-en="families received assistance, according to the foundation’s publication of 4 November 2022." data-ua="родина отримала допомогу за даними публікації фонду від 04.11.2022.">родина отримала допомогу за даними публікації фонду від 04.11.2022.</p>
+</div>
+<div class="impact-item reveal text-motion">
+<strong class="impact-word">
+                            АФНУ
+                            <br/>
+                            × NAR
+                        </strong>
+<p data-en="Cooperation between the Association of Real Estate Professionals of Ukraine and the US National Association of Realtors." data-ua="Співпраця Асоціації фахівців з нерухомості України та Національної асоціації рієлторів США.">Співпраця Асоціації фахівців з нерухомості України та Національної асоціації рієлторів США.</p>
+</div>
+<div class="impact-item reveal text-motion">
+<strong class="impact-word"><span data-en="Ukraine" data-ua="Україна">Україна</span><br/><span data-en="and the world" data-ua="та світ">та світ</span></strong>
+<p data-en="Support also came from Romanian colleagues at Asociatia Profesionala a Agentilor Imobiliari din Romania." data-ua="Підтримка також від румунських колег із Asociatia Profesionala a Agentilor Imobiliari din Romania.">Підтримка також від румунських колег із Asociatia Profesionala a Agentilor Imobiliari din Romania.</p>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="stories-title" class="section-pad shell" id="stories">
+<div class="linehead">
+<span class="label" data-en="Our stories" data-ua="Наші історії">Наші історії</span>
+</div>
+<div class="editorial-head">
+<h2 class="section-title reveal text-motion" data-en="Stories of assistance" data-ua="Історії допомоги" id="stories-title">Історії допомоги</h2>
+<p class="reveal" data-en="Open a story to read it in full." data-ua="Відкрийте історію, щоб прочитати її повністю.">Відкрийте історію, щоб прочитати її повністю.</p>
+</div>
+<div class="story-list">
+<button aria-label="Читати: Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania" class="story-row text-motion" data-open-story="story-1" type="button">
+<span class="story-main">
+<span class="story-date">17.07.2023</span>
+<span class="story-title" data-en="The Realtors of Ukraine Charitable Foundation expresses deep gratitude to Asociatia Profesionala a Agentilor Imobiliari din Romania" data-ua="Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania">Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania</span>
+</span>
+<img alt="Фотографія з матеріалу «Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Благодійний Фонд «Realtors of Ukraine» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania»" data-alt-ua="Фотографія з матеріалу «Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/zobrazhennya-viber-2023-07-15-14-53-58-511_850x475.jpg"/>
+</button>
+<button aria-label="Читати: Нова програма допомоги" class="story-row text-motion" data-open-story="story-2" type="button">
+<span class="story-main">
+<span class="story-date">03.06.2023</span>
+<span class="story-title" data-en="New assistance programme" data-ua="Нова програма допомоги">Нова програма допомоги</span>
+</span>
+<img alt="Фотографія з матеріалу «Нова програма допомоги»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Нова програма допомоги»" data-alt-ua="Фотографія з матеріалу «Нова програма допомоги»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/fond_850x475.png"/>
+</button>
+<button aria-label='Читати: БФ "Рієлтори України " продовжують отримувати листи подяки' class="story-row text-motion" data-open-story="story-3" type="button">
+<span class="story-main">
+<span class="story-date">22.02.2023</span>
+<span class="story-title" data-en="The Realtors of Ukraine Foundation continues to receive letters of thanks" data-ua='БФ "Рієлтори України " продовжують отримувати листи подяки'>БФ "Рієлтори України " продовжують отримувати листи подяки</span>
+</span>
+<img alt='Фотографія з матеріалу «БФ "Рієлтори України " продовжують отримувати листи подяки»' class="story-thumb" data-alt-en='Фотографія з матеріалу «БФ "Realtors of Ukraine " продовжують отримувати листи подяки»' data-alt-ua='Фотографія з матеріалу «БФ "Рієлтори України " продовжують отримувати листи подяки»' decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/4f855785-d542-41ef-8938-41b6d06c5cb8_420x475.jpeg"/>
+</button>
+<button aria-label="Читати: Ми відкрили нову програму допомоги та збираємо заявки" class="story-row text-motion" data-open-story="story-4" type="button">
+<span class="story-main">
+<span class="story-date">03.02.2023</span>
+<span class="story-title" data-en="We have launched a new assistance programme and are accepting applications" data-ua="Ми відкрили нову програму допомоги та збираємо заявки">Ми відкрили нову програму допомоги та збираємо заявки</span>
+</span>
+<img alt="Фотографія з матеріалу «Ми відкрили нову програму допомоги та збираємо заявки»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Ми відкрили нову програму допомоги та збираємо заявки»" data-alt-ua="Фотографія з матеріалу «Ми відкрили нову програму допомоги та збираємо заявки»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/2u_850x475.png"/>
+</button>
+<button aria-label='Читати: БФ "Рієлтори України" продовжує надавати допомогу' class="story-row text-motion" data-open-story="story-5" type="button">
+<span class="story-main">
+<span class="story-date">03.02.2023</span>
+<span class="story-title" data-en="The Realtors of Ukraine Foundation continues to provide assistance" data-ua='БФ "Рієлтори України" продовжує надавати допомогу'>БФ "Рієлтори України" продовжує надавати допомогу</span>
+</span>
+<img alt='Фотографія з матеріалу «БФ "Рієлтори України" продовжує надавати допомогу»' class="story-thumb" data-alt-en='Фотографія з матеріалу «БФ "Realtors of Ukraine" продовжує надавати допомогу»' data-alt-ua='Фотографія з матеріалу «БФ "Рієлтори України" продовжує надавати допомогу»' decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/48542cae-1985-47b0-87da-77e62f9a328f_850x475.jpeg"/>
+</button>
+<button aria-label="Читати: Допомога Херсону від БФ «Рієлтори України»" class="story-row text-motion" data-open-story="story-6" type="button">
+<span class="story-main">
+<span class="story-date">03.02.2023</span>
+<span class="story-title" data-en="Aid to Kherson from the Realtors of Ukraine Foundation" data-ua="Допомога Херсону від БФ «Рієлтори України»">Допомога Херсону від БФ «Рієлтори України»</span>
+</span>
+<img alt="Фотографія з матеріалу «Допомога Херсону від БФ «Рієлтори України»»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Допомога Херсону від БФ «Realtors of Ukraine»»" data-alt-ua="Фотографія з матеріалу «Допомога Херсону від БФ «Рієлтори України»»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_420x475.jpeg"/>
+</button>
+<button aria-label="Читати: Благодійний фонд «Рієлтори України» розширює програму допомоги членам АФНУ" class="story-row text-motion" data-open-story="story-7" type="button">
+<span class="story-main">
+<span class="story-date">02.01.2023</span>
+<span class="story-title" data-en="The Realtors of Ukraine Foundation expands its assistance programme for AFNU members" data-ua="Благодійний фонд «Рієлтори України» розширює програму допомоги членам АФНУ">Благодійний фонд «Рієлтори України» розширює програму допомоги членам АФНУ</span>
+</span>
+<img alt="Фотографія з матеріалу «Благодійний фонд «Рієлтори України» розширює програму допомоги членам АФНУ»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Charitable Foundation «Realtors of Ukraine» розширює програму допомоги членам АФНУ»" data-alt-ua="Фотографія з матеріалу «Благодійний фонд «Рієлтори України» розширює програму допомоги членам АФНУ»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/48542cae-1985-47b0-87da-77e62f9a328f_420x475.jpeg"/>
+</button>
+<button aria-label="Читати: БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам" class="story-row text-motion" data-open-story="story-8" type="button">
+<span class="story-main">
+<span class="story-date">04.11.2022</span>
+<span class="story-title" data-en="The Realtors of Ukraine Foundation makes its first charitable payments to URA members and their families" data-ua="БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам">БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам</span>
+</span>
+<img alt="Фотографія з матеріалу «БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам»" class="story-thumb" data-alt-en="Фотографія з матеріалу «БФ «Realtors of Ukraine» здійснив перші виплати благодійної допомоги членам URA та їх родинам»" data-alt-ua="Фотографія з матеріалу «БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/pershi-vyplaty-blagodijnoyi-dopomogy_420x475.jpg"/>
+</button>
+</div>
+</section>
+<section aria-labelledby="help-title" class="help section-pad" id="help">
+<div class="shell">
+<div class="linehead">
+<span class="label" data-en="Get assistance" data-ua="Отримати допомогу">Отримати допомогу</span>
+</div>
+<h2 class="section-title reveal text-motion" id="help-title"><span data-en="Need" data-ua="Потрібна">Потрібна</span><br/><span data-en="support?" data-ua="підтримка?">підтримка?</span></h2>
+<div class="help-grid">
+<div class="help-image reveal photo-motion">
+<img alt="Фото з новини фонду про підтримку постраждалих від російської агресії" data-alt-en="Фото з новини фонду про підтримку постраждалих від російської агресії" data-alt-ua="Фото з новини фонду про підтримку постраждалих від російської агресії" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/48542cae-1985-47b0-87da-77e62f9a328f_850x475.jpeg"/>
+</div>
+<div>
+<div class="help-card reveal text-motion">
+<h3 data-en="Who the fund helps" data-ua="Кому допомагає фонд">Кому допомагає фонд</h3>
+<p data-en="Ukrainian real estate professionals and their families affected by military aggression. The foundation has described assistance with medical treatment, home repairs, and support for those affected." data-ua="Рієлторам України та їхнім родинам, які постраждали від наслідків військової агресії. У матеріалах фонду описані випадки допомоги на лікування, відновлення житла та підтримку постраждалих.">Рієлторам України та їхнім родинам, які постраждали від наслідків військової агресії. У матеріалах фонду описані випадки допомоги на лікування, відновлення житла та підтримку постраждалих.</p>
+</div>
+<div class="help-card reveal text-motion">
+<h3 data-en="How to apply" data-ua="Як звернутися">Як звернутися</h3>
+<p data-en="In 2023, the foundation described submitting an application with supporting documents. Please confirm the current conditions, programme status and availability of assistance directly with the foundation." data-ua="У новинах 2023 року фонд описував подання заяви й підтверджувальних документів. Актуальні умови, статус програми та доступність допомоги необхідно підтвердити безпосередньо у фонді.">У новинах 2023 року фонд описував подання заяви й підтверджувальних документів. Актуальні умови, статус програми та доступність допомоги необхідно підтвердити безпосередньо у фонді.</p>
+<div class="help-links">
+<a href="mailto:bf.asnu@gmail.com?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%82%20%D1%89%D0%BE%D0%B4%D0%BE%20%D0%BE%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B4%D0%BE%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8"><span data-en="Ask about current conditions" data-ua="Уточнити чинні умови">Уточнити чинні умови</span><span>↗</span>
+</a>
+<a href="https://docs.google.com/document/d/1FU_rWkTDEIQJjwxOmtLKUpZWDhfpi_7J/edit?usp=drive_link" rel="noopener" target="_blank"><span data-en="2023 programme document" data-ua="Документ програми 2023">Документ програми 2023</span><span>↗</span>
+</a>
+<a href="https://docs.google.com/document/d/1hxOxCCuM4-y7vUYBL97e_oL-mJzyj2K4/edit?usp=drive_link" rel="noopener" target="_blank"><span data-en="Second 2023 programme document" data-ua="Другий документ програми 2023">Другий документ програми 2023</span><span>↗</span>
+</a>
+</div>
+<p class="help-disclaimer" data-en="These documents relate to the 2023 programme and do not confirm that applications are being accepted in 2026." data-ua="Ці документи пов'язані з архівною програмою 2023 року, а не підтверджують новий набір заявок у 2026 році.">Ці документи пов'язані з архівною програмою 2023 року, а не підтверджують новий набір заявок у 2026 році.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="team-title" class="section-pad shell" id="team">
+<div class="linehead">
+<span class="label" data-en="Team" data-ua="Команда">Команда</span>
+</div>
+<h2 class="section-title reveal text-motion" data-en="Our team" data-ua="Команда фонду" id="team-title">Команда фонду</h2>
+<div class="people-grid">
+<article class="person reveal">
+<div class="person-photo photo-motion">
+<img alt="Володимир Яцуба" data-alt-en="Володимир Яцуба" data-alt-ua="Володимир Яцуба" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/volodymyr-yacuba-vice-prezydent-asociaciyi-fakhivciv-z-nerukhomosti-afnu_540x540.jpg"/>
+</div>
+<div class="person-name text-motion" data-en="Volodymyr Yatsuba" data-ua="Володимир Яцуба">Володимир Яцуба</div>
+<div class="person-role" data-en="Head of the Realtors of Ukraine Charitable Foundation" data-ua="Голова Благодійного фонду «Рієлтори України»">Голова Благодійного фонду «Рієлтори України»</div>
+</article>
+<article class="person reveal">
+<div class="person-photo photo-motion">
+<img alt="Андрій Правдін" data-alt-en="Андрій Правдін" data-alt-ua="Андрій Правдін" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/andrij-pravdin-golova-blagodijnogo-fondu-riyeltory-ukrayiny_540x540.jpg"/>
+</div>
+<div class="person-name text-motion" data-en="Andrii Pravdin" data-ua="Андрій Правдін">Андрій Правдін</div>
+<div class="person-role" data-en="Head of the Kharkiv branch of AFNU" data-ua="Голова Харківського відділення АФНУ">Голова Харківського відділення АФНУ</div>
+</article>
+<article class="person reveal">
+<div class="person-photo photo-motion">
+<img alt="Юрій Піта" data-alt-en="Юрій Піта" data-alt-ua="Юрій Піта" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/yurij-pita-prezydent-asociaciyi-fakhivciv-z-nerukhomosti-afnu_540x540.jpg"/>
+</div>
+<div class="person-name text-motion" data-en="Yurii Pita" data-ua="Юрій Піта">Юрій Піта</div>
+<div class="person-role" data-en="Executive Director of AFNU" data-ua="Виконавчий директор АФНУ">Виконавчий директор АФНУ</div>
+</article>
+<article class="person reveal">
+<div class="person-photo photo-motion">
+<img alt="Ігор Балака" data-alt-en="Ігор Балака" data-alt-ua="Ігор Балака" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/igor-balaka-vice-prezydent-asociaciyi-fakhivciv-z-nerukhomosti-afnu_540x540.jpg"/>
+</div>
+<div class="person-name text-motion" data-en="Ihor Balaka" data-ua="Ігор Балака">Ігор Балака</div>
+<div class="person-role" data-en="Vice President of the Association of Real Estate Professionals (AFNU)" data-ua="Віце-президент Асоціації фахівців з нерухомості (АФНУ)">Віце-президент Асоціації фахівців з нерухомості (АФНУ)</div>
+</article>
+<article class="person reveal">
+<div class="person-photo photo-motion">
+<img alt="Олена Гайдамаха" data-alt-en="Олена Гайдамаха" data-alt-ua="Олена Гайдамаха" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/olena-gajdamakha-vice-prezydent-asociaciyi-fakhivciv-z-nerukhomosti-afnu_540x540.jpg"/>
+</div>
+<div class="person-name text-motion" data-en="Olena Haidamakha" data-ua="Олена Гайдамаха">Олена Гайдамаха</div>
+<div class="person-role" data-en="President of AFNU" data-ua="Президент АФНУ">Президент АФНУ</div>
+</article>
+</div>
+</section>
+<section aria-labelledby="support-title" class="support section-pad" id="support">
+<div class="shell">
+<div class="linehead">
+<span class="label" data-en="Support" data-ua="Підтримати">Підтримати</span>
+</div>
+<div class="support-lead">
+<h2 class="section-title reveal text-motion" id="support-title"><span data-en="Your" data-ua="Ваша">Ваша</span><br/><span data-en="support" data-ua="підтримка">підтримка</span><br/><span data-en="matters." data-ua="має значення.">має значення.</span></h2>
+<p data-en="Choose a currency and copy the foundation’s banking details." data-ua="Оберіть валюту та скопіюйте реквізити благодійного фонду.">Оберіть валюту та скопіюйте реквізити благодійного фонду.</p>
+</div>
+<div class="support-layout">
+<div aria-label="Валюта переказу" class="bank-tabs" role="tablist">
+<button aria-controls="bank-uah" aria-selected="true" data-tab="uah" id="tab-uah" role="tab" type="button">UAH</button>
+<button aria-controls="bank-eur" aria-selected="false" data-tab="eur" id="tab-eur" role="tab" type="button">EUR</button>
+<button aria-controls="bank-usd" aria-selected="false" data-tab="usd" id="tab-usd" role="tab" type="button">USD</button>
+</div>
+<div class="banks">
+<section aria-labelledby="tab-uah" class="bank-panel active" id="bank-uah" role="tabpanel">
+<div class="bank-copy">
+<div class="bank-label" data-en="Legal entity name" data-ua="Назва юридичної особи">Назва юридичної особи</div>
+<strong data-en="CF “REALTORS OF UKRAINE”" data-ua="БФ «РІЄЛТОРИ УКРАЇНИ»">БФ «РІЄЛТОРИ УКРАЇНИ»</strong>
+</div>
+<div class="bank-copy">
+<div class="bank-label">ЄДРПОУ</div>
+<strong>44688310</strong>
+<button data-copy="44688310" data-en="Copy ↗" data-ua="Копіювати ↗" type="button">Копіювати ↗</button>
+</div>
+<div class="bank-copy bank-important">
+<div class="bank-label" data-en="IBAN · UAH" data-ua="IBAN · ГРИВНЯ">IBAN · ГРИВНЯ</div>
+<strong>UA923348510000000026002182607</strong>
+<button data-copy="UA923348510000000026002182607" data-en="Copy ↗" data-ua="Копіювати ↗" type="button">Копіювати ↗</button>
+</div>
+<div class="bank-copy">
+<div class="bank-label" data-en="Bank / MFO" data-ua="Банк / МФО">Банк / МФО</div>
+<strong>АТ «ПУМБ» · 334851</strong>
+</div>
+</section>
+<section aria-labelledby="tab-eur" class="bank-panel" hidden="" id="bank-eur" role="tabpanel">
+<div class="bank-copy">
+<div class="bank-label">Name</div>
+<strong>CF "REALTORS OF UKRAINE"</strong>
+</div>
+<div class="bank-copy bank-important">
+<div class="bank-label">IBAN / EUR</div>
+<strong>UA923348510000000026002182607</strong>
+<button data-copy="UA923348510000000026002182607" data-en="Copy ↗" data-ua="Копіювати ↗" type="button">Копіювати ↗</button>
+</div>
+<div class="bank-copy">
+<div class="bank-label">Beneficiary bank</div>
+<strong>FIRST UKRAINIAN INTERNATIONAL BANK</strong>
+</div>
+<div class="bank-copy">
+<div class="bank-label">SWIFT</div>
+<strong>FUIBUA2X</strong>
+<button data-copy="FUIBUA2X" data-en="Copy ↗" data-ua="Копіювати ↗" type="button">Копіювати ↗</button>
+</div>
+<div class="correspondents">
+<div class="bank-label">Correspondent Banks</div>
+<p>Commerzbank AG · COBADEFF</p>
+<p>Raiffeisen Bank International AG · RZBAATWW</p>
+<p>Landesbank Baden-Wurttemberg · SOLADEST</p>
+</div>
+</section>
+<section aria-labelledby="tab-usd" class="bank-panel" hidden="" id="bank-usd" role="tabpanel">
+<div class="bank-copy">
+<div class="bank-label">Name</div>
+<strong>CF "REALTORS OF UKRAINE"</strong>
+</div>
+<div class="bank-copy bank-important">
+<div class="bank-label">IBAN / USD</div>
+<strong>UA923348510000000026002182607</strong>
+<button data-copy="UA923348510000000026002182607" data-en="Copy ↗" data-ua="Копіювати ↗" type="button">Копіювати ↗</button>
+</div>
+<div class="bank-copy">
+<div class="bank-label">Beneficiary bank</div>
+<strong>FIRST UKRAINIAN INTERNATIONAL BANK</strong>
+</div>
+<div class="bank-copy">
+<div class="bank-label">SWIFT</div>
+<strong>FUIBUA2X</strong>
+<button data-copy="FUIBUA2X" data-en="Copy ↗" data-ua="Копіювати ↗" type="button">Копіювати ↗</button>
+</div>
+<div class="correspondents">
+<div class="bank-label">Correspondent Banks</div>
+<p>JPMorgan Chase Bank N.A · CHASUS33</p>
+<p>The Bank of New York Mellon · IRVTUS3N</p>
+</div>
+</section>
+</div>
+</div>
+<p class="support-alert" data-en="Before making a transfer, confirm the current bank details directly with the foundation." data-ua="Перед переказом коштів уточніть актуальні реквізити безпосередньо у фонді.">Перед переказом коштів уточніть актуальні реквізити безпосередньо у фонді.</p>
+</div>
+</section>
+</main>
+<nav class="ios-dock" aria-label="Швидка навігація / Quick navigation">
+<a href="#top" class="ios-dock-item ios-dock-active" data-dock="top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span data-ua="Головна" data-en="Home">Головна</span></a>
+<a href="#about" class="ios-dock-item" data-dock="about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></svg><span data-ua="Про фонд" data-en="About">Про фонд</span></a>
+<a href="#help" class="ios-dock-item" data-dock="help"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-3.3-8-6.4-8-10.5a5 5 0 0 1 8-3.8 5 5 0 0 1 8 3.8c0 4.1-3.5 7.2-8 10.5Z"/></svg><span data-ua="Допомога" data-en="Help">Допомога</span></a>
+<a href="#support" class="ios-dock-item" data-dock="support"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg><span data-ua="Підтримати" data-en="Donate">Підтримати</span></a>
+</nav>
+
+<footer class="footer section-pad" id="contacts">
+<div class="shell">
+<div class="linehead">
+<span class="label" data-en="Contacts" data-ua="Контакти">Контакти</span>
+</div>
+<div class="footer-main">
+<div>
+<h2 class="footer-large text-motion"><span data-en="Act." data-ua="Діємо.">Діємо.</span><br/><span data-en="Together." data-ua="Разом.">Разом.</span></h2>
+<div class="label" data-en="REALTORS OF UKRAINE CHARITABLE FOUNDATION" data-ua="БО «БЛАГОДІЙНИЙ ФОНД «РІЄЛТОРИ УКРАЇНИ»">БО «БЛАГОДІЙНИЙ ФОНД «РІЄЛТОРИ УКРАЇНИ»</div>
+</div>
+<div class="footer-contact">
+<a href="tel:+380967695640">+38 096 769 56 40 ↗</a>
+<a href="mailto:bf.asnu@gmail.com">bf.asnu@gmail.com ↗</a>
+<p data-en="Office 20, 6 Symona Petliury Street, Kyiv 01032, Ukraine" data-ua="Україна, 01032, м. Київ, вул. Петлюри Симона, будинок 6, офіс 20">Україна, 01032, м. Київ, вул. Петлюри Симона, будинок 6, офіс 20</p>
+</div>
+</div>
+<div class="footer-bottom">
+<span data-en="© 2026 REALTORS OF UKRAINE FOUNDATION" data-ua="© 2026 БФ «РІЄЛТОРИ УКРАЇНИ»">© 2026 БФ «РІЄЛТОРИ УКРАЇНИ»</span>
+<a data-en="BACK TO TOP ↑" data-ua="НА ПОЧАТОК ↑" href="#top">НА ПОЧАТОК ↑</a>
+</div>
+</div>
+</footer>
+<dialog aria-label="Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania" class="story-dialog" id="story-1">
+<div class="dialog-header">
+<span>17.07.2023</span>
+<button aria-label="Закрити матеріал" data-close-story="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h2 data-en="The Realtors of Ukraine Charitable Foundation expresses deep gratitude to Asociatia Profesionala a Agentilor Imobiliari din Romania" data-ua="Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania">Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania</h2>
+<img alt="Фото до новини" data-alt-en="Фото до новини" data-alt-ua="Фото до новини" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/zobrazhennya-viber-2023-07-15-14-53-58-511_850x475.jpg"/>
+<div class="article-body">
+<p><span data-en="The Realtors of Ukraine Charitable Foundation expresses its gratitude and deep appreciation to Asociatia Profesionala a Agentilor Imobiliari din Romania for our longstanding fruitful cooperation." data-ua="Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania за плідну співпрацю протягом довгого часу.">Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania за плідну співпрацю протягом довгого часу.</span><br/><span data-en="Coordinated, high-quality, timely work enabled us to provide our colleagues with assistance totalling 9,873 thousand euros." data-ua="Злагоджена, якісна і своєчасна робота, дозволили нам допомогти колегам на суму 9873 тисяч євро.">Злагоджена, якісна і своєчасна робота, дозволили нам допомогти колегам на суму 9873 тисяч євро.</span><br/><span data-en="110 real estate agents from our association affected by Russian aggression received financial help for medical treatment, loss of business, repairs and repayment of debts." data-ua="110 рієлторів нашої асоціації,які постраждали від російської агресії, отримали фінансову допомогу на лікування, втрату бізнесу, ремонту та закриття боргів.">110 рієлторів нашої асоціації,які постраждали від російської агресії, отримали фінансову допомогу на лікування, втрату бізнесу, ремонту та закриття боргів.</span><br/><span data-en="We value our friendship and look forward to continued productive and mutually beneficial cooperation for the good of Europe!" data-ua="Ми вдячні за наші дружні відносини та впевнені в нашій подальшій плідній і взаємовигідній співпраці на благо Європи!">Ми вдячні за наші дружні відносини та впевнені в нашій подальшій плідній і взаємовигідній співпраці на благо Європи!</span></p>
+</div>
+<a class="text-link" href="#support" onclick="this.closest('dialog').close()"><span data-en="Support the fund" data-ua="Підтримати фонд">Підтримати фонд</span><span>↗</span>
+</a>
+</div>
+</dialog>
+<dialog aria-label="Нова програма допомоги" class="story-dialog" id="story-2">
+<div class="dialog-header">
+<span>03.06.2023</span>
+<button aria-label="Закрити матеріал" data-close-story="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h2 data-en="New assistance programme" data-ua="Нова програма допомоги">Нова програма допомоги</h2>
+<img alt="Фото до новини" data-alt-en="Фото до новини" data-alt-ua="Фото до новини" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/fond_850x475.png"/>
+<div class="article-body">
+<p data-en="Thanks to funding from Romanian colleagues at Asociatia Profesionala a Agentilor Imobiliari din Romania, the Realtors of Ukraine Charitable Foundation is launching a new assistance programme." data-ua="Благодійний фонд «Рієлтори України» завдяки отриманню фінансування від румунських колег з «Asociatia Profesionala a Agentilor Imobiliari din Romania» відкриває нову програму допомоги.">Благодійний фонд «Рієлтори України» завдяки отриманню фінансування від румунських колег з «Asociatia Profesionala a Agentilor Imobiliari din Romania» відкриває нову програму допомоги.</p>
+<p data-en="The programme provides financial assistance of UAH 3,000." data-ua="Програма передбачає надання фінансової допомоги у розмірі 3000 грн.">Програма передбачає надання фінансової допомоги у розмірі 3000 грн.</p>
+<p data-en="It is available to real estate professionals who are members of AFNU in Irpin, Bucha and Brovary, as well as in the Chernihiv, Sumy, Kharkiv, Zaporizhzhia, Mykolaiv and Kherson branches of AFNU." data-ua="Її можуть отримати рєлтори, які перебувають на сьогоднішній день в АФНУ у містах: Ірпінь, Буча, Бровари. А також Чернігівському, Сумському, Харківському, Запорізькому, Миколаївському та Херсонському відділеннях АФНУ.">Її можуть отримати рєлтори, які перебувають на сьогоднішній день в АФНУ у містах: Ірпінь, Буча, Бровари. А також Чернігівському, Сумському, Харківському, Запорізькому, Миколаївському та Херсонському відділеннях АФНУ.</p>
+<p data-en="Within a week, the first 95 applications received will be paid. Remaining applications will be paid after additional funding is obtained. Funding from Romanian colleagues will also cover earlier applications related to medical treatment." data-ua="Протягом тижня будуть сплачені 95 заявок, які надішли першими. Решта заявок буде сплачена після отримання додаткового фінансування. Також з грошей від румунських колег будуть виконані заявки, що надішли раніше та пов’язані з лікуванням.">Протягом тижня будуть сплачені 95 заявок, які надішли першими. Решта заявок буде сплачена після отримання додаткового фінансування. Також з грошей від румунських колег будуть виконані заявки, що надішли раніше та пов’язані з лікуванням.  </p>
+<p data-en="To receive assistance, applicants must submit an application and the required documents in accordance with the established procedure." data-ua="Для отримання допомоги необхідно надати заяву та документи згідно встановленого порядку.">Для отримання допомоги необхідно надати заяву та документи згідно встановленого порядку.</p>
+<p>
+<a href="https://docs.google.com/document/d/1FU_rWkTDEIQJjwxOmtLKUpZWDhfpi_7J/edit?usp=drive_link">https://docs.google.com/document/d/1FU_rWkTDEIQJjwxOmtLKUpZWDhfpi_7J/edit?usp=drive_link</a>
+</p>
+<p>
+<a href="https://docs.google.com/document/d/1hxOxCCuM4-y7vUYBL97e_oL-mJzyj2K4/edit?usp=drive_link">https://docs.google.com/document/d/1hxOxCCuM4-y7vUYBL97e_oL-mJzyj2K4/edit?usp=drive_link</a>
+</p>
+</div>
+<a class="text-link" href="#support" onclick="this.closest('dialog').close()"><span data-en="Support the fund" data-ua="Підтримати фонд">Підтримати фонд</span><span>↗</span>
+</a>
+</div>
+</dialog>
+<dialog aria-label='БФ "Рієлтори України " продовжують отримувати листи подяки' class="story-dialog" id="story-3">
+<div class="dialog-header">
+<span>22.02.2023</span>
+<button aria-label="Закрити матеріал" data-close-story="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h2 data-en="The Realtors of Ukraine Foundation continues to receive letters of thanks" data-ua='БФ "Рієлтори України " продовжують отримувати листи подяки'>БФ "Рієлтори України " продовжують отримувати листи подяки</h2>
+<img alt="Фото до новини" data-alt-en="Фото до новини" data-alt-ua="Фото до новини" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/4f855785-d542-41ef-8938-41b6d06c5cb8_420x475.jpeg"/>
+<div class="article-body">
+<p><span data-en="Dear colleagues! From the bottom of my heart, I want to say a big THANK YOU to everyone for your understanding, compassion, words of support and financial assistance to the Turunov family." data-ua="Шановні колеги! Від щирого серця я хочу сказати Вам всім велике ДЯКУЮ, за Ваше розуміння і Вашу чуйність, за Ваші слова підтримки та матеріальну допомогу родині Турунових.">Шановні колеги! Від щирого серця я хочу сказати Вам всім велике ДЯКУЮ, за Ваше розуміння і Вашу чуйність, за Ваші слова підтримки та матеріальну допомогу родині Турунових.</span><br/><span data-en="The Turunov family personally thanks the community and each of you for your compassion. They are especially grateful to A. H. Pravdin, head of the Realtors of Ukraine Charitable Foundation, for financial support. They believe that moral and financial assistance at such a difficult time is inspiring, helps them retain faith and hope, gives them strength to persevere and reminds them that they are not alone." data-ua="Родина Турунових висловлює особисту подяку за небайдужість шановній спільноті і кожному з Вас! Особисто вдячні за матеріальну підтримку Правдіну А.Г.  Голові БО «БФ «Рієлтори України», і вважають, що моральна і матеріальна допомога у такий нелегкій час надихає, не дає втратити віру і надію, допомагає вистояти, а також дає відчуття, що ти не один у складній життєвій ситуації.">Родина Турунових висловлює особисту подяку за небайдужість шановній спільноті і кожному з Вас! Особисто вдячні за матеріальну підтримку Правдіну А.Г.  Голові БО «БФ «Рієлтори України», і вважають, що моральна і матеріальна допомога у такий нелегкій час надихає, не дає втратити віру і надію, допомагає вистояти, а також дає відчуття, що ти не один у складній життєвій ситуації.</span><br/><span data-en="As a member of the Armed Forces of Ukraine, Andrii Turunov hopes his contribution helped Ukraine fight the enemy. He regrets that he could not do more and hopes that after recovery he will be able to help his fellow soldiers with rehabilitation, as he is now going through this difficult process himself." data-ua="Турунов Андрій, як військовий ЗСУ, має сподівання, що його внесок допоміг у боротьбі України з ворогом. Навіть зараз Андрій шкодує, що не все зробив, що міг, та має сподівання, що після одужання, буде корисним своїй державі на ниві допомоги своїм побратимам в реабілітації, тому що сам зараз долає цей складний шлях.">Турунов Андрій, як військовий ЗСУ, має сподівання, що його внесок допоміг у боротьбі України з ворогом. Навіть зараз Андрій шкодує, що не все зробив, що міг, та має сподівання, що після одужання, буде корисним своїй державі на ниві допомоги своїм побратимам в реабілітації, тому що сам зараз долає цей складний шлях.</span><br/><span data-en="GLORY TO THE NATION, DEATH TO THE DAMNED ENEMIES!" data-ua="СЛАВА НАЦІЇ, СМЕРТЬ КЛЯТИМ ВОРОГАМ!">СЛАВА НАЦІЇ, СМЕРТЬ КЛЯТИМ ВОРОГАМ!</span></p>
+</div>
+<a class="text-link" href="#support" onclick="this.closest('dialog').close()"><span data-en="Support the fund" data-ua="Підтримати фонд">Підтримати фонд</span><span>↗</span>
+</a>
+</div>
+</dialog>
+<dialog aria-label="Ми відкрили нову програму допомоги та збираємо заявки" class="story-dialog" id="story-4">
+<div class="dialog-header">
+<span>03.02.2023</span>
+<button aria-label="Закрити матеріал" data-close-story="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h2 data-en="We have launched a new assistance programme and are accepting applications" data-ua="Ми відкрили нову програму допомоги та збираємо заявки">Ми відкрили нову програму допомоги та збираємо заявки</h2>
+<img alt="Фото до новини" data-alt-en="Фото до новини" data-alt-ua="Фото до новини" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/2u_850x475.png"/>
+<div class="article-body">
+<p data-en="The foundation is preparing financial assistance for:" data-ua="БФ готує фінансову допомогу:">БФ готує фінансову допомогу:</p>
+<p data-en="Restoration of homes destroyed as a result of the Russian Federation’s military aggression." data-ua="Відновлення житла у разі його руйнування в результаті військової агресії російської федерації.">Відновлення житла у разі його руйнування в результаті військової агресії російської федерації.</p>
+<p data-en="Medical treatment in healthcare facilities in Ukraine." data-ua="Лікування чи проходження лікування в медичних закладах України.">Лікування чи проходження лікування в медичних закладах України.</p>
+<p data-en="Each application will be reviewed individually. Assistance may be provided several months after the application is processed. The amount will depend on additional funding tranches from NAR and other donors." data-ua="Кожна заявка буде розглядатися окремо. Допомога може бути надана через декілька місяців після опрацювання заявок. Розмір допомоги буде залежати від розміру додаткових траншів від NAR та інших донорів фонду.">Кожна заявка буде розглядатися окремо. Допомога може бути надана через декілька місяців після опрацювання заявок. Розмір допомоги буде залежати від розміру додаткових траншів від NAR та інших донорів фонду.</p>
+</div>
+<a class="text-link" href="#support" onclick="this.closest('dialog').close()"><span data-en="Support the fund" data-ua="Підтримати фонд">Підтримати фонд</span><span>↗</span>
+</a>
+</div>
+</dialog>
+<dialog aria-label='БФ "Рієлтори України" продовжує надавати допомогу' class="story-dialog" id="story-5">
+<div class="dialog-header">
+<span>03.02.2023</span>
+<button aria-label="Закрити матеріал" data-close-story="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h2 data-en="The Realtors of Ukraine Foundation continues to provide assistance" data-ua='БФ "Рієлтори України" продовжує надавати допомогу'>БФ "Рієлтори України" продовжує надавати допомогу</h2>
+<img alt="Фото до новини" data-alt-en="Фото до новини" data-alt-ua="Фото до новини" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/48542cae-1985-47b0-87da-77e62f9a328f_850x475.jpeg"/>
+<div class="article-body">
+<p data-en="Following tragic news, three real estate professionals received assistance of UAH 10,000:" data-ua="У зв‘язку з трагічними новинами у розмірі 10 тисяч гривень отримали допомогу 3 рієлтори:">У зв‘язку з трагічними новинами у розмірі 10 тисяч гривень отримали допомогу 3 рієлтори:</p>
+<p><span data-en="Yuliia Sokolenko, an AFNU member injured in the missile strike on Dnipro on 14 January." data-ua="Юлія Соколенко, член АФНУ, яка постраждала від ракетного удару у Дніпрі 14 січня.">Юлія Соколенко, член АФНУ, яка постраждала від ракетного удару у Дніпрі 14 січня.</span><br/>
+<br/><span data-en="Olena Turunova, a real estate professional from Kharkiv who is not an AFNU member, and the wife of Andrii Turunov, a soldier who defended Ukraine, was seriously wounded and needs rehabilitation." data-ua="Олена Турунова, рієлтор з Харкова, яка не є членом АФНУ, дружина Андрія Турунова, військового який захищав нашу Батьківщину та отримав важке поранення і потребує реабілітації.">Олена Турунова, рієлтор з Харкова, яка не є членом АФНУ, дружина Андрія Турунова, військового який захищав нашу Батьківщину та отримав важке поранення і потребує реабілітації.</span></p>
+<p data-en="Viktoriia Kalmykova, a real estate professional from Vinnytsia and the mother of a soldier killed in the war." data-ua="Вікторія Калмикова, рієлтор з Вінниці, мати бійця, який загинув під час війни.">Вікторія Калмикова, рієлтор з Вінниці, мати бійця, який загинув під час війни.</p>
+<p data-en="Mykhailo Sleba, whose son was fatally wounded on the frontline defending Ukraine, will also receive assistance!" data-ua="Михайло Слеба, батько, син якого отримав смертельне поранення на фронті боронячи нашу країну теж отримає допомогу!">Михайло Слеба, батько, син якого отримав смертельне поранення на фронті боронячи нашу країну теж отримає допомогу!</p>
+<p data-en="Eternal memory to the Heroes!" data-ua="Вічна пам‘ять Героям!">Вічна пам‘ять Героям!</p>
+</div>
+<a class="text-link" href="#support" onclick="this.closest('dialog').close()"><span data-en="Support the fund" data-ua="Підтримати фонд">Підтримати фонд</span><span>↗</span>
+</a>
+</div>
+</dialog>
+<dialog aria-label="Допомога Херсону від БФ «Рієлтори України»" class="story-dialog" id="story-6">
+<div class="dialog-header">
+<span>03.02.2023</span>
+<button aria-label="Закрити матеріал" data-close-story="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h2 data-en="Aid to Kherson from the Realtors of Ukraine Foundation" data-ua="Допомога Херсону від БФ «Рієлтори України»">Допомога Херсону від БФ «Рієлтори України»</h2>
+<img alt="Фото до новини" data-alt-en="Фото до новини" data-alt-ua="Фото до новини" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_420x475.jpeg"/>
+<div class="article-body">
+<p data-en="Residents of Kherson received assistance from the foundation worth UAH 62,000 in the form of baby food, nappies and Starlink equipment." data-ua="Жителям Херсону була надана допомога від фонду на загальну суму 62 тисячі гривень у вигляді дитячого харчування, памперсів та Starlink.">Жителям Херсону була надана допомога від фонду на загальну суму 62 тисячі гривень у вигляді дитячого харчування, памперсів та Starlink.</p>
+</div>
+<a class="text-link" href="#support" onclick="this.closest('dialog').close()"><span data-en="Support the fund" data-ua="Підтримати фонд">Підтримати фонд</span><span>↗</span>
+</a>
+</div>
+</dialog>
+<dialog aria-label="Благодійний фонд «Рієлтори України» розширює програму допомоги членам АФНУ" class="story-dialog" id="story-7">
+<div class="dialog-header">
+<span>02.01.2023</span>
+<button aria-label="Закрити матеріал" data-close-story="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h2 data-en="The Realtors of Ukraine Foundation expands its assistance programme for AFNU members" data-ua="Благодійний фонд «Рієлтори України» розширює програму допомоги членам АФНУ">Благодійний фонд «Рієлтори України» розширює програму допомоги членам АФНУ</h2>
+<img alt="Фото до новини" data-alt-en="Фото до новини" data-alt-ua="Фото до новини" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/48542cae-1985-47b0-87da-77e62f9a328f_420x475.jpeg"/>
+<div class="article-body">
+<p data-en="As part of cooperation with the US National Association of Realtors (NAR), the coordinating council of the Realtors of Ukraine Foundation decided to expand the assistance programme for AFNU members whose homes have been destroyed or damaged by military aggression. Financial help for medical treatment in Ukrainian healthcare institutions is also planned." data-ua="В рамках співпраці з Національною асоціацією рієлторів США (NAR) координаційною радою БФ «Рієлтори України» було прийнято рішення розширити програму допомоги для членів АФНУ, у яких житло було зруйновано, або зазнало пошкодження від військової агресії. Також планується надання матеріальної допомоги на лікування в закладах охорони здоров’я України.">В рамках співпраці з Національною асоціацією рієлторів США (NAR) координаційною радою БФ «Рієлтори України» було прийнято рішення розширити програму допомоги для членів АФНУ, у яких житло було зруйновано, або зазнало пошкодження від військової агресії. Також планується надання матеріальної допомоги на лікування в закладах охорони здоров’я України.</p>
+<p data-en="To obtain assistance, applicants must submit a statement briefly describing the destruction or damage, a copy of the commission’s findings, other supporting documents, and a valuation report confirming the extent of the damage." data-ua="Для отримання допомоги необхідно звернутися до фонду з відповідною заявою в якій стисло описати характер руйнувань або пошкоджень, надати копію висновку комісії та інших підтверджуючих документів, а також звіту про оцінку. Для отримання компенсації за лікування необхідно надати в фонд заяву, копії підтверджуючих документів з лікувального закладу та документів про витрачені кошти на лікування.">Для отримання допомоги необхідно звернутися до фонду з відповідною заявою в якій стисло описати характер руйнувань або пошкоджень, надати копію висновку комісії та інших підтверджуючих документів, а також звіту про оцінку. Для отримання компенсації за лікування необхідно надати в фонд заяву, копії підтверджуючих документів з лікувального закладу та документів про витрачені кошти на лікування.</p>
+<p data-en="The foundation’s specialists will review the documents received and then send a request to the International Assistance Fund, established by NAR in November of that year. Based on the request and documents, the Fund will determine the terms and amount of assistance." data-ua="Отримані документи будуть опрацьовані фахівцями фонду та за результатами розгляду направлений запит до Фонду міжнародної допомоги, який був створений NAR в листопаді цього року. На підставі отриманого запиту та документів Фонд прийме рішення про умови та обсяги допомоги.">Отримані документи будуть опрацьовані фахівцями фонду та за результатами розгляду направлений запит до Фонду міжнародної допомоги, який був створений NAR в листопаді цього року. На підставі отриманого запиту та документів Фонд прийме рішення про умови та обсяги допомоги.</p>
+</div>
+<a class="text-link" href="#support" onclick="this.closest('dialog').close()"><span data-en="Support the fund" data-ua="Підтримати фонд">Підтримати фонд</span><span>↗</span>
+</a>
+</div>
+</dialog>
+<dialog aria-label="БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам" class="story-dialog" id="story-8">
+<div class="dialog-header">
+<span>04.11.2022</span>
+<button aria-label="Закрити матеріал" data-close-story="" type="button">✕</button>
+</div>
+<div class="dialog-body">
+<h2 data-en="The Realtors of Ukraine Foundation makes its first charitable payments to URA members and their families" data-ua="БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам">БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам</h2>
+<img alt="Фото до новини" data-alt-en="Фото до новини" data-alt-ua="Фото до новини" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/pershi-vyplaty-blagodijnoyi-dopomogy_420x475.jpg"/>
+<div class="article-body">
+<p data-en="Beginning in October 2022, members of the Association of Real Estate Professionals (Realtors) of Ukraine (AFNU) began receiving financial assistance from the Realtors of Ukraine Charitable Foundation." data-ua="Починаючи з жовтня 2022 року члени Асоціації фахівців з нерухомості (рієлторів) України (АФНУ) почали отримувати фінансову допомогу від БФ «Рієлтори України».">Починаючи з жовтня 2022 року члени Асоціації фахівців з нерухомості (рієлторів) України (АФНУ) почали отримувати фінансову допомогу від БФ «Рієлтори України».</p>
+<p data-en="Assistance was received by 241 families from Sumy, Chernihiv, Kharkiv, Mykolaiv and Kyiv regions (Irpin and Bucha). An AFNU member from Vinnytsia who was seriously wounded in a missile attack on the city also received help." data-ua="Допомогу отримала 241 родина з таких регіонів як Сумська, Чернігівська, Харківська, Миколаївська, Київська область (Ірпінь, Буча). Також допомогу отримав член АФНУ з м. Вінниця, який був тяжко поранений при ракетному обстрілі міста.">Допомогу отримала 241 родина з таких регіонів як Сумська, Чернігівська, Харківська, Миколаївська, Київська область (Ірпінь, Буча). Також допомогу отримав член АФНУ з м. Вінниця, який був тяжко поранений при ракетному обстрілі міста.</p>
+<p data-en="At its latest meeting, the foundation’s coordination committee also decided to provide financial assistance to AFNU members in Zaporizhzhia region." data-ua="На останньому засіданні координаційного комітету фонду було прийнято рішення також надати фінансову допомогу також членам АФНУ Запорізької області.">На останньому засіданні координаційного комітету фонду було прийнято рішення також надати фінансову допомогу також членам АФНУ Запорізької області.</p>
+<p data-en="Assistance is provided through cooperation between the Association of Real Estate Professionals (Realtors) of Ukraine and the US National Association of Realtors (NAR). The first funding tranches totalled USD 40,800, allocated to charitable purposes. We sincerely thank our NAR colleagues!" data-ua="Допомога надається в рамках співробітництва та партнерства між Асоціацією фахівців з нерухомості (рієлторів) України та Національної асоціацією рієлторів США (NAR). В рамках перших траншів допомоги було отримано 40800 доларів США, які використовуються для благодійних цілей. Щиро дякуємо нашим колегам з NAR!">Допомога надається в рамках співробітництва та партнерства між Асоціацією фахівців з нерухомості (рієлторів) України та Національної асоціацією рієлторів США (NAR). В рамках перших траншів допомоги було отримано 40800 доларів США, які використовуються для благодійних цілей. Щиро дякуємо нашим колегам з NAR!</p>
+<p>
+<strong data-en="Background." data-ua="Довідка.">Довідка.</strong><span data-en="The Realtors of Ukraine Charitable Foundation was established by the nationwide Association of Real Estate Professionals (Realtors) of Ukraine (AFNU) to raise and provide charitable assistance to Ukrainian real estate professionals and their families affected by military aggression." data-ua="Благодійна організація «Благодійний фонд «РІЄЛТОРИ УКРАЇНИ» був створений Всеукраїнською громадською організацією «Асоціація фахівців з нерухомості (рієлторів) України» (АФНУ) для залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.">Благодійна організація «Благодійний фонд «РІЄЛТОРИ УКРАЇНИ» був створений Всеукраїнською громадською організацією «Асоціація фахівців з нерухомості (рієлторів) України» (АФНУ) для залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.</span></p>
+</div>
+<a class="text-link" href="#support" onclick="this.closest('dialog').close()"><span data-en="Support the fund" data-ua="Підтримати фонд">Підтримати фонд</span><span>↗</span>
+</a>
+</div>
+</dialog>
+<div aria-live="polite" class="toast" data-en="Copied" data-ua="Скопійовано" id="toast" role="status">Скопійовано</div>
+<script>
+    (() => {
+        const menu = document.getElementById('site-menu'),
+            trigger = document.getElementById('menu-trigger'),
+            label = document.getElementById('menu-label');
+        function setMenu(open) {
+            menu.classList.toggle('open', open);
+            menu.inert = !open;
+            trigger.setAttribute('aria-expanded', String(open));
+            label.textContent = open ? (window.siteLanguage === 'en' ? 'Close' : 'Закрити') : (window.siteLanguage === 'en' ? 'Menu' : 'Меню');
+            document.body.classList.toggle('no-scroll', open);
+            document.querySelector('.site-header')?.classList.remove('header-hidden');
+        }
+        trigger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+        menu.querySelectorAll('a').forEach(x => x.addEventListener('click', () => setMenu(false)));
+        const header = document.querySelector('.site-header');
+        let lastY = window.scrollY;
+        let ticking = false;
+        const syncHeader = () => {
+            const y = window.scrollY;
+            if (!menu.classList.contains('open')) {
+                if (y > 140 && y > lastY + 4) header?.classList.add('header-hidden');
+                else header?.classList.remove('header-hidden');
+            } else {
+                header?.classList.remove('header-hidden');
+            }
+            lastY = y;
+            ticking = false;
+        };
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(syncHeader);
+                ticking = true;
+            }
+        }, {passive:true});
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && menu.classList.contains('open')) {
+                setMenu(false);
+                trigger.focus()
+            }
+        });
+        const rows = document.querySelectorAll('[data-open-story]');
+        rows.forEach(b => b.addEventListener('click', () => {
+            const dlg = document.getElementById(b.dataset.openStory);
+            if (dlg?.showModal)
+                dlg.showModal();
+            else
+                dlg.setAttribute('open', '');
+        }));
+        document.querySelectorAll('[data-close-story]').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
+        document.querySelectorAll('dialog').forEach(d => d.addEventListener('click', e => {
+            if (e.target === d)
+                d.close()
+        }));
+        document.querySelectorAll('[data-tab]').forEach(t => t.addEventListener('click', () => {
+            document.querySelectorAll('[data-tab]').forEach(b => b.setAttribute('aria-selected', String(b === t)));
+            document.querySelectorAll('.bank-panel').forEach(panel => {
+                panel.hidden = panel.id !== `bank-${t.dataset.tab}`;
+            });
+        }));
+        const toast = document.getElementById('toast');
+        let hideTimer;
+        document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+            const val = b.dataset.copy;
+            try {
+                await navigator.clipboard.writeText(val);
+                toast.textContent = (window.siteLanguage === 'en' ? 'Copied: ' : 'Скопійовано: ') + val
+            } catch (e) {
+                const f = document.createElement('textarea');
+                f.value = val;
+                document.body.append(f);
+                f.select();
+                try {
+                    document.execCommand('copy');
+                    toast.textContent = (window.siteLanguage === 'en' ? 'Copied: ' : 'Скопійовано: ') + val
+                } catch (ex) {
+                    toast.textContent = window.siteLanguage === 'en' ? 'Select and copy the details manually' : 'Виділіть і скопіюйте реквізити вручну'
+                }
+                f.remove();
+            }
+            toast.classList.add('show');
+            clearTimeout(hideTimer);
+            hideTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+        }));
+        document.querySelectorAll('img').forEach(img => {
+            const fallback = () => img.classList.add('is-missing');
+            img.addEventListener('error', fallback, {
+                once: true
+            });
+            if (img.complete && img.naturalWidth === 0)
+                fallback();
+        });
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => entries.forEach(en => {
+                if (en.isIntersecting) {
+                    en.target.classList.add('on');
+                    io.unobserve(en.target);
+                }
+            }), {
+                threshold: .07
+            });
+            document.querySelectorAll('.reveal').forEach(x => io.observe(x));
+        } else
+            document.querySelectorAll('.reveal').forEach(x => x.classList.add('on'));
+    })();
+    </script>
+<script>
+(()=>{
+ const buttons=[...document.querySelectorAll('[data-lang]')];
+ const translate=(lang)=>{
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-ua][data-en]').forEach(el=>{el.textContent=el.dataset[lang==='en'?'en':'ua'];});
+  document.querySelectorAll('[data-alt-en]').forEach(el=>{el.alt=el.dataset[lang==='en'?'altEn':'altUa'];});
+  document.title=lang==='en'?'Realtors of Ukraine — Charitable Foundation':'Благодійний фонд «Рієлтори України»';
+  buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
+  const menuLabel=document.getElementById('menu-label');
+  if(menuLabel) menuLabel.textContent=document.getElementById('site-menu')?.classList.contains('open')?(lang==='en'?'Close':'Закрити'):(lang==='en'?'Menu':'Меню');
+  window.siteLanguage=lang;
+ };
+ buttons.forEach(b=>b.addEventListener('click',()=>translate(b.dataset.lang)));
+ document.getElementById('menu-trigger')?.addEventListener('click',()=>requestAnimationFrame(()=>translate(window.siteLanguage||'uk')));
+ // Observe-only animations, no smooth-scroll hijack, no sticky wheel capture.
+ if(window.IntersectionObserver && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+   const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('motion-in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px 40px 0px'});
+   document.querySelectorAll('.photo-motion,.text-motion').forEach(el=>io.observe(el));
+   document.body.classList.add('motion-ready');
+ }else{document.querySelectorAll('.photo-motion,.text-motion').forEach(el=>el.classList.add('motion-in'))}
+ translate('uk');
+})();
+</script><script>(()=>{const targets=document.querySelectorAll('.gallery-shot,.person-photo,.help-image');if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){targets.forEach(el=>el.classList.add('v12-visible'));return}const io=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('v12-visible');io.unobserve(entry.target)}}},{threshold:.12,rootMargin:'0px 0px 50px 0px'});targets.forEach(el=>io.observe(el));})();</script><script id="ios-v14-interaction">
+(()=>{
+ const menu=document.getElementById('site-menu');
+ const trigger=document.getElementById('menu-trigger');
+ const close=document.getElementById('menu-close-ios');
+ const label=document.getElementById('menu-label');
+ function closeMenu(){
+   if(!menu?.classList.contains('open'))return;
+   menu.classList.remove('open');menu.inert=true;trigger?.setAttribute('aria-expanded','false');
+   document.body.classList.remove('no-scroll');
+   if(label)label.textContent=(window.siteLanguage==='en'?'Menu':'Меню');
+ }
+ close?.addEventListener('click',closeMenu);
+ menu?.addEventListener('click',e=>{if(e.target===menu)closeMenu()});
+ document.querySelectorAll('.ios-dock a').forEach(a=>a.addEventListener('click',closeMenu));
+ // Prevent a hidden header while opening the menu; keep a reliable close control.
+ trigger?.addEventListener('click',()=>document.querySelector('.site-header')?.classList.remove('header-hidden'));
+ // Active dock reflects sections, with no scroll hijacking.
+ const dockItems=[...document.querySelectorAll('.ios-dock-item')];
+ if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(entries=>{
+   const visible=entries.filter(x=>x.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+   if(!visible)return;
+   let id=visible.target.id||'top';if(id==='photos'||id==='impact'||id==='team'||id==='stories')id='about';
+   dockItems.forEach(a=>a.classList.toggle('ios-dock-active',a.dataset.dock===id));
+  },{rootMargin:'-15% 0px -68% 0px',threshold:0});
+  ['top','about','photos','impact','stories','team','help','support'].forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el)});
+ }
+})();
+</script>
+<script id="v15-scroll-story">
+(()=>{
+ const hero=document.querySelector('.v15-hero');
+ const layers={back:document.querySelector('.v15-layer-back'),middle:document.querySelector('.v15-layer-middle'),foreground:document.querySelector('.v15-layer-foreground')};
+ const veil=document.querySelector('.v15-image-veil');
+ const heroTitle=document.querySelector('.v15-hero-title');
+ const heroBar=document.querySelector('.v15-stage-progress span');
+ const reel=document.querySelector('.v15-reel-section');
+ const track=document.querySelector('.v15-reel-track');
+ const cards=[...document.querySelectorAll('.v15-reel-card')];
+ const reelBar=document.querySelector('.v15-reel-progress-line span');
+ const reelCount=document.querySelector('.v15-reel-count');
+ const impact=document.getElementById('impact');
+ const impactBar=document.querySelector('.v15-impact-track span');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const clamp=n=>Math.max(0,Math.min(1,n));
+ let raf=0;
+ const render=()=>{
+  raf=0;
+  if(reduced.matches)return;
+  const h=window.innerHeight||1;
+  if(hero){
+   const r=hero.getBoundingClientRect();
+   if(r.bottom>0 && r.top<h){
+    const p=clamp(-r.top/Math.max(1,r.height-h));
+    const fade=clamp((p-.55)/.35);
+    layers.back.style.transform=`translate3d(0,${-p*9}vh,0) scale(${1.07-p*.07})`;
+    layers.middle.style.transform=`translate3d(${p*3}vw,${-p*17}vh,0) scale(${1.02+p*.08})`;
+    layers.middle.style.opacity=String(1-fade*.58);
+    layers.foreground.style.transform=`translate3d(${p*4}vw,${(1-p)*20}vh,0) scale(${.94+p*.06})`;
+    layers.foreground.style.opacity=String(clamp((p-.25)/.2)*(1-fade));
+    veil.style.opacity=String(1-fade*.35);
+    if(heroTitle)heroTitle.style.transform=`translate3d(0,${-p*4}vh,0)`;
+    if(heroBar)heroBar.style.transform=`scaleX(${p})`;
+   }
+  }
+  if(reel&&track){
+   const r=reel.getBoundingClientRect();
+   if(r.bottom>0&&r.top<h){
+    const p=clamp(-r.top/Math.max(1,r.height-h));
+    const distance=Math.max(0,track.scrollWidth-window.innerWidth*.92);
+    track.style.transform=`translate3d(${-p*distance}px,0,0)`;
+    let nearest=0,best=1e8;
+    cards.forEach((card,i)=>{
+     const cr=card.getBoundingClientRect();
+     const off=(cr.left+cr.width/2-window.innerWidth*.52)/window.innerWidth;
+     const abs=Math.abs(off);
+     card.style.opacity=String(1-Math.min(.42,abs*.42));
+     card.style.transform=`scale(${1-Math.min(.05,abs*.05)})`;
+     const img=card.querySelector('img');
+     if(img)img.style.transform=`translate3d(${off*-16}px,0,0) scale(1.05)`;
+     if(abs<best){best=abs;nearest=i;}
+    });
+    if(reelBar)reelBar.style.transform=`scaleX(${p})`;
+    if(reelCount)reelCount.textContent=`0${nearest+1} / 0${cards.length}`;
+   }
+  }
+  if(impact&&impactBar){
+   const r=impact.getBoundingClientRect();
+   if(r.bottom>0&&r.top<h)impactBar.style.transform=`scaleX(${clamp((h-r.top)/Math.max(h,r.height))})`;
+  }
+ };
+ const schedule=()=>{if(!raf)raf=requestAnimationFrame(render)};
+ addEventListener('scroll',schedule,{passive:true});
+ addEventListener('resize',schedule,{passive:true});
+ reduced.addEventListener?.('change',schedule);
+ schedule();
+})();
+</script>
+</body>
+</html>
