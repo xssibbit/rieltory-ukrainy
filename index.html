@@ -3707,6 +3707,200 @@ body .site-header.header-hidden{transform:none!important;opacity:1!important;vis
 }
 @media(max-width:440px){.site-header .brand-text{font-size:9px!important}.site-header .header-donate{font-size:11px!important}.site-header .menu-trigger{font-size:11px!important}.site-header .language-switch button{font-size:9px!important;padding:7px 3px!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.v24-action,.v24-pay-card,.story-row,.v15-reel-card{transition:none!important}}
+</style><style id="v25-layout-system">
+/* V25 — consistent editorial sections. Normal scroll, consistent gutters, no forced padding-height. */
+:root{
+ --v25-max:1320px;
+ --v25-gutter:clamp(20px,4.5vw,76px);
+ --v25-space:clamp(64px,8svh,106px);
+ --v25-gap:clamp(22px,3.1vw,46px);
+ --v25-ink:#18272a;
+ --v25-paper:#ffffff;
+ --v25-border:#dde5e0;
+}
+html{scroll-padding-top:90px!important}
+body{overflow-x:clip}
+main{overflow:clip}
+/* Consistent content alignment across full-bleed and contained sections */
+#about,#photos,#impact,#help,#support{padding-inline:0!important}
+#about .shell,#photos .shell,#impact .shell,#help .shell,#support .shell,#contacts .shell{
+ width:min(calc(100% - 2 * var(--v25-gutter)),var(--v25-max))!important;
+ max-width:var(--v25-max)!important;
+ margin-inline:auto!important;
+}
+#stories.shell,#team.shell{
+ width:100%!important;
+ max-width:calc(var(--v25-max) + 2 * var(--v25-gutter))!important;
+ margin-inline:auto!important;
+ padding-inline:var(--v25-gutter)!important;
+}
+/* All presentation sections are composed around one viewport; text-rich content can expand naturally. */
+.v23-hero{height:100svh!important;min-height:0!important;max-height:none!important;overflow:hidden!important}
+.v23-pin{position:relative!important;top:auto!important;height:100svh!important;min-height:0!important;overflow:hidden!important}
+#about,#photos,#impact,#stories,#help,#team,#support{min-height:100svh!important;box-sizing:border-box!important}
+#about,#impact,#stories,#help,#team,#support{padding-block:var(--v25-space)!important}
+#photos .v15-reel-sticky{position:relative!important;min-height:100svh!important;height:auto!important;padding-block:var(--v25-space)!important;top:auto!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+#about,#impact,#help,#support{display:flex!important;flex-direction:column!important;justify-content:center!important}
+#stories,#team{display:flex!important;flex-direction:column!important;justify-content:center!important}
+/* Shared type scale and consistent heading-to-content spacing. */
+.section-title,.v23-about-heading h2,.v24-help-head h2,.support-lead h2{
+ font-family:'Manrope',Arial,sans-serif!important;
+ font-size:clamp(44px,5.8vw,82px)!important;
+ line-height:1.03!important;letter-spacing:-.065em!important;font-weight:740!important;
+ max-width:100%!important;
+}
+.v23-about-heading{margin-bottom:clamp(26px,3.2vw,44px)!important}
+.v23-about-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:var(--v25-gap)!important;align-items:center!important}
+.v23-about-image img{width:100%!important;height:min(61svh,620px)!important;max-height:620px!important;object-fit:contain!important;object-position:center!important}
+.v23-about-copy{padding-top:0!important}
+.v23-about-primary p{font-size:clamp(23px,2.1vw,31px)!important;line-height:1.35!important}
+.v23-about-rest{gap:16px!important;margin-top:clamp(18px,2vw,30px)!important}
+.v23-about-rest p{font-size:clamp(15px,1.12vw,18px)!important;line-height:1.62!important}
+.v23-about-action{margin-top:26px!important}
+/* Hero occupies exactly one screen; its native-scroll animation takes place as it leaves the viewport. */
+.v23-portrait-layer{top:12%!important;height:73%!important}
+.v23-intro{padding-bottom:clamp(68px,9svh,100px)!important}
+.v23-intro h1{font-size:clamp(62px,8.3vw,124px)!important}
+.v23-intro p{margin-top:18px!important}
+.v23-intro-actions{margin-top:24px!important}
+/* Gallery fits in a single coherent screen; native horizontal swipe stays independent. */
+.v15-reel-head{padding-bottom:clamp(20px,3vw,36px)!important}
+.v15-reel-head .section-title{font-size:clamp(44px,5.8vw,82px)!important}
+.v15-reel-card{height:clamp(260px,48svh,500px)!important}
+.v15-reel-actions{margin-top:16px!important}
+/* Impact uses equal-height tiles aligned to the same grid. */
+.impact-grid{margin-top:clamp(26px,3vw,44px)!important;gap:16px!important}
+.impact-item,.impact-item+.impact-item{min-height:230px!important;display:flex!important;flex-direction:column!important;justify-content:space-between!important;border-radius:12px!important;padding:clamp(22px,2.6vw,34px)!important}
+.impact-title{max-width:100%!important}
+/* Stories as a complete, swipeable gallery: all eight preserved; no giant vertical list. */
+#stories .editorial-head{display:flex;align-items:end;justify-content:space-between;gap:var(--v25-gap);margin-bottom:clamp(25px,3vw,40px)!important}
+#stories .editorial-head p{max-width:370px;font-size:16px!important;line-height:1.6!important}
+#stories .story-list{
+ display:flex!important;align-items:stretch!important;gap:18px!important;
+ width:100%!important;max-width:100%!important;min-width:0!important;
+ border:0!important;padding:3px 1px 18px!important;
+ overflow-x:auto!important;overflow-y:hidden!important;
+ scroll-snap-type:x mandatory;scroll-padding-inline:1px;overscroll-behavior-x:contain;
+ scrollbar-width:thin;scrollbar-color:#b1c2b8 transparent;
+ -webkit-overflow-scrolling:touch;
+}
+#stories .story-row{
+ display:flex!important;flex:0 0 calc((100% - 36px)/3)!important;min-width:0!important;
+ flex-direction:column!important;align-items:stretch!important;text-align:left!important;
+ gap:0!important;padding:12px!important;min-height:360px!important;
+ border:1px solid var(--v25-border)!important;border-radius:12px!important;
+ background:#f9fbf9!important;scroll-snap-align:start;scroll-snap-stop:normal;
+}
+#stories .story-row:hover{padding:12px!important;background:#f2f7f3!important}
+#stories .story-thumb{order:-1!important;width:100%!important;height:clamp(145px,22svh,210px)!important;flex:0 0 auto!important;object-fit:contain!important;border-radius:8px!important;background:#eaf0ec!important}
+#stories .story-main{display:flex!important;flex-direction:column!important;gap:12px!important;margin-top:16px!important;flex:1!important;width:100%!important;min-width:0!important}
+#stories .story-title{font-size:clamp(17px,1.5vw,21px)!important;line-height:1.38!important;font-weight:670!important;letter-spacing:-.023em!important;text-transform:none!important}
+#stories .story-date{font-size:13px!important;font-weight:600!important;color:#63776d!important}
+.v25-story-controls{display:flex;justify-content:flex-end;gap:10px;margin-top:13px}
+.v25-story-controls button{border:1px solid #d6e2db;background:#fff;border-radius:9px;color:var(--v25-ink);width:52px;height:48px;font-size:23px;cursor:pointer;transition:background .2s}
+.v25-story-controls button:hover{background:#eff5f1}
+.v25-story-controls button:disabled{opacity:.4;cursor:default}
+/* Team: five equal photos share the same baseline, no stretching across screen. */
+#team .people-grid{margin-top:clamp(28px,3vw,45px)!important;gap:16px!important;grid-template-columns:repeat(5,minmax(0,1fr))!important}
+#team .person{display:flex;flex-direction:column;min-width:0}
+#team .person-photo{aspect-ratio:1/1.04!important;max-height:270px!important;width:100%!important;border-radius:10px!important}
+#team .person-name{font-size:clamp(17px,1.55vw,23px)!important;margin-top:15px!important}
+#team .person-role{font-size:13px!important;line-height:1.5!important;margin-top:6px!important}
+/* Help: same rhythm as About; image and explanations vertically centred. */
+.v24-help-head{grid-template-columns:minmax(0,1.05fr) minmax(0,.75fr)!important;gap:var(--v25-gap)!important;align-items:end!important;margin-bottom:clamp(24px,3vw,44px)!important}
+.v24-help-body{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:var(--v25-gap)!important;align-items:center!important}
+.v24-help-photo{border-radius:10px!important}
+.v24-help-photo img{max-height:52svh!important;object-fit:contain!important;object-position:center!important}
+.v24-help-content{gap:16px!important}
+.v24-help-item{padding-bottom:18px!important}
+.v24-help-item h3{font-size:clamp(23px,2.2vw,32px)!important;margin-bottom:9px!important}
+.v24-help-item p{line-height:1.58!important;font-size:clamp(15px,1.1vw,17px)!important}
+.v24-help-docs a{padding-block:10px!important}
+/* Donations: payment showcase and bank details side by side, instead of two full sections stacked. */
+#support>.shell{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:var(--v25-gap)!important;align-items:start!important}
+#support .support-lead{grid-column:1/-1!important;display:flex!important;align-items:end!important;justify-content:space-between!important;gap:var(--v25-gap)!important;margin-bottom:3px!important}
+#support .support-lead h2{font-size:clamp(43px,5vw,72px)!important;max-width:730px!important}
+#support .support-lead p{max-width:370px!important;font-size:17px!important}
+#support .v24-pay-section{grid-column:1!important;grid-row:2!important;margin:0!important;padding:clamp(21px,2.4vw,35px)!important;border-radius:12px!important}
+#support .v24-pay-top{display:block!important;margin-bottom:20px!important}
+#support .v24-pay-top h3{font-size:clamp(28px,2.9vw,41px)!important}
+#support .v24-pay-top p{font-size:15px!important;margin-top:10px!important}
+#support .v24-pay-methods{grid-template-columns:1fr 1fr!important;gap:10px!important}
+#support .v24-pay-card{min-width:0!important;min-height:clamp(165px,18svh,215px)!important;padding:clamp(17px,2vw,25px)!important;border-radius:10px!important}
+#support .v24-method-name{font-size:clamp(25px,2.5vw,35px)!important;gap:8px!important}
+#support .v24-method-name svg{width:27px!important}
+#support .v24-google-g{font-size:39px!important}
+#support .v24-method-context{font-size:13px!important}
+#support .v24-action-bank{margin-top:17px!important;max-width:none!important}
+#support .support-layout{grid-column:2!important;grid-row:2!important;display:grid!important;grid-template-columns:1fr!important;gap:12px!important;min-width:0!important;margin:0!important;padding:clamp(21px,2.4vw,35px)!important;border-radius:12px!important}
+#support .bank-tabs{flex-direction:row!important;gap:7px!important;width:100%!important}
+#support .bank-tabs button{font-size:18px!important;padding:9px 14px!important;flex:1 1 0;min-width:0;border-radius:8px!important;text-align:center!important;justify-content:center!important}
+#support .bank-panel{padding:0!important}
+#support .bank-copy{grid-template-columns:minmax(80px,30%) minmax(0,1fr) auto!important;min-height:0!important;gap:8px!important;padding:10px 0!important}
+#support .bank-label{font-size:12px!important}
+#support .bank-copy strong{font-size:clamp(13px,1.15vw,17px)!important}
+#support .bank-copy button{font-size:12px!important;padding:8px 9px!important}
+#support .correspondents{padding-top:10px!important}
+#support .support-alert{grid-column:1/-1!important;margin:0!important}
+/* Footer shares the horizontal grid and height rhythm. */
+#contacts{min-height:72svh!important;display:flex!important;flex-direction:column!important;justify-content:center!important;padding:var(--v25-space) 0!important}
+#contacts .footer-large{font-size:clamp(48px,7vw,88px)!important;margin:18px 0 28px!important}
+#contacts .footer-main{gap:var(--v25-gap)!important}
+/* Responsive layout: never clip the text just to force an artificial height. */
+@media(max-width:1100px){
+ #team .people-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ #support>.shell{grid-template-columns:1fr!important}
+ #support .support-lead,#support .v24-pay-section,#support .support-layout,#support .support-alert{grid-column:1!important;grid-row:auto!important}
+ #support .support-lead{align-items:start!important}
+ #stories .story-row{flex-basis:calc((100% - 18px)/2)!important}
+}
+@media(max-width:760px){
+ :root{--v25-gutter:20px;--v25-space:clamp(56px,8svh,78px);--v25-gap:25px}
+ .v23-hero{height:100svh!important;min-height:0!important}
+ .v23-pin{height:100svh!important;min-height:0!important}
+ .v23-portrait-layer{top:12%!important;height:38%!important;left:5%!important;right:5%!important;width:90%!important}
+ .v23-map-layer{top:2%!important;height:52svh!important}
+ .v23-intro{padding:0 var(--v25-gutter) clamp(70px,9svh,98px)!important}
+ .v23-intro h1{font-size:clamp(42px,10.4vw,66px)!important}
+ .v23-intro p{font-size:14px!important;margin-top:12px!important}
+ .v23-intro-actions{margin-top:17px!important}
+ .v23-second-title{bottom:clamp(70px,9svh,98px)!important}
+ .v23-documentary{inset:9% 4% 29%!important}
+ #about,#photos,#impact,#stories,#help,#team,#support{min-height:0!important}
+ #about,#impact,#stories,#help,#team,#support{padding-block:var(--v25-space)!important}
+ #photos .v15-reel-sticky{min-height:0!important;padding-block:var(--v25-space)!important}
+ .section-title,.v23-about-heading h2,.v24-help-head h2,.support-lead h2{font-size:clamp(42px,10vw,62px)!important}
+ .v23-about-grid,.v24-help-body{grid-template-columns:1fr!important;gap:23px!important}
+ .v23-about-image img{height:auto!important;max-height:52svh!important;width:100%!important}
+ .v23-about-primary p{font-size:clamp(22px,5.4vw,30px)!important}
+ .v23-about-rest{margin-top:20px!important}
+ .v15-reel-card{height:clamp(260px,48svh,440px)!important}
+ #stories .editorial-head{display:block!important}
+ #stories .editorial-head p{margin-top:12px!important;font-size:15px!important}
+ #stories .story-row{flex-basis:82%!important;min-height:330px!important}
+ #stories .story-thumb{height:clamp(170px,26svh,230px)!important}
+ #team .people-grid{display:flex!important;overflow-x:auto!important;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;gap:13px!important;padding-bottom:12px!important;scrollbar-width:thin}
+ #team .person{flex:0 0 min(63vw,265px)!important;scroll-snap-align:start}
+ #team .person-photo{max-height:300px!important;aspect-ratio:1/1!important}
+ .v24-help-head{grid-template-columns:1fr!important;gap:14px!important;margin-bottom:25px!important}
+ .v24-help-photo img{max-height:none!important;height:auto!important}
+ #support .support-lead{display:block!important}
+ #support .support-lead h2{font-size:clamp(42px,10vw,58px)!important}
+ #support .support-lead p{margin-top:15px!important}
+ #support .v24-pay-methods{grid-template-columns:1fr!important}
+ #support .v24-pay-card{min-height:150px!important}
+ #support .v24-method-name{font-size:39px!important}
+ #support .support-layout{padding:20px!important}
+ #support .bank-copy{grid-template-columns:1fr auto!important;gap:8px!important}
+ #support .bank-label{grid-column:1/-1!important}
+ #support .bank-copy strong{font-size:15px!important}
+ #support .bank-copy button{grid-column:2!important;grid-row:2!important}
+ #contacts{min-height:0!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .v23-map-layer,.v23-portrait-layer,.v23-intro-inner,.v23-documentary,.v23-second-title{transition:none!important;animation:none!important}
+ #stories .story-list{scroll-behavior:auto!important}
+}
 </style></head>
 <body>
 <a id="top"></a>
@@ -3801,7 +3995,6 @@ body .site-header.header-hidden{transform:none!important;opacity:1!important;vis
 <span class="label" data-en="Impact" data-ua="Результати">Результати</span>
 </div>
 <h2 class="section-title impact-title reveal text-motion" data-en="Who we have helped" data-ua="Кому ми вже допомогли" id="impact-title">Кому ми вже допомогли</h2>
-
 <div class="impact-grid">
 <div class="impact-item reveal text-motion">
 <strong class="impact-big">241</strong>
@@ -3887,6 +4080,10 @@ body .site-header.header-hidden{transform:none!important;opacity:1!important;vis
 </span>
 <img alt="Фотографія з матеріалу «БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам»" class="story-thumb" data-alt-en="Фотографія з матеріалу «БФ «Realtors of Ukraine» здійснив перші виплати благодійної допомоги членам URA та їх родинам»" data-alt-ua="Фотографія з матеріалу «БФ «Рієлтори України» здійснив перші виплати благодійної допомоги членам URA та їх родинам»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/pershi-vyplaty-blagodijnoyi-dopomogy_420x475.jpg"/>
 </button>
+</div>
+<div class="v25-story-controls" role="group" aria-label="Гортання історій / Story navigation">
+<button type="button" class="v25-story-prev" aria-label="Попередні історії / Previous stories">←</button>
+<button type="button" class="v25-story-next" aria-label="Наступні історії / Next stories">→</button>
 </div>
 </section>
 <section aria-labelledby="help-title" class="help v24-help" id="help">
@@ -3994,7 +4191,8 @@ body .site-header.header-hidden{transform:none!important;opacity:1!important;vis
 <div class="bank-copy">
 <div class="bank-label" data-en="Legal entity name" data-ua="Назва юридичної особи">Назва юридичної особи</div>
 <strong data-en="CF “REALTORS OF UKRAINE”" data-ua="БФ «РІЄЛТОРИ УКРАЇНИ»">БФ «РІЄЛТОРИ УКРАЇНИ»</strong>
-</div><div class="bank-copy">
+</div>
+<div class="bank-copy">
 <div class="bank-label">ЄДРПОУ</div>
 <strong>44688310</strong>
 <button data-copy="44688310" data-en="Copy ↗" data-ua="Копіювати ↗" type="button">Копіювати ↗</button>
@@ -4494,7 +4692,7 @@ body .site-header.header-hidden{transform:none!important;opacity:1!important;vis
   const active=box.bottom>0&&box.top<innerHeight;
   document.body.classList.toggle('v23-at-hero',box.bottom>70);
   if(active&&!prefersReduced.matches){
-   const max=Math.max(1,box.height-innerHeight);
+   const max=Math.max(1,box.height*.94);
    const p=clamp(-box.top/max);
    const draw=smooth(r(p,.03,.42));
    const move=smooth(r(p,.16,.57));
@@ -4527,5 +4725,29 @@ body .site-header.header-hidden{transform:none!important;opacity:1!important;vis
  prefersReduced.addEventListener?.('change',onScroll);
  onScroll();
 })();
-</script></body>
+</script>
+<script id="v25-story-gallery-controls">
+(()=>{
+ const list=document.querySelector('#stories .story-list');
+ const prev=document.querySelector('.v25-story-prev');
+ const next=document.querySelector('.v25-story-next');
+ if(!list||!prev||!next)return;
+ const step=()=>{
+  const card=list.querySelector('.story-row');
+  if(!card)return Math.round(list.clientWidth*.86);
+  const gap=parseFloat(getComputedStyle(list).gap)||18;
+  return card.getBoundingClientRect().width+gap;
+ };
+ const update=()=>{
+  prev.disabled=list.scrollLeft<=3;
+  next.disabled=list.scrollLeft+list.clientWidth>=list.scrollWidth-3;
+ };
+ prev.addEventListener('click',()=>list.scrollBy({left:-step(),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
+ next.addEventListener('click',()=>list.scrollBy({left:step(),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
+ list.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
+ addEventListener('resize',update,{passive:true});
+ update();
+})();
+</script>
+</body>
 </html>
