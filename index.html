@@ -3050,7 +3050,6 @@ body{overflow-x:clip}
  .v15-hero-actions a,.v15-reel-card{transition:none!important}
 }
 </style>
-
 <style id="v16-native-scroll-3d">
 /* Depth with native scrolling: no sticky captivity, Lenis or wheel interception. */
 html{scroll-behavior:smooth}
@@ -3103,8 +3102,6 @@ html{scroll-behavior:smooth}
 .v15-reel-card:hover{translate:none}
 }
 </style>
-
-
 <style id="v17-actual-spatial-design">
 /* True perspective composition with orbiting 3D objects; no scroll hijacking. */
 .v17-depth-section{position:relative;overflow:hidden;background:#08172e;color:#f3f7ff;isolation:isolate;padding:clamp(85px,9vw,145px) 0}
@@ -3370,6 +3367,9 @@ body{background:var(--v22-cream)}
 
 /* V22 refinements after actual desktop and phone screenshots */
 
+/* Photo frames never reveal through inset clipping or become artificially dim. */
+.gallery-shot,.gallery-flag,.person-photo,.v15-reel-card,.photo-motion{clip-path:none!important;opacity:1!important}
+.gallery-shot img,.gallery-flag img,.person-photo img,.v15-reel-card img{filter:none!important;object-fit:contain!important;transform:none!important;opacity:1!important}
 /* V22 final layout polish: preserve full silhouette, separate photo from text */
 .v22-map-stage{left:-6%!important;right:24%!important;top:-10%!important;bottom:10%!important}
 .v22-map{width:min(61vw,845px)!important}
@@ -3390,12 +3390,324 @@ body{background:var(--v22-cream)}
 @media(max-width:600px){.v22-map{width:100vw!important}.v22-opening-copy h1{font-size:clamp(48px,13vw,78px)!important}.v22-opening-copy .v22-hero-links span{font-size:10px!important}.v22-reveal-photo{inset:15% 5% 39% 5%!important}.v22-reveal-copy{left:6%!important;top:77%!important;max-width:88vw!important}.v22-reveal-copy h2{font-size:clamp(45px,12vw,66px)!important;margin-bottom:10px}.v22-reveal-copy p{font-size:13px!important;max-width:95%}.v22-reveal-link{margin-top:7px;font-size:12px}}
 
 
+</style><meta content="" name="official-donation-checkout-url"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><style id="v23-premium">
+/* V23 — immersive editorial depth, custom scene inspired by SELENE principles.
+   All motion is driven by native scroll; no wheel interception or smooth-scroll engine. */
+:root{--v23-night:#0b1117;--v23-cream:#f5f4ef;--v23-type:#eaf1ee}
+html{scroll-padding-top:94px}
+body{font-family:"Manrope",Arial,Helvetica,sans-serif}
+body,main{overflow-x:clip}
+.site-header{position:fixed!important;left:24px!important;right:24px!important;top:17px!important;width:calc(100% - 48px)!important;margin:0!important;max-width:none!important;border-radius:18px!important;height:66px!important;background:rgba(248,250,249,.90)!important;border:1px solid rgba(255,255,255,.38)!important;box-shadow:0 9px 40px rgba(4,12,18,.13)!important;backdrop-filter:blur(28px) saturate(140%)!important;-webkit-backdrop-filter:blur(28px) saturate(140%)!important;transition:background .25s,color .25s,transform .3s,box-shadow .25s!important}
+.site-header .brand-text{font-family:"Manrope",Arial,sans-serif;font-weight:800;letter-spacing:-.025em!important;font-size:11px!important;line-height:1.22!important}
+.site-header .menu-trigger,.site-header .header-donate{border-radius:999px!important}
+.site-header.header-hidden{transform:translateY(calc(-100% - 24px))!important}
+body.v23-at-hero .site-header:not(:has(.menu-overlay.open)){background:rgba(15,24,31,.68)!important;color:#f6f7f3!important;border:1px solid rgba(255,255,255,.19)!important;box-shadow:0 8px 35px rgba(0,0,0,.1)!important}
+body.v23-at-hero .site-header .brand-text,body.v23-at-hero .site-header .menu-trigger{color:#f5f6f2!important}
+body.v23-at-hero .site-header .burger i{background:#f5f6f2!important}
+body.v23-at-hero .site-header .language-switch{border-color:rgba(255,255,255,.2)!important;background:rgba(255,255,255,.09)!important}
+body.v23-at-hero .site-header .language-switch button{color:#f6f6f1!important}
+body.v23-at-hero .site-header .language-switch button[aria-pressed="true"]{background:#f7f8f4!important;color:#17232a!important}
+body.v23-at-hero .site-header .header-donate{background:rgba(255,255,255,.9)!important;color:#12232d!important}
+.v23-hero{position:relative;height:205svh;min-height:1150px;background:var(--v23-night);color:#f4f7f5;isolation:isolate;overflow:clip}
+.v23-pin{position:sticky;top:0;isolation:isolate;height:100svh;min-height:620px;overflow:hidden;background:var(--v23-night)}
+.v23-backdrop{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 76% 94% at 85% 46%,#233039 0%,#0b1219 69%,#080d12 100%)}
+.v23-backdrop-haze{position:absolute;inset:-12%;opacity:.14;background:radial-gradient(ellipse 53% 45% at 74% 50%,#a7b5a9,transparent 78%);filter:blur(80px)}
+.v23-atmosphere{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,9,13,.38),transparent 65%);pointer-events:none}
+.v23-shader-grain{position:absolute;inset:0;opacity:.1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.74' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E")}
+.v23-portrait-layer{position:absolute;right:clamp(38px,8.2vw,155px);top:11%;height:78%;width:clamp(375px,41vw,650px);z-index:1;display:flex;justify-content:center;align-items:center;transform-style:preserve-3d;will-change:transform,opacity}
+.v23-portrait{width:100%;height:100%;object-fit:contain!important;filter:none!important;opacity:1!important;transform:none!important;box-shadow:0 32px 90px rgba(0,0,0,.23)}
+.v23-portrait-line{position:absolute;inset:0;border:1px solid rgba(255,255,255,.18);pointer-events:none}
+.v23-map-layer{position:absolute;z-index:2;left:-13%;top:10%;width:78vw;height:78vh;transform-style:preserve-3d;will-change:transform,opacity;pointer-events:none}
+.v23-map{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 20px rgba(250,252,247,.06))}
+.v23-map-base{fill:rgba(238,242,237,.028);stroke:rgba(239,246,241,.22);stroke-width:1;vector-effect:non-scaling-stroke}
+.v23-map-draw{fill:none;stroke:#e8f1ed;stroke-width:1.7;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:4000;stroke-dashoffset:4000}
+.v23-intro{position:absolute;z-index:4;inset:0;pointer-events:none;display:flex;align-items:flex-end;padding:0 clamp(23px,5.3vw,92px) clamp(80px,11vh,135px);width:100%;max-width:none}
+.v23-intro-inner{width:fit-content;max-width:min(65vw,820px);pointer-events:auto;will-change:transform,opacity}
+.v23-serial{display:block;font:500 11px/1.4 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#d8e6e1}
+.v23-intro h1{font-size:clamp(70px,9.1vw,142px)!important;line-height:.85!important;letter-spacing:-.092em!important;font-family:"Manrope",Arial,sans-serif!important;font-weight:800!important;margin:22px 0!important;color:#fcfcf9!important;text-transform:uppercase;white-space:normal}
+.v23-intro h1 span,.v23-intro h1 em{display:block;font:inherit;line-height:inherit;letter-spacing:inherit;font-style:normal}
+.v23-intro h1 em{font-weight:500!important;letter-spacing:-.09em!important}
+.v23-intro p{font-size:clamp(16px,1.18vw,20px);line-height:1.55;color:#e8eeeb;max-width:460px;margin-top:27px}
+.v23-intro-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:29px}
+.v23-intro-actions a{display:flex;align-items:center;justify-content:space-between;gap:25px;min-width:194px;background:#f3f4ef;color:#11222b;padding:17px 20px;font-size:12px;font-weight:700;letter-spacing:-.01em;border:1px solid transparent;transition:background .2s,color .2s,transform .2s}
+.v23-intro-actions a:last-child{background:rgba(12,24,30,.29);color:#fff;border-color:rgba(251,255,253,.56)}
+.v23-intro-actions a:hover{transform:translateY(-2px);background:#dce9e3;color:#10191b}
+.v23-documentary{position:absolute;inset:7.5% 8% 9%;display:flex;justify-content:flex-end;align-items:center;z-index:3;pointer-events:none;opacity:0;will-change:opacity,transform}
+.v23-documentary-image{width:min(42vw,620px);height:100%;display:grid;place-items:center}
+.v23-documentary-image img{width:100%;height:100%;object-fit:contain!important;filter:none!important;transform:none!important}
+.v23-second-title{position:absolute;z-index:5;left:clamp(24px,7vw,125px);bottom:clamp(82px,13vh,140px);max-width:min(48vw,640px);opacity:0;pointer-events:none;transform:translateY(20px);will-change:opacity,transform}
+.v23-second-title>span{font:500 11px/1.4 "IBM Plex Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:#cdd8d5;display:block;margin-bottom:17px}
+.v23-second-title strong{font-weight:700;letter-spacing:-.065em;font-size:clamp(53px,6vw,102px);line-height:.96;display:block;color:#f6f7f3}
+.v23-second-title p{font-size:clamp(15px,1.18vw,19px);line-height:1.6;max-width:500px;color:#d9e4de;margin-top:25px}
+.v23-chrome-bottom{position:absolute;z-index:7;bottom:25px;left:clamp(24px,5.4vw,92px);right:clamp(24px,5.4vw,92px);display:flex;align-items:center;gap:24px;color:#c9d3ce;font:500 10px/1.3 "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
+.v23-progress{height:1px;flex:1;background:rgba(255,255,255,.25);max-width:180px}
+.v23-progress i{display:block;height:1px;transform:scaleX(0);transform-origin:left;background:#f5faf6}
+.v23-chrome-bottom>span:last-child{margin-left:auto}
+.v23-about{background:var(--v23-cream);padding:clamp(95px,10vw,170px) clamp(18px,5vw,80px);color:#141f23;scroll-margin-top:0}
+.v23-about-shell{max-width:1500px}
+.v23-about-heading{display:flex;align-items:end;justify-content:space-between;border-top:1px solid rgba(26,41,43,.3);padding-top:29px;margin-bottom:60px}
+.v23-about-label{font:500 11px/1.4 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#617171}
+.v23-about-heading h2{font-size:clamp(70px,9.1vw,146px);font-weight:800;letter-spacing:-.09em;line-height:.8;color:#19272d;margin:0}
+.v23-about-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(34px,7vw,120px);align-items:start}
+.v23-about-image{min-width:0}
+.v23-about-image img{width:100%;height:auto;max-height:820px;object-fit:contain!important;filter:none!important;display:block;box-shadow:0 30px 62px rgba(34,34,28,.08)}
+.v23-about-image>span{display:block;font:500 10px/1.5 "IBM Plex Mono",monospace;letter-spacing:.07em;text-transform:uppercase;color:#65716d;margin-top:12px}
+.v23-about-copy{padding-top:clamp(0px,2vw,38px)}
+.v23-about-rule{height:1px;background:#a3aaa6;margin-bottom:33px;position:relative}
+.v23-about-rule:after{content:"";position:absolute;right:0;top:-3px;background:#354740;width:7px;height:7px;border-radius:50%}
+.v23-about-primary p{font-size:clamp(23px,2.45vw,42px);line-height:1.24;letter-spacing:-.046em;color:#253035;font-weight:600}
+.v23-about-rest{margin-top:clamp(35px,4vw,72px);display:grid;gap:24px}
+.v23-about-rest p{font-size:clamp(15px,1.18vw,19px);line-height:1.7;color:#566363;max-width:630px}
+.v23-about-action{margin-top:44px;display:inline-flex;gap:55px;justify-content:space-between;align-items:center;color:#12242b;border-bottom:1px solid #354b4d;padding:0 1px 13px;font-size:14px;font-weight:700}
+.v23-about-action:hover{color:#366558}
+/* Photography remains completely visible, with no grey/contrast filter or hidden crop. */
+.v15-reel-card img,.gallery-shot img,.person-photo img{object-fit:contain!important;filter:none!important;transform:none!important}
+.v15-reel-card{transition:opacity .3s,filter .3s!important;opacity:.83!important}
+.v15-reel-card.v23-focused{opacity:1!important;filter:none}
+.v15-reel-card:not(.v23-focused){filter:saturate(.86)}
+.v15-reel-viewport{scrollbar-width:none}
+.v15-reel-viewport::-webkit-scrollbar{display:none}
+/* Minimal iOS-inspired interaction only where useful. */
+.v22-help .v22-help-primary,.v22-quick-donate a{border-radius:2px!important}
+@media(max-width:1050px){
+ .v23-portrait-layer{right:4%;width:48vw;height:68%;top:17%}
+ .v23-intro h1{font-size:clamp(65px,10vw,105px)!important}
+ .v23-map-layer{left:-23%;width:108vw;top:0}
+ .v23-about-grid{gap:36px}
+}
+@media(max-width:680px){
+ .site-header{left:8px!important;right:8px!important;top:8px!important;width:calc(100% - 16px)!important;height:64px!important;border-radius:15px!important;padding:0 12px!important}
+ .v23-hero{height:168svh;min-height:950px}
+ .v23-pin{height:100svh;min-height:600px}
+ .v23-portrait-layer{right:5%;left:5%;width:90%;height:49%;top:11%;opacity:1}
+ .v23-portrait{max-width:100%;width:100%;height:100%;object-fit:contain!important;box-shadow:none}
+ .v23-portrait-line{display:none}
+ .v23-map-layer{left:-11%;top:-1%;width:123vw;height:60vh;opacity:.75}
+ .v23-intro{padding:0 22px 67px;align-items:flex-end}
+ .v23-intro-inner{max-width:100%;width:100%}
+ .v23-serial{font-size:10px}
+ .v23-intro h1{font-size:clamp(48px,12vw,83px)!important;line-height:.87!important;letter-spacing:-.09em!important;margin:11px 0 0!important}
+ .v23-intro p{font-size:14px;max-width:340px;margin-top:15px;line-height:1.5}
+ .v23-intro-actions{margin-top:19px;gap:8px}
+ .v23-intro-actions a{min-width:0;flex:1;font-size:11px;padding:13px 10px;gap:3px;min-height:50px}
+ .v23-chrome-bottom{bottom:16px;left:22px;right:22px;font-size:9px;gap:12px}
+ .v23-documentary{inset:12% 6% 27%;justify-content:center}
+ .v23-documentary-image{width:100%;height:100%}
+ .v23-second-title{left:22px;right:22px;bottom:66px;max-width:100%}
+ .v23-second-title strong{font-size:clamp(44px,10vw,68px)}
+ .v23-second-title p{font-size:13px;margin-top:14px}
+ .v23-about{padding:85px 20px 100px}
+ .v23-about-heading{display:block;padding-top:24px;margin-bottom:30px}
+ .v23-about-label{margin-bottom:22px;display:block}
+ .v23-about-heading h2{font-size:clamp(54px,13vw,96px);line-height:1}
+ .v23-about-grid{grid-template-columns:1fr;gap:36px}
+ .v23-about-primary p{font-size:clamp(23px,6vw,35px)}
+ .v23-about-rest{margin-top:30px;gap:17px}
+ .v23-about-rest p{font-size:15px}
+ .v23-about-image img{max-height:520px}
+ .v23-about-action{margin-top:28px}
+}
+@media(prefers-reduced-motion:reduce){
+ .v23-hero{height:auto;min-height:100svh}.v23-pin{position:relative;height:100svh}.v23-map-draw{stroke-dashoffset:0!important}.v23-documentary,.v23-second-title{display:none!important}.v23-intro,.v23-portrait-layer,.v23-map-layer{opacity:1!important;transform:none!important}.v23-hero *{animation:none!important;transition:none!important}
+}
+</style><style id="v24-unified-design">
+/* V24 — ONE COHESIVE DESIGN SYSTEM. Large typography, original imagery, no pseudo-telemetry. */
+:root{--v24-bg:#fff;--v24-ink:#18272a;--v24-muted:#5b6c70;--v24-line:#d6dedb;--v24-accent:#314c47;--v23-cream:#fff;--ios-text:#18272a}
+html{scroll-behavior:smooth;scroll-padding-top:102px}
+body,body button,body input,body textarea{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important}
+body{background:#fff!important;color:var(--v24-ink)!important}
+main{overflow:clip}
+:where(#about,#stories,#photos,#impact,#help,#team,#support){scroll-margin-top:96px}
+/* remove ornamental hairline copy, uppercase readouts and digits without removing useful data */
+.v23-chrome-bottom,.v23-serial,.v23-about-label,.v23-second-title>span,.v15-reel-progress,.v15-reel-hint,.v15-reel-head .linehead,.v15-impact-track,.linehead,.v22-eyebrow,.v22-step,.v22-photo-caption,.v22-help-photobox figcaption,.v23-about-image>span{display:none!important}
+.v23-shader-grain,.v23-backdrop-haze{display:none!important}
+.section-pad{padding-block:clamp(86px,9vw,146px)!important}
+.shell{max-width:1480px!important}
+.section-title{font-family:"Manrope",sans-serif!important;font-size:clamp(50px,6.2vw,100px)!important;line-height:1.02!important;letter-spacing:-.075em!important;font-weight:750!important;text-transform:none!important}
+p{letter-spacing:-.015em}
+/* Clear, coherent header with direct section navigation */
+.site-header{top:18px!important;left:clamp(16px,2.2vw,34px)!important;right:clamp(16px,2.2vw,34px)!important;width:auto!important;max-width:none!important;padding:12px 20px!important;min-height:70px!important;display:flex!important;align-items:center!important;gap:24px!important;justify-content:space-between!important;border-radius:14px!important;background:rgba(255,255,255,.94)!important;color:var(--v24-ink)!important;border:1px solid rgba(58,81,78,.12)!important;box-shadow:0 8px 35px rgba(12,30,31,.06)!important;backdrop-filter:blur(18px) saturate(135%);-webkit-backdrop-filter:blur(18px) saturate(135%);transform:none!important}
+.site-header .brand{display:flex!important;align-items:center!important;gap:10px!important;min-width:0}
+.site-header .brand-text{color:var(--v24-ink)!important;font-size:12px!important;line-height:1.25!important;letter-spacing:-.015em!important;font-weight:730!important}
+.site-header .official-logo{width:40px!important;height:40px!important;object-fit:contain!important}
+.v24-nav{display:flex;align-items:center;gap:clamp(12px,1.7vw,29px);margin-left:auto}
+.v24-nav a{white-space:nowrap;text-decoration:none;color:#344746;font-size:14px;font-weight:620;letter-spacing:-.015em;transition:opacity .2s}
+.v24-nav a:hover{opacity:.55}
+.site-header .menu-trigger{display:none!important}
+.site-header .header-donate{border-radius:9px!important;padding:13px 16px!important;background:#183139!important;color:white!important;font-size:13px!important;white-space:nowrap;min-height:43px!important;border:0!important}
+.site-header .language-switch{background:transparent!important;border-radius:9px!important;box-shadow:none!important;border:1px solid #d8e1dc!important;min-height:42px!important;padding:3px!important}
+.site-header .language-switch button{font-size:12px!important;color:var(--v24-ink)!important;letter-spacing:0!important}
+.site-header .language-switch button[aria-pressed=true]{background:#ebefec!important;color:var(--v24-ink)!important;border-radius:6px!important}
+body.v23-at-hero .site-header{background:rgba(9,19,25,.78)!important;border-color:rgba(255,255,255,.25)!important;color:white!important}
+body.v23-at-hero .site-header .brand-text,body.v23-at-hero .site-header .v24-nav a{color:#f4f7f4!important}
+body.v23-at-hero .site-header .header-donate{background:#f7f8f5!important;color:#15272c!important}
+body.v23-at-hero .site-header .language-switch{border-color:rgba(255,255,255,.35)!important}
+body.v23-at-hero .site-header .language-switch button{color:white!important}
+body.v23-at-hero .site-header .language-switch button[aria-pressed=true]{background:#f7f8f5!important;color:#182a2d!important}
+/* Hero: one carefully staged documentary composition with spacious copy */
+.v23-hero{background:#0c1519!important;height:174svh!important;min-height:1040px!important}
+.v23-pin{background:#0c1519!important;min-height:600px!important}
+.v23-backdrop{background:radial-gradient(ellipse at 77% 42%,#26343a 0,#0e171e 72%)!important}
+.v23-atmosphere{background:linear-gradient(90deg,rgba(7,15,20,.55),rgba(7,15,20,0) 63%)!important}
+.v23-portrait-layer{right:clamp(38px,7vw,128px)!important;top:13%!important;width:clamp(420px,43vw,660px)!important;height:76%!important}
+.v23-portrait{box-shadow:none!important;object-fit:contain!important;filter:none!important}
+.v23-portrait-line{display:none!important}
+.v23-map-layer{opacity:.55}
+.v23-intro{padding:0 clamp(26px,5.4vw,96px) clamp(82px,12vh,125px)!important}
+.v23-intro-inner{max-width:min(56vw,740px)!important}
+.v23-intro h1{font-weight:800!important;font-size:clamp(74px,8.3vw,128px)!important;line-height:.89!important;margin:0 0 27px!important}
+.v23-intro p{font-size:clamp(17px,1.25vw,20px)!important;line-height:1.52!important;max-width:460px!important;margin:0!important;color:#e7f0eb!important}
+.v23-intro-actions{margin-top:30px!important;gap:10px!important}
+.v23-intro-actions a{border-radius:10px!important;font-size:14px!important;font-weight:720!important;min-height:55px!important;padding:16px 22px!important}
+.v23-intro-actions a:last-child{background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.58)!important;color:white!important}
+.v23-second-title{bottom:clamp(85px,13vh,130px)!important}
+.v23-second-title strong{font-size:clamp(54px,5.7vw,90px)!important}
+.v23-documentary-image img{object-fit:contain!important;filter:none!important}
+/* Editorial pages all share white ground and comfortable type */
+.v23-about,.v15-reel-section,.impact,#stories,#team,.v24-help,.support{background:#fff!important;color:var(--v24-ink)!important}
+.v23-about{padding:clamp(90px,9vw,140px) clamp(24px,5vw,75px)!important}
+.v23-about-heading{margin-bottom:clamp(32px,4.5vw,66px)!important;border-top:0!important;padding:0!important}
+.v23-about-heading h2{font-size:clamp(68px,8.4vw,130px)!important;color:var(--v24-ink)!important;line-height:.9!important}
+.v23-about-grid{gap:clamp(30px,6vw,85px)!important}
+.v23-about-image img{box-shadow:none!important;object-fit:contain!important;filter:none!important}
+.v23-about-primary p{font-size:clamp(24px,2.6vw,39px)!important;color:#1e3537!important;line-height:1.28!important}
+.v23-about-rest p{font-size:clamp(16px,1.18vw,18px)!important;line-height:1.7!important;color:#536867!important}
+.v23-about-rule{background:#bdc8c3!important}
+.v23-about-rule:after{display:none!important}
+/* Swipeable gallery, full original crops in neatly framed photographs */
+.v15-reel-section,.v15-reel-sticky{height:auto!important;min-height:0!important}
+.v15-reel-sticky{padding:clamp(70px,8vw,120px) 0 clamp(70px,8vw,110px)!important}
+.v15-reel-head{padding-bottom:30px!important}
+.v15-reel-head .section-title{font-size:clamp(56px,7vw,105px)!important;color:var(--v24-ink)!important}
+.v15-reel-viewport{scrollbar-width:thin!important}
+.v15-reel-card{height:clamp(280px,37vw,550px)!important;opacity:1!important;transform:none!important;border-radius:14px!important;background:#f0f4f1!important;box-shadow:none!important;border:1px solid #e0e7e3!important;overflow:hidden!important}
+.v15-reel-card img{object-fit:contain!important;object-position:center!important;filter:none!important;transform:none!important;background:#f0f4f1!important;opacity:1!important}
+.v15-reel-card figcaption{background:rgba(255,255,255,.91)!important;color:#243e3d!important;border-radius:8px!important;font-size:14px!important;padding:10px 13px!important;letter-spacing:-.015em!important}
+.v15-reel-actions button{border-radius:12px!important;border:1px solid #dce3de!important;background:white!important;color:#263f3e!important}
+/* Verifiable statistics are content, not decoration */
+.impact{background:#f6f8f6!important;color:var(--v24-ink)!important}
+.impact-title{color:var(--v24-ink)!important}
+.impact-grid{gap:18px!important;grid-template-columns:repeat(3,minmax(0,1fr));border:0!important}
+.impact-item,.impact-item+.impact-item{background:white!important;min-height:260px!important;border:1px solid #e3e9e5!important;border-radius:14px!important;box-shadow:none!important;padding:clamp(25px,3vw,38px)!important;color:var(--v24-ink)!important}
+.impact-item strong{color:var(--v24-ink)!important}
+.impact-item p{font-size:16px!important;line-height:1.6!important;color:#526667!important}
+.story-list{border-top:1px solid var(--v24-line)!important}
+.story-row{border-color:#d6dfd9!important;background:white!important;transition:background .24s!important;padding-block:22px!important}
+.story-row:hover{background:#f6f8f6!important;border-radius:0!important}
+.story-title{font-size:clamp(20px,2.15vw,31px)!important;font-weight:650!important;line-height:1.35!important;color:var(--v24-ink)!important;letter-spacing:-.035em!important}
+.story-date{font-family:inherit!important;font-size:13px!important;color:#687976!important;letter-spacing:0!important}
+.story-thumb{object-fit:contain!important;filter:none!important;transform:none!important;background:#f3f5f3!important;border-radius:10px!important}
+.people-grid{gap:clamp(17px,2vw,28px)!important}
+.person-photo{background:#f1f3f1!important;border-radius:12px!important;overflow:hidden!important;aspect-ratio:4/5!important}
+.person-photo img{object-fit:contain!important;transform:none!important;filter:none!important}
+.person-name{font-size:clamp(20px,2vw,29px)!important;color:var(--v24-ink)!important;letter-spacing:-.035em!important}
+.person-role{font-size:14px!important;line-height:1.5!important;color:#637572!important}
+/* Assistance: one integrated page, one strong real photo and two clear explanations */
+.v24-help{padding:clamp(86px,9vw,145px) 0!important;border-block:1px solid #edf1ee!important}
+.v24-help-head{display:grid;grid-template-columns:1.2fr .65fr;gap:50px;align-items:end;margin-bottom:clamp(35px,5vw,72px)}
+.v24-help-head h2{font-size:clamp(59px,7.3vw,112px)!important;letter-spacing:-.078em!important;line-height:.99!important;color:var(--v24-ink)!important;font-weight:770!important;max-width:920px!important;margin:0!important}
+.v24-help-head p{font-size:clamp(17px,1.2vw,20px)!important;line-height:1.6!important;color:#526665!important;max-width:490px!important;margin:0!important}
+.v24-help-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.94fr);gap:clamp(35px,5vw,84px);align-items:start}
+.v24-help-photo{appearance:none;border:0;padding:0;display:block;width:100%;height:auto;max-height:none!important;background:#e7efea;cursor:zoom-in;overflow:hidden;border-radius:14px}
+.v24-help-photo img{width:100%;height:auto;object-fit:contain!important;max-height:none;filter:none!important;transform:none!important;display:block}
+.v24-help-visual p{color:#5b6f6c;font-size:14px;line-height:1.5;margin-top:13px}
+.v24-help-content{display:grid;gap:24px}
+.v24-help-item{padding-bottom:27px;border-bottom:1px solid var(--v24-line)}
+.v24-help-item h3{font-size:clamp(27px,2.65vw,41px)!important;font-weight:710!important;letter-spacing:-.053em!important;line-height:1.12!important;margin:0 0 14px!important;color:var(--v24-ink)!important}
+.v24-help-item p{font-size:clamp(16px,1.16vw,18px)!important;color:#526967!important;line-height:1.75!important;max-width:690px!important}
+.v24-action{display:flex;align-items:center;justify-content:space-between;gap:22px;min-height:62px;padding:17px 22px;font-size:15px;font-weight:750;text-decoration:none;transition:transform .22s,background .22s;border-radius:10px}
+.v24-action:hover{transform:translateY(-2px)}
+.v24-action-dark{background:#192e32;color:white!important}
+.v24-action-dark:hover{background:#365250;color:white!important}
+.v24-help-docs{padding-top:8px;display:grid;gap:0}
+.v24-help-docs p{font-size:15px;font-weight:700;color:#294344;margin-bottom:8px}
+.v24-help-docs a{padding:14px 3px;color:#3d5d5b;text-decoration:none;display:flex;justify-content:space-between;border-bottom:1px solid var(--v24-line);font-size:15px}
+/* Donation: two generously sized recognisable cards; no inactive-payment warning displayed. */
+.support{padding:clamp(86px,9vw,145px) 0!important;background:#f7f9f7!important}
+.support-lead h2{font-size:clamp(61px,7vw,113px)!important;line-height:.96!important;color:var(--v24-ink)!important}
+.support-lead p{font-size:clamp(17px,1.25vw,20px)!important;color:#526867!important;line-height:1.6!important}
+.v24-pay-section{margin:clamp(40px,5vw,70px) 0 clamp(55px,6vw,80px);background:#fff;border:1px solid #e0e7e2;border-radius:18px;padding:clamp(24px,4vw,58px)}
+.v24-pay-top{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:30px}
+.v24-pay-top h3{font-size:clamp(31px,3.5vw,57px);line-height:1.06;letter-spacing:-.062em;color:var(--v24-ink);font-weight:750}
+.v24-pay-top p{max-width:420px;font-size:16px;line-height:1.55;color:#526766}
+.v24-pay-methods{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.v24-pay-card{min-height:clamp(175px,21vw,240px);padding:clamp(24px,3vw,40px);border-radius:14px;display:flex;align-items:flex-start;justify-content:space-between;flex-direction:column}
+.v24-pay-apple{background:#11161a;color:white;border:1px solid #11161a}
+.v24-pay-google{background:#f7faf7;color:#192d31;border:1px solid #d9e3dc}
+.v24-method-name{display:flex;align-items:center;gap:13px;font-size:clamp(35px,4.3vw,64px);line-height:1;letter-spacing:-.07em;font-weight:750}
+.v24-method-name svg{width:clamp(23px,2.7vw,35px);height:auto;flex-shrink:0}
+.v24-google-g{font-family:Arial,sans-serif;font-size:clamp(39px,4.8vw,66px);font-weight:800;background:conic-gradient(#4285f4 0deg 95deg,#34a853 95deg 175deg,#fbbc05 175deg 238deg,#ea4335 238deg 300deg,#4285f4 300deg);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.08em}
+.v24-method-context{font-size:15px;opacity:.71;font-weight:560}
+.v24-action-bank{border:1px solid #cbd9d0!important;color:#253e3c!important;margin-top:22px;max-width:460px;background:#f8faf8}
+.v24-action-bank:hover{background:#e9f1ec}
+.support-layout{background:#fff;border:1px solid #e0e8e3;border-radius:18px;padding:clamp(22px,3.3vw,48px);gap:28px}
+.bank-tabs{display:flex!important;gap:10px!important}
+.bank-tabs button{font-size:clamp(20px,2.5vw,32px)!important;border-radius:10px!important;padding:13px 20px!important;letter-spacing:-.03em!important}
+.bank-copy{padding-block:18px!important;border-color:#dce5e0!important}
+.bank-copy strong{color:var(--v24-ink)!important;font-size:clamp(16px,1.6vw,23px)!important;overflow-wrap:anywhere}
+.bank-copy button{font-size:14px!important;border-radius:8px!important;background:#203b3b!important}
+.bank-label{font-size:14px!important;letter-spacing:0!important;text-transform:none!important;color:#58706a!important}
+.support-alert{font-size:15px!important;color:#556d66!important;max-width:890px;line-height:1.55!important;margin-top:20px!important}
+/* Footer */
+.footer{background:#192b2f!important;color:#f8fbf8!important;padding-top:clamp(70px,8vw,120px)!important}
+.footer-large{font-size:clamp(55px,7vw,108px)!important;letter-spacing:-.07em!important;line-height:1!important}
+.footer a{color:#eef8f1!important}
+.ios-dock{display:none!important}
+/* Persistent navigation never disappears while scrolling; menu remains closable. */
+body .site-header.header-hidden{transform:none!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+.bank-tabs button{color:#425b56!important;background:#f1f6f2!important;border:1px solid #d4e0d8!important;box-shadow:none!important}
+.bank-tabs button[aria-selected="true"]{color:#fff!important;background:#1d3a3d!important;border-color:#1d3a3d!important}
+.bank-tabs button[aria-selected="true"]:after{display:none!important}
+.bank-tabs button:hover{background:#e2ede5!important;color:#1b393a!important}
+.bank-tabs button[aria-selected="true"]:hover{background:#1d3a3d!important;color:#fff!important}
+.v24-pay-apple,.v24-pay-google{cursor:default}
 
-/* Keep original photographs fully visible throughout reveals and gallery transitions. */
-.gallery-shot,.gallery-flag,.person-photo,.v15-reel-card,.photo-motion{clip-path:none!important;opacity:1!important}
-.gallery-shot img,.gallery-flag img,.person-photo img,.v15-reel-card img{filter:none!important;object-fit:contain!important;transform:none!important;opacity:1!important}
-</style><meta name="official-donation-checkout-url" content="">
-</head>
+@media(min-width:1100px){.site-header .brand{flex:0 0 auto}.v24-nav{max-width:55vw}}
+@media(max-width:1080px){.v24-nav{display:none!important}.site-header .menu-trigger{display:flex!important;order:1;min-width:0!important;font-size:14px!important}.site-header .header-donate{order:2}.site-header .language-switch{order:3}.site-header .brand{margin-right:auto}}
+@media(max-width:760px){
+ .site-header{top:10px!important;left:10px!important;right:10px!important;min-height:62px!important;padding:8px 10px!important;border-radius:12px!important;gap:6px!important}
+ .site-header .brand-text{font-size:10px!important;line-height:1.18!important}
+ .site-header .official-logo{width:31px!important;height:31px!important}
+ .site-header .header-donate{padding:10px!important;font-size:12px!important;min-height:40px!important}
+ .site-header .header-donate .hide-mobile{display:none!important}
+ .site-header .menu-trigger{font-size:12px!important;padding:9px 8px!important;gap:6px!important}
+ .site-header .language-switch{padding:2px!important}
+ .site-header .language-switch button{padding:7px 5px!important;font-size:10px!important}
+ .v23-hero{height:155svh!important;min-height:940px!important}
+ .v23-pin{min-height:540px!important}
+ .v23-portrait-layer{right:5%!important;left:5%!important;top:13%!important;width:90%!important;height:40%!important}
+ .v23-map-layer{left:-12%!important;top:3%!important;width:118vw!important;height:52vh!important;opacity:.5!important}
+ .v23-intro{padding:0 20px clamp(58px,10vh,94px)!important}
+ .v23-intro-inner{max-width:100%!important;width:100%!important}
+ .v23-intro h1{font-size:clamp(48px,11.3vw,78px)!important;line-height:.88!important;margin:0 0 17px!important}
+ .v23-intro p{font-size:15px!important;line-height:1.5!important;max-width:330px!important}
+ .v23-intro-actions{gap:8px!important;margin-top:21px!important}
+ .v23-intro-actions a{font-size:13px!important;padding:13px 12px!important;min-height:48px!important;gap:6px!important;min-width:0!important;flex:1}
+ .v23-second-title{bottom:80px!important}
+ .v23-second-title strong{font-size:clamp(44px,10vw,66px)!important}
+ .v23-documentary{inset:13% 4% 29%!important}
+ .v23-about{padding:clamp(75px,10vw,96px) 20px!important}
+ .v23-about-heading h2{font-size:clamp(57px,13vw,96px)!important}
+ .v23-about-grid{grid-template-columns:1fr!important;gap:30px!important}
+ .impact-grid{grid-template-columns:1fr!important;gap:12px!important}
+ .impact-item{min-height:180px!important}
+ .v24-help-head{grid-template-columns:1fr!important;gap:19px!important;margin-bottom:30px!important}
+ .v24-help-head h2{font-size:clamp(55px,11.5vw,88px)!important}
+ .v24-help-head p{font-size:16px!important}
+ .v24-help-body{grid-template-columns:1fr!important;gap:28px!important}
+ .v24-help-content{gap:17px!important}
+ .v24-help-item h3{font-size:28px!important}
+ .v24-pay-top{display:block}
+ .v24-pay-top h3{margin-bottom:13px}
+ .v24-pay-methods{grid-template-columns:1fr!important;gap:11px!important}
+ .v24-pay-card{min-height:145px!important;padding:25px!important}
+ .v24-method-name{font-size:42px!important}
+ .support-layout{display:block!important}
+}
+@media(max-width:440px){.site-header .brand-text{font-size:9px!important}.site-header .header-donate{font-size:11px!important}.site-header .menu-trigger{font-size:11px!important}.site-header .language-switch button{font-size:9px!important;padding:7px 3px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.v24-action,.v24-pay-card,.story-row,.v15-reel-card{transition:none!important}}
+</style></head>
 <body>
 <a id="top"></a>
 <header class="site-header">
@@ -3403,6 +3715,12 @@ body{background:var(--v22-cream)}
 <img alt="" class="official-logo" height="42" src="https://bf-asnu.org.ua/files/img/logo.svg" width="42"/>
 <span class="brand-text"><span data-en="CHARITABLE FOUNDATION" data-ua="БЛАГОДІЙНИЙ ФОНД">БЛАГОДІЙНИЙ ФОНД</span><br/><span data-en="REALTORS OF UKRAINE" data-ua="РІЄЛТОРИ УКРАЇНИ">РІЄЛТОРИ УКРАЇНИ</span></span>
 </a>
+<nav class="v24-nav" aria-label="Розділи сайту / Site sections">
+  <a href="#about" data-ua="Про фонд" data-en="About">Про фонд</a>
+  <a href="#stories" data-ua="Історії" data-en="Stories">Історії</a>
+  <a href="#help" data-ua="Отримати допомогу" data-en="Get help">Отримати допомогу</a>
+  <a href="#contacts" data-ua="Контакти" data-en="Contacts">Контакти</a>
+</nav>
 <button aria-controls="site-menu" aria-expanded="false" class="menu-trigger" id="menu-trigger" type="button">
 <span aria-hidden="true" class="burger">
 <i></i>
@@ -3414,9 +3732,9 @@ body{background:var(--v22-cream)}
 <span aria-hidden="true">↗</span>
 </a><div aria-label="Мова / Language" class="language-switch" role="group"><button aria-pressed="true" data-lang="uk" type="button">УКР</button><button aria-pressed="false" data-lang="en" type="button">ENG</button></div>
 </header>
-<nav aria-label="Головне меню" class="menu-overlay" id="site-menu" inert>
+<nav aria-label="Головне меню" class="menu-overlay" id="site-menu" inert="">
 <div class="menu-overlay-inner">
-<div class="menu-overlay-toolbar"><span data-ua="Навігація" data-en="Navigation">Навігація</span><button type="button" class="menu-close-ios" id="menu-close-ios" aria-label="Закрити меню" data-label-ua="Закрити меню" data-label-en="Close menu"><span aria-hidden="true">×</span></button></div>
+<div class="menu-overlay-toolbar"><span data-en="Navigation" data-ua="Навігація">Навігація</span><button aria-label="Закрити меню" class="menu-close-ios" data-label-en="Close menu" data-label-ua="Закрити меню" id="menu-close-ios" type="button"><span aria-hidden="true">×</span></button></div>
 <a class="menu-link" data-en="About the fund" data-ua="Про фонд" href="#about">Про фонд </a>
 <a class="menu-link" data-en="Impact" data-ua="Результати" href="#impact">Результати </a>
 <a class="menu-link" data-en="Get assistance" data-ua="Отримати допомогу" href="#help">Отримати допомогу </a>
@@ -3431,58 +3749,51 @@ body{background:var(--v22-cream)}
 </div>
 </nav>
 <main>
-<section class="st20-chapter v21-portal v22-portal" id="ukraine-transition" aria-labelledby="home-title">
-  <div class="st20-pin v22-cinema">
-    <div class="v22-grain" aria-hidden="true"></div>
-    <div class="v22-stage-top shell"><span class="v22-eyebrow" data-ua="Благодійний фонд · Рієлтори України" data-en="Charitable foundation · Realtors of Ukraine">Благодійний фонд · Рієлтори України</span><span class="v22-small-mark">UKRAINE</span></div>
-    <div class="v22-still-frame" aria-hidden="true"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8461_1400x1600.jpeg" alt="" fetchpriority="high" width="1400" height="1600"></div>
-    <div class="st20-stage v22-map-stage" aria-hidden="true">
-      <svg class="st20-map v22-map" viewBox="0 0 1140 650" preserveAspectRatio="xMidYMid meet">
-        <defs><path id="st20-ukraine-shape" d="M 799.8,482.4 L 828.3,496.4 L 887.8,492.9 L 876.4,513.8 L 812.5,523.9 L 733.3,557.6 L 700.9,545.8 L 713.8,518.3 L 650.0,501.3 L 660.3,490.1 L 716.2,470.7 L 707.3,463.7 L 699.3,457.3 L 608.6,442.6 L 604.5,420.8 L 550.5,428.0 L 528.8,460.1 L 483.6,503.3 L 457.2,493.2 L 429.8,502.6 L 403.7,491.9 L 418.4,485.5 L 428.6,465.5 L 444.6,446.9 L 440.5,436.5 L 452.7,431.8 L 458.4,439.9 L 492.8,441.6 L 508.2,437.3 L 497.4,431.4 L 501.5,422.7 L 481.1,407.8 L 472.7,383.4 L 451.4,373.9 L 455.6,354.1 L 429.2,338.4 L 405.2,336.2 L 362.2,318.1 L 323.5,323.8 L 309.5,332.4 L 284.9,332.4 L 270.2,346.1 L 227.2,351.7 L 207.3,360.6 L 180.2,346.4 L 142.8,346.2 L 106.7,339.7 L 81.5,352.2 L 77.4,336.6 L 45.0,320.7 L 56.4,297.2 L 72.6,282.0 L 85.3,285.4 L 70.3,259.2 L 123.2,210.6 L 152.2,203.8 L 158.5,187.5 L 129.1,136.5 L 157.0,134.2 L 189.0,118.4 L 234.2,117.1 L 293.1,121.7 L 358.2,135.7 L 404.2,136.9 L 426.1,145.3 L 448.0,135.1 L 463.3,148.8 L 516.0,146.0 L 539.2,151.6 L 542.9,122.3 L 560.9,109.5 L 611.0,106.0 L 632.8,108.4 L 647.5,95.1 L 665.3,98.0 L 725.8,92.4 L 763.0,125.4 L 748.5,137.2 L 753.3,155.3 L 799.8,158.2 L 820.6,183.5 L 819.3,194.9 L 893.4,215.5 L 938.2,206.2 L 974.2,233.5 L 1008.3,232.9 L 1094.3,251.9 L 1095.0,269.0 L 1071.3,299.6 L 1084.2,331.8 L 1075.0,351.2 L 1018.6,355.5 L 988.5,371.8 L 986.6,397.7 L 940.0,402.4 L 901.2,421.3 L 846.6,424.3 L 796.3,446.1 L 799.3,477.3 L 799.8,482.4 Z"/></defs>
-        <use href="#st20-ukraine-shape" fill="rgba(216,228,234,.085)"/>
-        <use href="#st20-ukraine-shape" fill="none" stroke="#f1f6f7" stroke-width="2.3" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <div class="st20-message v22-opening-copy">
-      <span data-ua="Благодійний фонд «Рієлтори України»" data-en="Realtors of Ukraine Charitable Foundation">Благодійний фонд «Рієлтори України»</span>
-      <h1 id="home-title"><span data-ua="РАЗОМ" data-en="STRONGER">РАЗОМ</span><span data-ua="СИЛЬНІШІ" data-en="TOGETHER">СИЛЬНІШІ</span></h1>
-      <p data-ua="Підтримуємо рієлторів України та їхні родини, які постраждали від військової агресії." data-en="Supporting Ukrainian real estate professionals and their families affected by military aggression.">Підтримуємо рієлторів України та їхні родини, які постраждали від військової агресії.</p>
-      <div class="v22-hero-links"><a href="#help"><span data-ua="Отримати допомогу" data-en="Get assistance">Отримати допомогу</span><span aria-hidden="true">↗</span></a><a href="#support"><span data-ua="Підтримати фонд" data-en="Support the fund">Підтримати фонд</span><span aria-hidden="true">↗</span></a></div>
-    </div>
-    <div class="st20-reveal-photo v22-reveal-photo"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8461_1400x1600.jpeg" alt="" width="1400" height="1600"></div>
-    <div class="st20-reveal-copy v22-reveal-copy"><span data-ua="БЛАГОДІЙНИЙ ФОНД" data-en="CHARITABLE FOUNDATION">БЛАГОДІЙНИЙ ФОНД</span><h2 data-ua="ПРО НАС" data-en="ABOUT US">ПРО НАС</h2><p data-ua="Створений Асоціацією фахівців з нерухомості України (АФНУ) для надання благодійної допомоги рієлторам та їхнім родинам, постраждалим від війни." data-en="Founded by AFNU to provide charitable assistance to real estate professionals and their families affected by the war.">Створений Асоціацією фахівців з нерухомості України (АФНУ) для надання благодійної допомоги рієлторам та їхнім родинам, постраждалим від війни.</p><a class="v22-reveal-link" href="#about"><span data-ua="Дізнатися більше" data-en="Discover the foundation">Дізнатися більше</span>↗</a></div>
-    <div class="v21-chapter-bottom v22-chapter-bottom"><span data-ua="Гортайте далі ↓" data-en="Scroll to explore ↓">Гортайте далі ↓</span><span class="st20-progress"><i></i></span></div>
-  </div>
-</section>
-<section aria-labelledby="about-title" class="mission section-pad shell" id="about">
-<div class="linehead">
-<span class="label" data-en="About us" data-ua="Про нас">Про нас</span>
+<section aria-labelledby="home-title" class="v23-hero" id="ukraine-transition">
+<div class="v23-pin">
+<div aria-hidden="true" class="v23-backdrop"><div class="v23-backdrop-haze"></div><div class="v23-atmosphere"></div><div class="v23-shader-grain"></div></div>
+<div aria-hidden="true" class="v23-portrait-layer">
+<img alt="" class="v23-portrait" decoding="async" fetchpriority="high" height="1600" src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8461_1400x1600.jpeg" width="1400"/>
+<div class="v23-portrait-line"></div>
 </div>
-<div class="mission-text reveal text-motion">
-<h2 class="section-title text-motion" data-en="About us" data-ua="Про нас" id="about-title">Про нас</h2>
-<p class="mission-side" data-en="The Realtors of Ukraine Charitable Foundation was established by the nationwide public organization Association of Real Estate Professionals (Realtors) of Ukraine (AFNU)." data-ua="Благодійна організація «Благодійний фонд «РІЄЛТОРИ УКРАЇНИ» був створений Всеукраїнською громадською організацією «Асоціація фахівців з нерухомості (рієлторів) України» (АФНУ).">Благодійна організація «Благодійний фонд «РІЄЛТОРИ УКРАЇНИ» був створений Всеукраїнською громадською організацією «Асоціація фахівців з нерухомості (рієлторів) України» (АФНУ).</p>
+<div aria-hidden="true" class="v23-map-layer">
+<svg class="v23-map" preserveaspectratio="xMidYMid meet" role="presentation" viewbox="0 0 1140 650">
+<path class="v23-map-base" d="M 799.8,482.4 L 828.3,496.4 L 887.8,492.9 L 876.4,513.8 L 812.5,523.9 L 733.3,557.6 L 700.9,545.8 L 713.8,518.3 L 650.0,501.3 L 660.3,490.1 L 716.2,470.7 L 707.3,463.7 L 699.3,457.3 L 608.6,442.6 L 604.5,420.8 L 550.5,428.0 L 528.8,460.1 L 483.6,503.3 L 457.2,493.2 L 429.8,502.6 L 403.7,491.9 L 418.4,485.5 L 428.6,465.5 L 444.6,446.9 L 440.5,436.5 L 452.7,431.8 L 458.4,439.9 L 492.8,441.6 L 508.2,437.3 L 497.4,431.4 L 501.5,422.7 L 481.1,407.8 L 472.7,383.4 L 451.4,373.9 L 455.6,354.1 L 429.2,338.4 L 405.2,336.2 L 362.2,318.1 L 323.5,323.8 L 309.5,332.4 L 284.9,332.4 L 270.2,346.1 L 227.2,351.7 L 207.3,360.6 L 180.2,346.4 L 142.8,346.2 L 106.7,339.7 L 81.5,352.2 L 77.4,336.6 L 45.0,320.7 L 56.4,297.2 L 72.6,282.0 L 85.3,285.4 L 70.3,259.2 L 123.2,210.6 L 152.2,203.8 L 158.5,187.5 L 129.1,136.5 L 157.0,134.2 L 189.0,118.4 L 234.2,117.1 L 293.1,121.7 L 358.2,135.7 L 404.2,136.9 L 426.1,145.3 L 448.0,135.1 L 463.3,148.8 L 516.0,146.0 L 539.2,151.6 L 542.9,122.3 L 560.9,109.5 L 611.0,106.0 L 632.8,108.4 L 647.5,95.1 L 665.3,98.0 L 725.8,92.4 L 763.0,125.4 L 748.5,137.2 L 753.3,155.3 L 799.8,158.2 L 820.6,183.5 L 819.3,194.9 L 893.4,215.5 L 938.2,206.2 L 974.2,233.5 L 1008.3,232.9 L 1094.3,251.9 L 1095.0,269.0 L 1071.3,299.6 L 1084.2,331.8 L 1075.0,351.2 L 1018.6,355.5 L 988.5,371.8 L 986.6,397.7 L 940.0,402.4 L 901.2,421.3 L 846.6,424.3 L 796.3,446.1 L 799.3,477.3 L 799.8,482.4 Z"></path>
+<path class="v23-map-draw" d="M 799.8,482.4 L 828.3,496.4 L 887.8,492.9 L 876.4,513.8 L 812.5,523.9 L 733.3,557.6 L 700.9,545.8 L 713.8,518.3 L 650.0,501.3 L 660.3,490.1 L 716.2,470.7 L 707.3,463.7 L 699.3,457.3 L 608.6,442.6 L 604.5,420.8 L 550.5,428.0 L 528.8,460.1 L 483.6,503.3 L 457.2,493.2 L 429.8,502.6 L 403.7,491.9 L 418.4,485.5 L 428.6,465.5 L 444.6,446.9 L 440.5,436.5 L 452.7,431.8 L 458.4,439.9 L 492.8,441.6 L 508.2,437.3 L 497.4,431.4 L 501.5,422.7 L 481.1,407.8 L 472.7,383.4 L 451.4,373.9 L 455.6,354.1 L 429.2,338.4 L 405.2,336.2 L 362.2,318.1 L 323.5,323.8 L 309.5,332.4 L 284.9,332.4 L 270.2,346.1 L 227.2,351.7 L 207.3,360.6 L 180.2,346.4 L 142.8,346.2 L 106.7,339.7 L 81.5,352.2 L 77.4,336.6 L 45.0,320.7 L 56.4,297.2 L 72.6,282.0 L 85.3,285.4 L 70.3,259.2 L 123.2,210.6 L 152.2,203.8 L 158.5,187.5 L 129.1,136.5 L 157.0,134.2 L 189.0,118.4 L 234.2,117.1 L 293.1,121.7 L 358.2,135.7 L 404.2,136.9 L 426.1,145.3 L 448.0,135.1 L 463.3,148.8 L 516.0,146.0 L 539.2,151.6 L 542.9,122.3 L 560.9,109.5 L 611.0,106.0 L 632.8,108.4 L 647.5,95.1 L 665.3,98.0 L 725.8,92.4 L 763.0,125.4 L 748.5,137.2 L 753.3,155.3 L 799.8,158.2 L 820.6,183.5 L 819.3,194.9 L 893.4,215.5 L 938.2,206.2 L 974.2,233.5 L 1008.3,232.9 L 1094.3,251.9 L 1095.0,269.0 L 1071.3,299.6 L 1084.2,331.8 L 1075.0,351.2 L 1018.6,355.5 L 988.5,371.8 L 986.6,397.7 L 940.0,402.4 L 901.2,421.3 L 846.6,424.3 L 796.3,446.1 L 799.3,477.3 L 799.8,482.4 Z"></path>
+</svg>
 </div>
-<div class="mission-text reveal text-motion">
-<p data-en="The purpose of the Realtors of Ukraine Charitable Foundation is to raise and provide charitable assistance to Ukrainian real estate professionals and their families affected by military aggression." data-ua="Ціллю діяльності БО БФ «РІЄЛТОРИ УКРАЇНИ» є залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.">Ціллю діяльності БО БФ «РІЄЛТОРИ УКРАЇНИ» є залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.</p>
-<p class="mission-side" data-en="The Realtors of Ukraine Charitable Foundation devotes its efforts and expertise to helping people and creating opportunities to support those affected by the war." data-ua="БО БФ «РІЄЛТОРИ УКРАЇНИ» вкладає свої сили та вміння для допомоги, а також створює можливості підтримки постраждалим від наслідків війни.">БО БФ «РІЄЛТОРИ УКРАЇНИ» вкладає свої сили та вміння для допомоги, а також створює можливості підтримки постраждалим від наслідків війни.</p>
+<div class="v23-intro shell">
+<div class="v23-intro-inner">
+
+<h1 id="home-title"><span data-en="STRONGER" data-ua="РАЗОМ">РАЗОМ</span><em data-en="TOGETHER" data-ua="СИЛЬНІШІ">СИЛЬНІШІ</em></h1>
+<p data-en="Supporting Ukrainian real estate professionals and their families affected by military aggression." data-ua="Підтримуємо рієлторів України та їхні родини, які постраждали від військової агресії.">Підтримуємо рієлторів України та їхні родини, які постраждали від військової агресії.</p>
+<div class="v23-intro-actions"><a href="#help"><span data-en="Get assistance" data-ua="Отримати допомогу">Отримати допомогу</span><span aria-hidden="true">↗</span></a><a href="#support"><span data-en="Support the foundation" data-ua="Підтримати фонд">Підтримати фонд</span><span aria-hidden="true">↗</span></a></div>
 </div>
-</section>
+</div>
+<div aria-hidden="true" class="v23-documentary"><div class="v23-documentary-image"><img alt="" decoding="async" height="1600" loading="eager" src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8442_1400x1600.jpeg" width="1400"/></div></div>
+<div class="v23-second-title"><span data-en="REALTORS OF UKRAINE" data-ua="РІЄЛТОРИ УКРАЇНИ">РІЄЛТОРИ УКРАЇНИ</span><strong data-en="Every act of support matters." data-ua="Допомога має значення.">Допомога має значення.</strong><p data-en="The foundation dedicates its efforts to helping people and creating opportunities for those affected by the war." data-ua="БО БФ «РІЄЛТОРИ УКРАЇНИ» вкладає свої сили та вміння для допомоги, а також створює можливості підтримки постраждалим від наслідків війни.">БО БФ «РІЄЛТОРИ УКРАЇНИ» вкладає свої сили та вміння для допомоги, а також створює можливості підтримки постраждалим від наслідків війни.</p></div>
+<div aria-hidden="true" class="v23-chrome-bottom"><span data-en="Scroll to discover the story" data-ua="Гортайте, щоб побачити історію">Гортайте, щоб побачити історію</span><div class="v23-progress"><i></i></div><span>UA</span></div>
+</div></section>
+<section aria-labelledby="about-title" class="v23-about" id="about"><div class="v23-about-shell shell">
+<div class="v23-about-heading"><h2 data-en="ABOUT US" data-ua="ПРО НАС" id="about-title">ПРО НАС</h2></div>
+<div class="v23-about-grid"><div class="v23-about-image"><img alt="Представники АФНУ під час спільного заходу" data-alt-en="AFNU representatives at an association gathering" data-alt-ua="Представники АФНУ під час спільного заходу" height="1600" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-4355-1_1400x1600.png" width="1400"/><span data-en="Foundation documentary photography" data-ua="Фотографія з матеріалів фонду">Фотографія з матеріалів фонду</span></div><div class="v23-about-copy"><div class="v23-about-rule"></div><div class="v23-about-primary"><p class="mission-side" data-en="The Realtors of Ukraine Charitable Foundation was established by the nationwide public organization Association of Real Estate Professionals (Realtors) of Ukraine (AFNU)." data-ua="Благодійна організація «Благодійний фонд «РІЄЛТОРИ УКРАЇНИ» був створений Всеукраїнською громадською організацією «Асоціація фахівців з нерухомості (рієлторів) України» (АФНУ).">Благодійна організація «Благодійний фонд «РІЄЛТОРИ УКРАЇНИ» був створений Всеукраїнською громадською організацією «Асоціація фахівців з нерухомості (рієлторів) України» (АФНУ).</p></div><div class="v23-about-rest"><p data-en="The purpose of the Realtors of Ukraine Charitable Foundation is to raise and provide charitable assistance to Ukrainian real estate professionals and their families affected by military aggression." data-ua="Ціллю діяльності БО БФ «РІЄЛТОРИ УКРАЇНИ» є залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.">Ціллю діяльності БО БФ «РІЄЛТОРИ УКРАЇНИ» є залучення та надання благодійної допомоги рієлторам України та їх родинам, які постраждали від наслідків військової агресії.</p><p class="mission-side" data-en="The Realtors of Ukraine Charitable Foundation devotes its efforts and expertise to helping people and creating opportunities to support those affected by the war." data-ua="БО БФ «РІЄЛТОРИ УКРАЇНИ» вкладає свої сили та вміння для допомоги, а також створює можливості підтримки постраждалим від наслідків війни.">БО БФ «РІЄЛТОРИ УКРАЇНИ» вкладає свої сили та вміння для допомоги, а також створює можливості підтримки постраждалим від наслідків війни.</p></div><a class="v23-about-action" href="#stories"><span data-en="Stories of assistance" data-ua="Історії допомоги">Історії допомоги</span><span aria-hidden="true">↗</span></a></div></div>
+</div></section>
 <section aria-labelledby="photos-title" class="v15-reel-section" id="photos">
-  <div class="v15-reel-sticky">
-    <div class="v15-reel-head shell">
-      <div><div class="linehead"><span class="label" data-en="Photographs" data-ua="Фотографії">Фотографії</span></div><h2 class="section-title" id="photos-title" data-en="Photographs" data-ua="Фотографії">Фотографії</h2></div>
-      <div class="v15-reel-hint"><span data-en="Scroll to explore" data-ua="Гортайте, щоб переглянути">Гортайте, щоб переглянути</span><span aria-hidden="true">↗</span></div>
-    </div>
-    <div class="v15-reel-viewport">
-      <div class="v15-reel-track">
-        <figure class="v15-reel-card"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-4355-1_1400x1600.png" alt="Представники АФНУ на спільному заході" loading="lazy"><figcaption data-en="Association event" data-ua="Захід АФНУ">Захід АФНУ</figcaption></figure>
-        <figure class="v15-reel-card"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8461_1400x1600.jpeg" alt="Представники АФНУ з прапором" loading="lazy"><figcaption data-en="Representatives of AFNU" data-ua="Представники АФНУ">Представники АФНУ</figcaption></figure>
-        <figure class="v15-reel-card"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_850x475.jpeg" alt="Допомога жителям Херсона" loading="lazy"><figcaption data-en="Aid to Kherson" data-ua="Допомога Херсону">Допомога Херсону</figcaption></figure>
-        <figure class="v15-reel-card"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8442_1400x1600.jpeg" alt="Фотографія з постраждалого міста" loading="lazy"><figcaption data-en="Ukraine" data-ua="Україна">Україна</figcaption></figure>
-      </div>
-    </div>
-    <div class="v15-reel-actions"><button type="button" id="reel-prev" aria-label="Попереднє фото / Previous photo">←</button><button type="button" id="reel-next" aria-label="Наступне фото / Next photo">→</button></div><div class="v15-reel-progress shell"><span class="v15-reel-count">01 / 04</span><div class="v15-reel-progress-line"><span></span></div></div>
-  </div>
+<div class="v15-reel-sticky">
+<div class="v15-reel-head shell">
+<div><div class="linehead"><span class="label" data-en="Photographs" data-ua="Фотографії">Фотографії</span></div><h2 class="section-title" data-en="Photographs" data-ua="Фотографії" id="photos-title">Фотографії</h2></div>
+<div class="v15-reel-hint"><span data-en="Scroll to explore" data-ua="Гортайте, щоб переглянути">Гортайте, щоб переглянути</span><span aria-hidden="true">↗</span></div>
+</div>
+<div class="v15-reel-viewport">
+<div class="v15-reel-track">
+<figure class="v15-reel-card"><img alt="Представники АФНУ на спільному заході" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-4355-1_1400x1600.png"/><figcaption data-en="Association event" data-ua="Захід АФНУ">Захід АФНУ</figcaption></figure>
+<figure class="v15-reel-card"><img alt="Представники АФНУ з прапором" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8461_1400x1600.jpeg"/><figcaption data-en="Representatives of AFNU" data-ua="Представники АФНУ">Представники АФНУ</figcaption></figure>
+<figure class="v15-reel-card"><img alt="Допомога жителям Херсона" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_850x475.jpeg"/><figcaption data-en="Aid to Kherson" data-ua="Допомога Херсону">Допомога Херсону</figcaption></figure>
+<figure class="v15-reel-card"><img alt="Фотографія з постраждалого міста" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-8442_1400x1600.jpeg"/><figcaption data-en="Ukraine" data-ua="Україна">Україна</figcaption></figure>
+</div>
+</div>
+<div class="v15-reel-actions"><button aria-label="Попереднє фото / Previous photo" id="reel-prev" type="button">←</button><button aria-label="Наступне фото / Next photo" id="reel-next" type="button">→</button></div><div class="v15-reel-progress shell"><span class="v15-reel-count">01 / 04</span><div class="v15-reel-progress-line"><span></span></div></div>
+</div>
 </section>
 <section aria-labelledby="impact-title" class="impact section-pad" id="impact">
 <div class="shell">
@@ -3490,7 +3801,7 @@ body{background:var(--v22-cream)}
 <span class="label" data-en="Impact" data-ua="Результати">Результати</span>
 </div>
 <h2 class="section-title impact-title reveal text-motion" data-en="Who we have helped" data-ua="Кому ми вже допомогли" id="impact-title">Кому ми вже допомогли</h2>
-<div class="v15-impact-track" aria-hidden="true"><span></span></div>
+
 <div class="impact-grid">
 <div class="impact-item reveal text-motion">
 <strong class="impact-big">241</strong>
@@ -3525,43 +3836,43 @@ body{background:var(--v22-cream)}
 <span class="story-date">17.07.2023</span>
 <span class="story-title" data-en="The Realtors of Ukraine Charitable Foundation expresses deep gratitude to Asociatia Profesionala a Agentilor Imobiliari din Romania" data-ua="Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania">Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania</span>
 </span>
-<img alt="Фотографія з матеріалу «Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Благодійний Фонд «Realtors of Ukraine» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania»" data-alt-ua="Фотографія з матеріалу «Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/zobrazhennya-viber-2023-07-15-14-53-58-511_850x475.jpg"/>
-</button>
+<img alt="Фотографія з матеріалу «Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Благодійний Фонд «Realtors of Ukraine» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania»" data-alt-ua="Фотографія з матеріалу «Благодійний Фонд «Рієлтори України» висловлює подяку і глибоку вдячність Asociatia Profesionala a Agentilor Imobiliari din Romania»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/zobrazhennya-viber-2023-07-15-14-53-58-511_850x475.jpg">
+</img></button>
 <button aria-label="Читати: Нова програма допомоги" class="story-row text-motion" data-open-story="story-2" type="button">
 <span class="story-main">
 <span class="story-date">03.06.2023</span>
 <span class="story-title" data-en="New assistance programme" data-ua="Нова програма допомоги">Нова програма допомоги</span>
 </span>
-<img alt="Фотографія з матеріалу «Нова програма допомоги»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Нова програма допомоги»" data-alt-ua="Фотографія з матеріалу «Нова програма допомоги»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/fond_850x475.png"/>
-</button>
+<img alt="Фотографія з матеріалу «Нова програма допомоги»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Нова програма допомоги»" data-alt-ua="Фотографія з матеріалу «Нова програма допомоги»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/fond_850x475.png">
+</img></button>
 <button aria-label='Читати: БФ "Рієлтори України " продовжують отримувати листи подяки' class="story-row text-motion" data-open-story="story-3" type="button">
 <span class="story-main">
 <span class="story-date">22.02.2023</span>
 <span class="story-title" data-en="The Realtors of Ukraine Foundation continues to receive letters of thanks" data-ua='БФ "Рієлтори України " продовжують отримувати листи подяки'>БФ "Рієлтори України " продовжують отримувати листи подяки</span>
 </span>
-<img alt='Фотографія з матеріалу «БФ "Рієлтори України " продовжують отримувати листи подяки»' class="story-thumb" data-alt-en='Фотографія з матеріалу «БФ "Realtors of Ukraine " продовжують отримувати листи подяки»' data-alt-ua='Фотографія з матеріалу «БФ "Рієлтори України " продовжують отримувати листи подяки»' decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/4f855785-d542-41ef-8938-41b6d06c5cb8_420x475.jpeg"/>
-</button>
+<img alt='Фотографія з матеріалу «БФ "Рієлтори України " продовжують отримувати листи подяки»' class="story-thumb" data-alt-en='Фотографія з матеріалу «БФ "Realtors of Ukraine " продовжують отримувати листи подяки»' data-alt-ua='Фотографія з матеріалу «БФ "Рієлтори України " продовжують отримувати листи подяки»' decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/4f855785-d542-41ef-8938-41b6d06c5cb8_420x475.jpeg">
+</img></button>
 <button aria-label="Читати: Ми відкрили нову програму допомоги та збираємо заявки" class="story-row text-motion" data-open-story="story-4" type="button">
 <span class="story-main">
 <span class="story-date">03.02.2023</span>
 <span class="story-title" data-en="We have launched a new assistance programme and are accepting applications" data-ua="Ми відкрили нову програму допомоги та збираємо заявки">Ми відкрили нову програму допомоги та збираємо заявки</span>
 </span>
-<img alt="Фотографія з матеріалу «Ми відкрили нову програму допомоги та збираємо заявки»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Ми відкрили нову програму допомоги та збираємо заявки»" data-alt-ua="Фотографія з матеріалу «Ми відкрили нову програму допомоги та збираємо заявки»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/2u_850x475.png"/>
-</button>
+<img alt="Фотографія з матеріалу «Ми відкрили нову програму допомоги та збираємо заявки»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Ми відкрили нову програму допомоги та збираємо заявки»" data-alt-ua="Фотографія з матеріалу «Ми відкрили нову програму допомоги та збираємо заявки»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/2u_850x475.png">
+</img></button>
 <button aria-label='Читати: БФ "Рієлтори України" продовжує надавати допомогу' class="story-row text-motion" data-open-story="story-5" type="button">
 <span class="story-main">
 <span class="story-date">03.02.2023</span>
 <span class="story-title" data-en="The Realtors of Ukraine Foundation continues to provide assistance" data-ua='БФ "Рієлтори України" продовжує надавати допомогу'>БФ "Рієлтори України" продовжує надавати допомогу</span>
 </span>
-<img alt='Фотографія з матеріалу «БФ "Рієлтори України" продовжує надавати допомогу»' class="story-thumb" data-alt-en='Фотографія з матеріалу «БФ "Realtors of Ukraine" продовжує надавати допомогу»' data-alt-ua='Фотографія з матеріалу «БФ "Рієлтори України" продовжує надавати допомогу»' decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/48542cae-1985-47b0-87da-77e62f9a328f_850x475.jpeg"/>
-</button>
+<img alt='Фотографія з матеріалу «БФ "Рієлтори України" продовжує надавати допомогу»' class="story-thumb" data-alt-en='Фотографія з матеріалу «БФ "Realtors of Ukraine" продовжує надавати допомогу»' data-alt-ua='Фотографія з матеріалу «БФ "Рієлтори України" продовжує надавати допомогу»' decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/48542cae-1985-47b0-87da-77e62f9a328f_850x475.jpeg">
+</img></button>
 <button aria-label="Читати: Допомога Херсону від БФ «Рієлтори України»" class="story-row text-motion" data-open-story="story-6" type="button">
 <span class="story-main">
 <span class="story-date">03.02.2023</span>
 <span class="story-title" data-en="Aid to Kherson from the Realtors of Ukraine Foundation" data-ua="Допомога Херсону від БФ «Рієлтори України»">Допомога Херсону від БФ «Рієлтори України»</span>
 </span>
-<img alt="Фотографія з матеріалу «Допомога Херсону від БФ «Рієлтори України»»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Допомога Херсону від БФ «Realtors of Ukraine»»" data-alt-ua="Фотографія з матеріалу «Допомога Херсону від БФ «Рієлтори України»»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_850x475.jpeg"/>
-</button>
+<img alt="Фотографія з матеріалу «Допомога Херсону від БФ «Рієлтори України»»" class="story-thumb" data-alt-en="Фотографія з матеріалу «Допомога Херсону від БФ «Realtors of Ukraine»»" data-alt-ua="Фотографія з матеріалу «Допомога Херсону від БФ «Рієлтори України»»" decoding="async" loading="lazy" src="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_850x475.jpeg">
+</img></button>
 <button aria-label="Читати: Благодійний фонд «Рієлтори України» розширює програму допомоги членам АФНУ" class="story-row text-motion" data-open-story="story-7" type="button">
 <span class="story-main">
 <span class="story-date">02.01.2023</span>
@@ -3578,20 +3889,36 @@ body{background:var(--v22-cream)}
 </button>
 </div>
 </section>
-
-<section class="help v22-help" id="help" aria-labelledby="help-title">
- <div class="shell v22-help-inner">
-   <div class="v22-help-intro"><div><span class="v22-eyebrow" data-ua="ОТРИМАТИ ДОПОМОГУ" data-en="GET ASSISTANCE">ОТРИМАТИ ДОПОМОГУ</span><h2 id="help-title"><span data-ua="Потрібна" data-en="Need">Потрібна</span> <em data-ua="підтримка?" data-en="support?">підтримка?</em></h2></div><p data-ua="Ми поруч із рієлторами України та їхніми родинами, які постраждали від війни. Дізнайтеся, як звернутися до фонду." data-en="We support Ukraine’s real estate professionals and their families affected by war. Find out how to contact the foundation.">Ми поруч із рієлторами України та їхніми родинами, які постраждали від війни. Дізнайтеся, як звернутися до фонду.</p></div>
-   <div class="v22-help-layout">
-     <div class="v22-help-photobox"><figure><button class="v22-photo-open" type="button" aria-label="Переглянути фотографію повністю / View full photo" data-image-full="https://bf-asnu.org.ua/assets/cache_image/files/images/img-20221108-wa0000_1400x1600.jpg"><img src="https://bf-asnu.org.ua/assets/cache_image/files/images/img-20221108-wa0000_1400x1600.jpg" width="1280" height="959" loading="lazy" alt="Представники АФНУ з прапором України — фотографія з сайту фонду"/></button><figcaption data-ua="Представники АФНУ · Фото фонду" data-en="AFNU representatives · Foundation photograph">Представники АФНУ · Фото фонду</figcaption></figure><p class="v22-photo-caption" data-ua="Натисніть на фото, щоб побачити його повністю." data-en="Open the photograph to see the complete original.">Натисніть на фото, щоб побачити його повністю.</p></div>
-     <div class="v22-help-details">
-       <article class="v22-help-item"><span class="v22-step">01 / <span data-ua="КОМУ ДОПОМАГАЄМО" data-en="WHO WE SUPPORT">КОМУ ДОПОМАГАЄМО</span></span><h3 data-ua="Рієлторам та їхнім родинам" data-en="Real estate professionals and their families">Рієлторам та їхнім родинам</h3><p data-ua="Рієлторам України та їхнім родинам, які постраждали від наслідків військової агресії. У матеріалах фонду описані випадки допомоги на лікування, відновлення житла та підтримку постраждалих." data-en="Ukrainian real estate professionals and their families affected by military aggression. The foundation’s publications describe assistance with medical treatment, home repairs and support for those affected.">Рієлторам України та їхнім родинам, які постраждали від наслідків військової агресії. У матеріалах фонду описані випадки допомоги на лікування, відновлення житла та підтримку постраждалих.</p></article>
-       <article class="v22-help-item"><span class="v22-step">02 / <span data-ua="ЯК ЗВЕРНУТИСЯ" data-en="HOW TO APPLY">ЯК ЗВЕРНУТИСЯ</span></span><h3 data-ua="Напишіть до фонду" data-en="Contact the foundation">Напишіть до фонду</h3><p data-ua="У новинах 2023 року фонд описував подання заяви й підтверджувальних документів. Актуальні умови, статус програми та доступність допомоги необхідно уточнити безпосередньо у фонді." data-en="In 2023, the foundation described submitting an application with supporting documents. Please verify current conditions, programme status and availability of assistance directly with the foundation.">У новинах 2023 року фонд описував подання заяви й підтверджувальних документів. Актуальні умови, статус програми та доступність допомоги необхідно уточнити безпосередньо у фонді.</p></article>
-       <a class="v22-help-primary" href="mailto:bf.asnu@gmail.com?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%82%20%D1%89%D0%BE%D0%B4%D0%BE%20%D0%BE%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B4%D0%BE%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8"><span data-ua="Уточнити чинні умови" data-en="Ask about current conditions">Уточнити чинні умови</span><span aria-hidden="true">↗</span></a>
-       <div class="v22-help-foot"><div><strong data-ua="Документи програми · 2023" data-en="Programme documents · 2023">Документи програми · 2023</strong><p data-ua="Ці архівні документи не підтверджують, що прийом заявок зараз відкрито." data-en="These archived documents do not confirm that applications are currently open.">Ці архівні документи не підтверджують, що прийом заявок зараз відкрито.</p></div><div class="v22-help-docs"><a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1FU_rWkTDEIQJjwxOmtLKUpZWDhfpi_7J/edit?usp=drive_link"><span data-ua="Перший документ" data-en="First document">Перший документ</span>↗</a><a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1hxOxCCuM4-y7vUYBL97e_oL-mJzyj2K4/edit?usp=drive_link"><span data-ua="Другий документ" data-en="Second document">Другий документ</span>↗</a></div></div>
-     </div>
-   </div>
- </div>
+<section aria-labelledby="help-title" class="help v24-help" id="help">
+  <div class="shell v24-wrap">
+    <div class="v24-help-head">
+      <h2 id="help-title" data-ua="Потрібна підтримка?" data-en="Need support?">Потрібна підтримка?</h2>
+      <p data-ua="Фонд допомагає рієлторам України та їхнім родинам, які постраждали від наслідків військової агресії." data-en="The foundation helps Ukrainian real estate professionals and their families affected by military aggression.">Фонд допомагає рієлторам України та їхнім родинам, які постраждали від наслідків військової агресії.</p>
+    </div>
+    <div class="v24-help-body">
+      <div class="v24-help-visual">
+        <button class="v22-photo-open v24-help-photo" type="button" data-image-full="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_850x475.jpeg" aria-label="Переглянути фотографію повністю / View photo in full">
+          <img src="https://bf-asnu.org.ua/assets/cache_image/files/images/e8ef66df-3f71-492a-aafb-e75f8fc009e8_850x475.jpeg" width="850" height="475" loading="lazy" alt="Реальна допомога волонтерів фонду жителям Херсона" data-alt-ua="Реальна допомога волонтерів фонду жителям Херсона" data-alt-en="Authentic foundation volunteer aid to people in Kherson"/>
+        </button>
+        <p data-ua="Допомога Херсону — фотографія з матеріалів фонду." data-en="Aid to Kherson — original foundation photography.">Допомога Херсону — фотографія з матеріалів фонду.</p>
+      </div>
+      <div class="v24-help-content">
+        <article class="v24-help-item">
+          <h3 data-ua="Кому допомагаємо" data-en="Who we help">Кому допомагаємо</h3>
+          <p data-ua="Рієлторам України та їхнім родинам, які постраждали від наслідків військової агресії. У матеріалах фонду описані випадки допомоги на лікування, відновлення житла та підтримку постраждалих." data-en="Ukrainian real estate professionals and their families affected by military aggression. The foundation's publications describe assistance with treatment, home repair and other emergency support.">Рієлторам України та їхнім родинам, які постраждали від наслідків військової агресії. У матеріалах фонду описані випадки допомоги на лікування, відновлення житла та підтримку постраждалих.</p>
+        </article>
+        <article class="v24-help-item">
+          <h3 data-ua="Як звернутися" data-en="How to apply">Як звернутися</h3>
+          <p data-ua="У публікаціях фонду за 2023 рік описано подання заяви та підтверджувальних документів. Актуальні умови, статус програми й доступність допомоги слід уточнити безпосередньо у фонді." data-en="Foundation publications from 2023 describe applying with a request and supporting documents. Please confirm the current programme status and application requirements directly with the foundation.">У публікаціях фонду за 2023 рік описано подання заяви та підтверджувальних документів. Актуальні умови, статус програми й доступність допомоги слід уточнити безпосередньо у фонді.</p>
+        </article>
+        <a class="v24-action v24-action-dark" href="mailto:bf.asnu@gmail.com?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%82%20%D1%89%D0%BE%D0%B4%D0%BE%20%D0%BE%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B4%D0%BE%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8"><span data-ua="Написати до фонду" data-en="Contact the foundation">Написати до фонду</span><span aria-hidden="true">↗</span></a>
+        <div class="v24-help-docs"><p data-ua="Документи програми 2023 року" data-en="2023 programme documents">Документи програми 2023 року</p>
+          <a href="https://docs.google.com/document/d/1FU_rWkTDEIQJjwxOmtLKUpZWDhfpi_7J/edit?usp=drive_link" rel="noopener" target="_blank"><span data-ua="Документ програми" data-en="Programme document">Документ програми</span> ↗</a>
+          <a href="https://docs.google.com/document/d/1hxOxCCuM4-y7vUYBL97e_oL-mJzyj2K4/edit?usp=drive_link" rel="noopener" target="_blank"><span data-ua="Додаткові умови" data-en="Additional information">Додаткові умови</span> ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <section aria-labelledby="team-title" class="section-pad shell" id="team">
 <div class="linehead">
@@ -3645,9 +3972,16 @@ body{background:var(--v22-cream)}
 <h2 class="section-title reveal text-motion" id="support-title"><span data-en="Your" data-ua="Ваша">Ваша</span><br/><span data-en="support" data-ua="підтримка">підтримка</span><br/><span data-en="matters." data-ua="має значення.">має значення.</span></h2>
 <p data-en="Choose a currency and copy the foundation’s banking details." data-ua="Оберіть валюту та скопіюйте реквізити благодійного фонду.">Оберіть валюту та скопіюйте реквізити благодійного фонду.</p>
 </div>
-<section class="v22-quick-donate" aria-labelledby="quick-donate-title">
-  <div class="v22-quick-donate-copy"><span class="v22-eyebrow" data-ua="ШВИДКА ПІДТРИМКА" data-en="QUICK SUPPORT">ШВИДКА ПІДТРИМКА</span><h3 id="quick-donate-title" data-ua="Підтримати онлайн" data-en="Support online">Підтримати онлайн</h3><p data-ua="Оплата Visa / Mastercard, Apple Pay і Google Pay стане доступною після активації офіційної платіжної сторінки фонду." data-en="Visa / Mastercard, Apple Pay and Google Pay will become available after the foundation activates its official payment page.">Оплата Visa / Mastercard, Apple Pay і Google Pay стане доступною після активації офіційної платіжної сторінки фонду.</p><div class="v22-payment-methods" aria-label="Заплановані способи оплати / Planned payment methods"><span>Visa</span><span>Mastercard</span><span>Apple Pay</span><span>Google Pay</span></div></div>
-  <div class="v22-quick-action"><a id="official-donation-link" href="#bank-uah" hidden rel="noopener noreferrer" target="_blank" class="v22-pay-live"><span data-ua="Перейти до захищеної оплати" data-en="Open secure payment">Перейти до захищеної оплати</span><span>↗</span></a><div id="payment-awaiting" class="v22-pay-awaiting"><span data-ua="Онлайн-оплата ще не підключена" data-en="Online payments not yet activated">Онлайн-оплата ще не підключена</span><small data-ua="Поки можна скористатися банківськими реквізитами нижче." data-en="Bank transfer details are available below.">Поки можна скористатися банківськими реквізитами нижче.</small></div><a class="v22-bank-jump" href="#bank-uah"><span data-ua="До банківських реквізитів" data-en="Go to bank details">До банківських реквізитів</span> ↗</a></div>
+<section class="v24-pay-section" aria-labelledby="quick-donate-title">
+  <div class="v24-pay-top">
+    <h3 id="quick-donate-title" data-ua="Підтримати фонд" data-en="Support the foundation">Підтримати фонд</h3>
+    <p data-ua="Зробіть благодійний внесок. Нижче наведено перевірювані реквізити фонду для банківського переказу." data-en="Make a charitable contribution. Use the foundation's bank details below for a bank transfer.">Зробіть благодійний внесок. Нижче наведено перевірювані реквізити фонду для банківського переказу.</p>
+  </div>
+  <div class="v24-pay-methods" aria-label="Платіжні методи / Payment methods">
+    <div class="v24-pay-card v24-pay-apple" aria-label="Apple Pay"><span class="v24-method-name"><svg viewBox="0 0 24 28" width="30" height="34" aria-hidden="true"><path fill="currentColor" d="M17.75 14.9c-.03-3.19 2.61-4.75 2.73-4.82-1.5-2.19-3.82-2.49-4.63-2.51-1.96-.21-3.84 1.17-4.84 1.17-1.02 0-2.57-1.14-4.24-1.11C4.61 7.66 2.55 8.94 1.43 10.94c-2.3 3.96-.59 9.74 1.64 12.95 1.12 1.56 2.44 3.3 4.18 3.24 1.68-.07 2.31-1.07 4.34-1.07 2.01 0 2.59 1.07 4.36 1.03 1.8-.04 2.91-1.6 4.04-3.17a13.03 13.03 0 0 0 1.84-3.75c-3.52-1.37-3.57-4.68-3.6-4.82ZM14.52 5.47C15.48 4.3 16.13 2.7 15.95 1.1c-1.39.06-3.07.92-4.08 2.08-.89 1.02-1.67 2.65-1.45 4.21 1.55.13 3.15-.77 4.1-1.92Z"/></svg><span>Apple Pay</span></span><span class="v24-method-context" data-ua="Мобільна оплата" data-en="Mobile payments">Мобільна оплата</span></div>
+    <div class="v24-pay-card v24-pay-google" aria-label="Google Pay"><span class="v24-method-name"><span class="v24-google-g" aria-hidden="true">G</span><span>Google Pay</span></span><span class="v24-method-context" data-ua="Мобільна оплата" data-en="Mobile payments">Мобільна оплата</span></div>
+  </div>
+  <a class="v24-action v24-action-bank" href="#bank-uah"><span data-ua="Реквізити для переказу" data-en="Bank transfer details">Реквізити для переказу</span><span aria-hidden="true">↗</span></a>
 </section>
 <div class="support-layout">
 <div aria-label="Валюта переказу" class="bank-tabs" role="tablist">
@@ -3660,8 +3994,7 @@ body{background:var(--v22-cream)}
 <div class="bank-copy">
 <div class="bank-label" data-en="Legal entity name" data-ua="Назва юридичної особи">Назва юридичної особи</div>
 <strong data-en="CF “REALTORS OF UKRAINE”" data-ua="БФ «РІЄЛТОРИ УКРАЇНИ»">БФ «РІЄЛТОРИ УКРАЇНИ»</strong>
-</div>
-<div class="bank-copy">
+</div><div class="bank-copy">
 <div class="bank-label">ЄДРПОУ</div>
 <strong>44688310</strong>
 <button data-copy="44688310" data-en="Copy ↗" data-ua="Копіювати ↗" type="button">Копіювати ↗</button>
@@ -3733,13 +4066,12 @@ body{background:var(--v22-cream)}
 </div>
 </section>
 </main>
-<nav class="ios-dock" aria-label="Швидка навігація / Quick navigation">
-<a href="#top" class="ios-dock-item ios-dock-active" data-dock="top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span data-ua="Головна" data-en="Home">Головна</span></a>
-<a href="#about" class="ios-dock-item" data-dock="about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></svg><span data-ua="Про фонд" data-en="About">Про фонд</span></a>
-<a href="#help" class="ios-dock-item" data-dock="help"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-3.3-8-6.4-8-10.5a5 5 0 0 1 8-3.8 5 5 0 0 1 8 3.8c0 4.1-3.5 7.2-8 10.5Z"/></svg><span data-ua="Допомога" data-en="Help">Допомога</span></a>
-<a href="#support" class="ios-dock-item" data-dock="support"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg><span data-ua="Підтримати" data-en="Donate">Підтримати</span></a>
+<nav aria-label="Швидка навігація / Quick navigation" class="ios-dock">
+<a class="ios-dock-item ios-dock-active" data-dock="top" href="#top"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"></path></svg><span data-en="Home" data-ua="Головна">Головна</span></a>
+<a class="ios-dock-item" data-dock="about" href="#about"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></svg><span data-en="About" data-ua="Про фонд">Про фонд</span></a>
+<a class="ios-dock-item" data-dock="help" href="#help"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 21c-4.5-3.3-8-6.4-8-10.5a5 5 0 0 1 8-3.8 5 5 0 0 1 8 3.8c0 4.1-3.5 7.2-8 10.5Z"></path></svg><span data-en="Help" data-ua="Допомога">Допомога</span></a>
+<a class="ios-dock-item" data-dock="support" href="#support"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"></path></svg><span data-en="Donate" data-ua="Підтримати">Підтримати</span></a>
 </nav>
-
 <footer class="footer section-pad" id="contacts">
 <div class="shell">
 <div class="linehead">
@@ -3998,7 +4330,8 @@ body{background:var(--v22-cream)}
                 once: true
             });
             if (img.complete && img.naturalWidth === 0)
-                fallback();        });
+                fallback();
+        });
         if ('IntersectionObserver' in window) {
             const io = new IntersectionObserver(entries => entries.forEach(en => {
                 if (en.isIntersecting) {
@@ -4117,35 +4450,7 @@ body{background:var(--v22-cream)}
  schedule();
 })();
 </script>
-
-
-
-<script id="v22-portal-scroll">
-(()=>{
- const sec=document.querySelector('.v22-portal');if(!sec)return;
- const map=sec.querySelector('.v22-map-stage'),caption=sec.querySelector('.v22-opening-copy'),still=sec.querySelector('.v22-still-frame');
- const photo=sec.querySelector('.v22-reveal-photo'),next=sec.querySelector('.v22-reveal-copy'),progress=sec.querySelector('.st20-progress i');
- const reduced=window.matchMedia('(prefers-reduced-motion:reduce)');
- const clamp=(v)=>Math.min(1,Math.max(0,v));const range=(p,a,b)=>clamp((p-a)/(b-a));const ease=x=>x*x*(3-2*x);
- let scheduled=false;
- function draw(){scheduled=false;if(reduced.matches)return;const rect=sec.getBoundingClientRect();if(rect.bottom<0||rect.top>innerHeight)return;
-  const p=clamp(-rect.top/Math.max(1,rect.height-innerHeight));
-  const zoom=ease(range(p,.04,.56)),hide=ease(range(p,.43,.63)),reveal=ease(range(p,.40,.70)),end=ease(range(p,.55,.82));
-  map.style.transform=`translate3d(0,${-zoom*25}px,0) rotateX(${(1-zoom)*4}deg) scale(${1+zoom*.26})`;
-  map.style.opacity=String(1-hide);
-  caption.style.opacity=String(1-ease(range(p,.17,.46)));
-  caption.style.transform=`translateY(${-p*22}px)`;
-  still.style.opacity=String(1-ease(range(p,.22,.58)));
-  still.style.transform=`translate3d(${-zoom*25}px,${-zoom*12}px,0) scale(${1+.10*zoom})`;
-  photo.style.opacity=String(reveal);
-  next.style.opacity=String(end);
-  next.style.transform=`translateY(calc(-50% + ${(1-end)*30}px))`;
-  if(progress)progress.style.transform=`scaleX(${p})`;
- }
- function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(draw)}}
- addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});reduced.addEventListener?.('change',schedule);schedule();
-})();
-</script><dialog id="v22-photo-dialog" class="v22-photo-dialog" aria-label="Перегляд фотографії у повному розмірі"><div class="v22-photo-dialog-inner"><button class="v22-photo-close" type="button" aria-label="Закрити фото / Close image">×</button><img src="" alt=""/><p data-ua="Оригінальне зображення · Без обрізання" data-en="Original image · No cropping">Оригінальне зображення · Без обрізання</p></div></dialog>
+<dialog aria-label="Перегляд фотографії у повному розмірі" class="v22-photo-dialog" id="v22-photo-dialog"><div class="v22-photo-dialog-inner"><button aria-label="Закрити фото / Close image" class="v22-photo-close" type="button">×</button><img alt="" src=""/><p data-en="Original image · No cropping" data-ua="Оригінальне зображення · Без обрізання">Оригінальне зображення · Без обрізання</p></div></dialog>
 <script id="v22-photos-and-payments">
 (()=>{
  const dialog=document.querySelector('#v22-photo-dialog');const view=dialog?.querySelector('img');
@@ -4162,5 +4467,65 @@ body{background:var(--v22-cream)}
  if(officialURL){try{const u=new URL(officialURL,location.href);if(u.protocol==='https:'&&u.hostname!==location.hostname&&live&&waiting){live.href=u.href;live.hidden=false;waiting.hidden=true}}catch(_e){}}
 })();
 </script>
-</body>
+<script id="v23-scenes-scroll">
+(()=>{
+ const scene=document.querySelector('.v23-hero');
+ if(!scene)return;
+ const map=scene.querySelector('.v23-map-layer');
+ const traced=scene.querySelector('.v23-map-draw');
+ const photo=scene.querySelector('.v23-portrait-layer');
+ const intro=scene.querySelector('.v23-intro-inner');
+ const documentary=scene.querySelector('.v23-documentary');
+ const second=scene.querySelector('.v23-second-title');
+ const haze=scene.querySelector('.v23-backdrop-haze');
+ const line=scene.querySelector('.v23-progress i');
+ const prefersReduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const gallery=document.querySelector('.v15-reel-viewport');
+ const cards=[...document.querySelectorAll('.v15-reel-card')];
+ const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+ const r=(p,a,b)=>clamp((p-a)/(b-a));
+ const smooth=v=>v*v*(3-2*v);
+ let ticking=false,prevFocus=-1;
+ const pathLength=traced?.getTotalLength()||4000;
+ if(traced){traced.style.strokeDasharray=String(pathLength);traced.style.strokeDashoffset=String(pathLength)}
+ function frame(){
+  ticking=false;
+  const box=scene.getBoundingClientRect();
+  const active=box.bottom>0&&box.top<innerHeight;
+  document.body.classList.toggle('v23-at-hero',box.bottom>70);
+  if(active&&!prefersReduced.matches){
+   const max=Math.max(1,box.height-innerHeight);
+   const p=clamp(-box.top/max);
+   const draw=smooth(r(p,.03,.42));
+   const move=smooth(r(p,.16,.57));
+   const shift=smooth(r(p,.4,.76));
+   const fade=smooth(r(p,.65,.88));
+   if(traced)traced.style.strokeDashoffset=String(pathLength*(1-draw));
+   if(map){map.style.transform=`translate3d(${move*7}vw,${-move*4}vh,0) perspective(1200px) rotateY(${(1-move)*-5}deg) scale(${1+move*.19})`;map.style.opacity=String(1-smooth(r(p,.5,.76)));}
+   if(photo){photo.style.transform=`translate3d(${move*-3}vw,${move*-2.6}vh,0) scale(${1+move*.045})`;photo.style.opacity=String(1-smooth(r(p,.35,.67)));}
+   if(intro){intro.style.opacity=String(1-smooth(r(p,.2,.48)));intro.style.transform=`translate3d(0,${-35*move}px,0)`;intro.style.pointerEvents=p>.41?'none':'auto';}
+   if(documentary){documentary.style.opacity=String(smooth(r(p,.4,.66))*(1-fade));documentary.style.transform=`translate3d(0,${(1-shift)*32-shift*22}px,0)`;}
+   if(second){second.style.opacity=String(smooth(r(p,.53,.73))*(1-fade));second.style.transform=`translate3d(0,${(1-shift)*32}px,0)`;}
+   if(haze)haze.style.transform=`translate3d(${move*12}px,${-move*22}px,0)`;
+   if(line)line.style.transform=`scaleX(${p})`;
+  }else if(active){
+   if(traced)traced.style.strokeDashoffset='0';
+  }
+  if(gallery&&cards.length){
+   const g=gallery.getBoundingClientRect();
+   if(g.top<innerHeight&&g.bottom>0){
+    let focus=0,best=Infinity;
+    const middle=g.left+g.width*.53;
+    cards.forEach((c,i)=>{const b=c.getBoundingClientRect();const delta=Math.abs((b.left+b.right)/2-middle);if(delta<best){best=delta;focus=i}});
+    if(focus!==prevFocus){cards.forEach((c,i)=>c.classList.toggle('v23-focused',i===focus));prevFocus=focus;}
+   }
+  }
+ }
+ function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+ addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll,{passive:true});
+ gallery?.addEventListener('scroll',onScroll,{passive:true});
+ prefersReduced.addEventListener?.('change',onScroll);
+ onScroll();
+})();
+</script></body>
 </html>
